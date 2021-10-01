@@ -1,0 +1,60 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #edc420;
+  box-sizing: border-box;
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0px;
+    
+}
+li {
+  float: right;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: brown;
+  height: 55px;
+  font-family: fantasy;
+  font-size: 13px;
+  transition: all 0.35s;
+  
+  
+}
+li a:hover {
+  background-color: #111;
+  opacity: 20;
+}
+
+.active {
+  background-color: #edc420;
+  float: right;
+}
+
+.texto{
+  color: rgb(231, 231, 231);
+  font-family: fantasy;
+  text-shadow: 20px #111;
+}
+
+#bienvenida{
+  position: absolute;
+  left: 15px;
+  top: 0px;
+  font-size: 20px;
+}
+
+#nombreU{
+  position: absolute;
+  top: 30px;
+  left: 140px;
+  font-size: 14px;
+}
+
