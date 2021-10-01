@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { routing, appRoutingProviders } from './app.routings';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
@@ -28,6 +29,7 @@ import { PagoComponent } from './componentes/pago/pago.component';
     routing,
     BrowserAnimationsModule,
     MatExpansionModule,
+    FormsModule,
   ],
   providers: [
     appRoutingProviders
