@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Asientos">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Asientos"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TableLayout
+        android:id="@+id/layout_asientos"
+        android:layout_width="409dp"
+        android:layout_height="81dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar3">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asiento Disponible"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="65dp"
+                android:layout_height="35dp"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento1" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asiento Seleccionado"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento2" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asiento Inhabilitado"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="65dp"
+                android:layout_height="45dp"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento4" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asiento Discapacitado" />
+        </TableRow>
+
+    </TableLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_pantalla"
+        android:layout_width="408dp"
+        android:layout_height="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_asientos">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="379dp"
+            android:layout_height="46dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pantalla" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TableLayout
+        android:layout_width="408dp"
+        android:layout_height="549dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_pantalla"
+        app:layout_constraintVertical_bias="0.32999998">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/A1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/A2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/A3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/A4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/A5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/A6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento4" />
+
+            <ImageView
+                android:id="@+id/A7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento4" />
+
+            <ImageView
+                android:id="@+id/A8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/A9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/A10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/A11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/A12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/B1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/B3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button18"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/B11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/B12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/C1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button19"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/C3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button20"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/C11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/C12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/D1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button21"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/D3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button22"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/D11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/D12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/E1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button23"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/E3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button24"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/E11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/E12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/F1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button25"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/F3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <Button
+                android:id="@+id/button26"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/F11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+
+            <ImageView
+                android:id="@+id/F12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asiento0" />
+        </TableRow>
+
+
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
