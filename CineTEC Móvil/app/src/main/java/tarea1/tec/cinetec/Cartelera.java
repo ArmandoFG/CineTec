@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -34,6 +36,8 @@ public class Cartelera extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_cartelera);
 
+        CargarSucursales ();
+
 
         rv = (RecyclerView) findViewById (R.id.Recycler_sms);
         pelis_cartelera = new ArrayList<> ();
@@ -46,7 +50,7 @@ public class Cartelera extends AppCompatActivity {
             @Override
             public void onItemClickListener(View view, int position) {
                 CardView cardView = (CardView) view;
-                Ini_Proyecciones();
+                inicioProyecciones (cardView.getContentDescription ().toString ());
 
 
             }
@@ -54,15 +58,19 @@ public class Cartelera extends AppCompatActivity {
         rv.setAdapter (adapter);
 
 
-       // Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.imgpeli1)).getBitmap();
-        //CreateMensaje (bitmap,"1");
-
         MostarPeliculas ();
 
 
 
 
     }
+
+    /**
+     *
+     * @param imagen Bitmap de la imagen de la pelicula
+     * @param id    Id de la pelicula
+     * @param nombre String nombre de la pelicula
+     */
 
     public void CreateMensaje(Bitmap imagen, String id, String nombre){
         Movies movAuxiliar = new Movies ();
@@ -79,7 +87,9 @@ public class Cartelera extends AppCompatActivity {
         startActivity (principal);
     }
 
-
+    /**
+     * Solicita todas las peliculas a la base de datos y se muestra en cartelera
+     */
 
     public void MostarPeliculas(){
 
@@ -117,5 +127,47 @@ public class Cartelera extends AppCompatActivity {
 
             }while (c.moveToNext ());
         }
+    }
+
+    /**
+     *
+     * @param nombre_pelicula String nombre de la pelicula seleccionada
+     */
+    public void inicioProyecciones(String nombre_pelicula){
+        Intent intent = new Intent (this,Proyeccion.class);
+        intent.putExtra ("nombre", nombre_pelicula);
+        startActivity (intent);
+    }
+
+
+
+    public void CargarSucursales(){
+
+        BaseDeDatos db = new BaseDeDatos (this);
+        Cursor c = db.ObtenerSucursales ();
+
+
+
+        String Sucursal = "";
+        String Cine = "";
+
+        Spinner spinner;
+        ArrayList<String> sucursales;
+        spinner = findViewById (R.id.spinner2);
+        sucursales = new ArrayList<String> ();
+
+        if(c.moveToFirst () != false){
+            do{
+                Sucursal = c.getString (1);
+                Cine = c.getString (2);
+
+                sucursales.add (Sucursal + " " + Cine);
+
+            }while (c.moveToNext ());
+        }
+
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1,sucursales);
+        spinner.setAdapter (adaptador);
+
     }
 }

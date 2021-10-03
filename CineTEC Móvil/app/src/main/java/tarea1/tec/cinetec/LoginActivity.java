@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-
     }
 
     public void Ini_Principal(){
@@ -62,12 +61,20 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
 
+        if(UsuarioText.getText ().toString ().equals ("") || PassText.getText ().toString ().equals ("")){
+            Toast.makeText(LoginActivity.this, "Debe rellenar ambos campos", Toast.LENGTH_SHORT).show();
 
-        if(String.valueOf(PassText.getText ()).equals (pass)){
-            Ini_Principal ();
         }else{
-            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+
+            if(String.valueOf(PassText.getText ()).equals (pass)){
+                Ini_Principal ();
+            }else{
+                Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+            }
+
         }
+
+
     }
 
 
@@ -93,6 +100,15 @@ public class LoginActivity extends AppCompatActivity {
         byte[] blob = baos.toByteArray();
 
         db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", blob,"+16",3200,3200, 2500);
+    }
+
+    public void GenerarSucursales(){
+        BaseDeDatos db = new BaseDeDatos (this);
+        db.AgregarSucursal (0,"Cartago", "CineTec", 8);
+        db.AgregarSucursal (1,"San José", "CineTec", 5);
+        db.AgregarSucursal (2,"Heredia", "CineTec", 12);
+        db.AgregarSucursal (3,"Puntarenas", "CineTec", 6);
+
     }
 
 

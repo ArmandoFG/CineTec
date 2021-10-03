@@ -230,5 +230,22 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         return c;
     }
 
+    public void AgregarSucursal(int id, String ubicacion, String cine, int salas) {
+        ContentValues valores = new ContentValues ();
+        valores.put (IDSUCURSAL, id);
+        valores.put (UBICACION, ubicacion);
+        valores.put (NOMBRECINE, cine);
+        valores.put (CANTIDADSALAS, salas);
+        this.getWritableDatabase ().insert (Tabla_Sucursal, null, valores);
+
+    }
+
+    public Cursor ObtenerSucursales(){
+        String columnas[] = {IDSUCURSAL, UBICACION, NOMBRECINE, CANTIDADSALAS};
+        Cursor c = this.getReadableDatabase ().query (Tabla_Sucursal, columnas, null, null, null, null, null);
+        return c;
+    }
+
+
 
 }

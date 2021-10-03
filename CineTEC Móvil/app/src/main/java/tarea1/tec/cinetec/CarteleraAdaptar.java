@@ -58,7 +58,7 @@ public class CarteleraAdaptar extends RecyclerView.Adapter<CarteleraAdaptar.movi
         holder.image.setLayoutParams (llimage);
         holder.image.setImageBitmap (pelis_cartelera.get (position).getImagen ());
         holder.texto_nombre.setText (pelis_cartelera.get (position).getNombre ());
-
+        holder.cardView.setContentDescription (pelis_cartelera.get (position).getNombre ());
 
     }
 
