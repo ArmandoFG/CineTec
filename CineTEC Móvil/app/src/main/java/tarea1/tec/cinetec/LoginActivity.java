@@ -17,15 +17,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import tarea1.tec.cinetec.interfaces.PeliculasAPI;
+import tarea1.tec.cinetec.model.Tabla_Peliculas;
 
 
 public class LoginActivity extends AppCompatActivity {
+
+    static String BASEURL = "http://192.168.1.3:8081/";
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_login);
+
+        generarCliente();
+        SincronizarTablas();
+        generarPelicula();
 
 
 
@@ -51,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         String user = "";
 
 
+
                 if (c != null && c.moveToFirst()){
         do{
             user = c.getString (6);
@@ -67,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
         }else{
 
             if(String.valueOf(PassText.getText ()).equals (pass)){
+
                 Ini_Principal ();
             }else{
                 Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
@@ -109,6 +126,43 @@ public class LoginActivity extends AppCompatActivity {
         db.AgregarSucursal (2,"Heredia", "CineTec", 12);
         db.AgregarSucursal (3,"Puntarenas", "CineTec", 6);
 
+    }
+
+    /**
+     * Metodo que envia una solicitud de tipo Get al API para obtener el listado de los movimientos de la cuenta
+     * */
+    public void SincronizarTablas()
+    {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASEURL)
+        //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
+                .addConverterFactory(GsonConverterFactory.create()).build();
+
+        PeliculasAPI peliculaAPI=retrofit.create(PeliculasAPI.class);
+        Call<List<Tabla_Peliculas>> call=peliculaAPI.find();
+        call.enqueue(new Callback<List<Tabla_Peliculas>>() {
+            @Override
+            public void onResponse(Call<List<Tabla_Peliculas>> call, Response<List<Tabla_Peliculas>> response) {
+                try
+                {
+                    //String listadoMovs = "";
+                    Toast.makeText(LoginActivity.this, "entro la respuesta", Toast.LENGTH_SHORT).show();
+                    if(response.isSuccessful()){
+                        Toast.makeText(LoginActivity.this, "Conectado", Toast.LENGTH_SHORT).show();
+                        List<Tabla_Peliculas> m=response.body();
+
+                    }
+
+                }catch (Exception ex){
+
+                    Toast.makeText(LoginActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Tabla_Peliculas>> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, t.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

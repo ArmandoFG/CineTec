@@ -19,8 +19,13 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +61,6 @@ public class Cartelera extends AppCompatActivity {
             }
         });
         rv.setAdapter (adapter);
-
 
         MostarPeliculas ();
 
@@ -170,4 +174,5 @@ public class Cartelera extends AppCompatActivity {
         spinner.setAdapter (adaptador);
 
     }
+
 }
