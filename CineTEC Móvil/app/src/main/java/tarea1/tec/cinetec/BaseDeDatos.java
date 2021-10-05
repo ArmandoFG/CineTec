@@ -91,6 +91,25 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     public static final String NombrePro = "nombre";
     public static final String NomPeliProtagonista = "nombre_pelicula";
 
+    /**
+     *
+     * uraDatos necesarios para Facti
+     */
+
+    public static final String TABLA_FACTURA = "Factura";
+    public static final String CLAVE = "clave";
+    public static final String CONSECUTIVO = "consecutivo";
+    public static final String FACT_ID = "fact_id";
+    public static final String DETALLE = "detalle";
+    public static final String FECHA = "fecha";
+    public static final String CEDULACLIENTEFAC = "cedula_cliente";
+
+
+
+
+
+
+
     public BaseDeDatos(@Nullable Context context) {
         super (context, DATABASE, null, 1);
     }
@@ -106,7 +125,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         /**
          * Creando tabla pelicula
          */
-        db.execSQL ("CREATE TABLE " + TABLE_PELICULA + "(" + NOMBRE0 + " TEXT PRIMARY KEY NOT NULL, " + NOMBRE + " TEXT, " + DURACION + " INTEGER NOT NULL, " + IMAGEN + " BLOB, " +CLASIF + " TEXT, " + PRECIOMEN + " INTEGER, " + PRECIOADUL + " INTEGER, " + PRECIOTER + " INTEGER, " + "FOREIGN KEY("+CLASIF+") REFERENCES "+Tabla_Clasificacion+"("+TIPO_CLA+"))");
+        db.execSQL ("CREATE TABLE " + TABLE_PELICULA + "(" + NOMBRE0 + " TEXT PRIMARY KEY NOT NULL, " + NOMBRE + " TEXT, " + DURACION + " INTEGER NOT NULL, " + IMAGEN + " TEXT, " +CLASIF + " TEXT, " + PRECIOMEN + " INTEGER, " + PRECIOADUL + " INTEGER, " + PRECIOTER + " INTEGER, " + "FOREIGN KEY("+CLASIF+") REFERENCES "+Tabla_Clasificacion+"("+TIPO_CLA+"))");
         /**
          * Creando tabla Cliente
          */
@@ -135,6 +154,10 @@ public class BaseDeDatos extends SQLiteOpenHelper {
          * Creando tabla Protagonista
          */
         db.execSQL ("CREATE TABLE " + Tabla_Protagonista + "(" + NombrePro + " TEXT PRIMARY KEY NOT NULL, " + NomPeliProtagonista + " TEXT NOT NULL, " + "FOREIGN KEY("+NomPeliProtagonista+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"))");
+        /**
+         * Creando tabla factura
+         */
+        db.execSQL ("CREATE TABLE " + TABLA_FACTURA + "(" + CLAVE + " INTEGER PRIMARY KEY NOT NULL, " + CONSECUTIVO + " INTEGER PRIMARY KEY NOT NULL, "+ FACT_ID + " INTEGER PRIMARY KEY NOT NULL, "+ DETALLE + " TEXT NOT NULL, "+ FECHA + " NUMERIC NOT NULL, " + CEDULACLIENTEFAC + " INTEGER NOT NULL, "  + "FOREIGN KEY("+CEDULACLIENTEFAC+") REFERENCES "+TABLA_CLIENTE+"("+CEDULA+"))");
 
 
     }
@@ -205,7 +228,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
      * @param precio_adultos    Entero precio de adultos
      * @param precio_terceraEdad Entero precio de la tercera edad
      */
-    public void AgregarPelicula(String nombre_original, String nombre, String duracion, byte[] imagen, String clasificacion, int precio_menores, int precio_adultos, int precio_terceraEdad) {
+    public void AgregarPelicula(String nombre_original, String nombre, String duracion, String imagen, String clasificacion, int precio_menores, int precio_adultos, int precio_terceraEdad) {
         ContentValues valores = new ContentValues ();
         valores.put (NOMBRE0, nombre_original);
         valores.put (NOMBRE, nombre);

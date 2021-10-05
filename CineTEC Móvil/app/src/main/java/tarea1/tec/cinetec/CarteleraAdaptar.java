@@ -18,6 +18,8 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class CarteleraAdaptar extends RecyclerView.Adapter<CarteleraAdaptar.moviesViewHolder>{
@@ -56,7 +58,7 @@ public class CarteleraAdaptar extends RecyclerView.Adapter<CarteleraAdaptar.movi
         holder.cardView.setLayoutParams (rl);
         holder.mensajeBg.setLayoutParams (fl);
         holder.image.setLayoutParams (llimage);
-        holder.image.setImageBitmap (pelis_cartelera.get (position).getImagen ());
+        Glide.with(pelis_cartelera.get (position).getContext ()).load(pelis_cartelera.get (position).getImagen ()).into(holder.image);
         holder.texto_nombre.setText (pelis_cartelera.get (position).getNombre ());
         holder.cardView.setContentDescription (pelis_cartelera.get (position).getNombre ());
 

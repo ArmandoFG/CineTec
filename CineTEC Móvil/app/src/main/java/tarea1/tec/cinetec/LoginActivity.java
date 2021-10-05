@@ -15,8 +15,13 @@ import android.widget.Toast;
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,11 +43,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_login);
 
-        generarCliente();
-        SincronizarTablas();
-        generarPelicula();
-
-
 
 
     }
@@ -58,13 +58,20 @@ public class LoginActivity extends AppCompatActivity {
      */
 
     public void VerificarUsuario(View view){
+
+        Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.imgpeli1)).getBitmap();;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(20480);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0 , baos);
+        byte[] blob = baos.toByteArray();
+        System.out.println(Arrays.toString(blob));
+
         EditText UsuarioText = findViewById (R.id.username);
+
         EditText PassText = findViewById (R.id.password);
         final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
         Cursor c = db.ObtenerCliente (String.valueOf(UsuarioText.getText ()));
         String pass = "";
         String user = "";
-
 
 
                 if (c != null && c.moveToFirst()){
@@ -83,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
         }else{
 
             if(String.valueOf(PassText.getText ()).equals (pass)){
-
                 Ini_Principal ();
             }else{
                 Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
@@ -111,12 +117,9 @@ public class LoginActivity extends AppCompatActivity {
     public void generarPelicula(){
         final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
 
-        Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.imgpeli1)).getBitmap();;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream(20480);
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0 , baos);
-        byte[] blob = baos.toByteArray();
 
-        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", blob,"+16",3200,3200, 2500);
+
+        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", "http://192.168.0.111/img/imgpeli1.png","+16",3200,3200, 2500);
     }
 
     public void GenerarSucursales(){
@@ -128,18 +131,15 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Metodo que envia una solicitud de tipo Get al API para obtener el listado de los movimientos de la cuenta
-     * */
     public void SincronizarTablas()
     {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASEURL)
-        //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
+                //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
 
         PeliculasAPI peliculaAPI=retrofit.create(PeliculasAPI.class);
         Call<List<Tabla_Peliculas>> call=peliculaAPI.find();
-        call.enqueue(new Callback<List<Tabla_Peliculas>>() {
+        call.enqueue(new Callback<List<Tabla_Peliculas>> () {
             @Override
             public void onResponse(Call<List<Tabla_Peliculas>> call, Response<List<Tabla_Peliculas>> response) {
                 try

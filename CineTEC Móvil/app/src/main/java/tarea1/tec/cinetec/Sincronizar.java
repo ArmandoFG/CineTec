@@ -1,8 +1,5 @@
 package tarea1.tec.cinetec;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import java.util.List;
 
 import retrofit2.Call;

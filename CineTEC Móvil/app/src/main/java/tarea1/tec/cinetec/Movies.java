@@ -1,5 +1,6 @@
 package tarea1.tec.cinetec;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -7,8 +8,9 @@ import android.net.Uri;
 public class Movies {
 
     private String id;
-    private Bitmap imagen;
+    private String imagen;
     private String nombre;
+    private Context context;
 
 
 
@@ -21,7 +23,7 @@ public class Movies {
         return id;
     }
 
-    public Bitmap getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
@@ -29,16 +31,24 @@ public class Movies {
         return nombre;
     }
 
+    public Context getContext() {
+        return context;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setImagen(Bitmap imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public void SetContext(Context context) {
+        this.context = context;
     }
 
 

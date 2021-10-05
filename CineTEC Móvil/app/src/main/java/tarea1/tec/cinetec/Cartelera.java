@@ -62,6 +62,7 @@ public class Cartelera extends AppCompatActivity {
         });
         rv.setAdapter (adapter);
 
+
         MostarPeliculas ();
 
 
@@ -76,11 +77,12 @@ public class Cartelera extends AppCompatActivity {
      * @param nombre String nombre de la pelicula
      */
 
-    public void CreateMensaje(Bitmap imagen, String id, String nombre){
+    public void CreateMensaje(String imagen, String id, String nombre){
         Movies movAuxiliar = new Movies ();
         movAuxiliar.setId (id);
         movAuxiliar.setImagen (imagen);
         movAuxiliar.setNombre (nombre);
+        movAuxiliar.SetContext (this);
         pelis_cartelera.add (movAuxiliar);
         adapter.notifyDataSetChanged ();
 
@@ -104,7 +106,7 @@ public class Cartelera extends AppCompatActivity {
         String nombre_original = "";
         String nombre = "";
         String duracion = "";
-        byte[] imagen;
+        String imagen = "";
         String clasificacion = "";
         int precio_menores = 0;
         int precio_adultos = 0;
@@ -117,17 +119,16 @@ public class Cartelera extends AppCompatActivity {
                 nombre_original = c.getString (0);
                 nombre = c.getString (1);
                 duracion = c.getString (2);
-                imagen = c.getBlob (3);
+                imagen = c.getString (3);
                 clasificacion = c.getString (4);
                 precio_menores = c.getInt (5);
                 precio_adultos = c.getInt (6);
                 precio_terceraEdad = c.getInt (7);
 
 
-                ByteArrayInputStream bais = new ByteArrayInputStream(imagen);
-                bitmap = BitmapFactory.decodeStream(bais);
 
-                CreateMensaje (bitmap,nombre, nombre);
+
+                CreateMensaje (imagen,nombre, nombre);
 
             }while (c.moveToNext ());
         }
@@ -174,5 +175,6 @@ public class Cartelera extends AppCompatActivity {
         spinner.setAdapter (adaptador);
 
     }
+
 
 }
