@@ -42,7 +42,10 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_login);
-
+        //generarCliente();
+        //generarPelicula();
+        Sincronizar sinc = new Sincronizar();
+        sinc.SincronizarPeliculas(LoginActivity.this);
 
 
     }
@@ -59,11 +62,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void VerificarUsuario(View view){
 
-        Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.imgpeli1)).getBitmap();;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream(20480);
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0 , baos);
-        byte[] blob = baos.toByteArray();
-        System.out.println(Arrays.toString(blob));
 
         EditText UsuarioText = findViewById (R.id.username);
 
@@ -119,7 +117,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", "http://192.168.0.111/img/imgpeli1.png","+16",3200,3200, 2500);
+        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", "http://192.168.1.3:8081/img/imgpeli1.png","+16",3200,3200, 2500);
+
     }
 
     public void GenerarSucursales(){
@@ -131,39 +130,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void SincronizarTablas()
-    {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASEURL)
-                //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create()).build();
-
-        PeliculasAPI peliculaAPI=retrofit.create(PeliculasAPI.class);
-        Call<List<Tabla_Peliculas>> call=peliculaAPI.find();
-        call.enqueue(new Callback<List<Tabla_Peliculas>> () {
-            @Override
-            public void onResponse(Call<List<Tabla_Peliculas>> call, Response<List<Tabla_Peliculas>> response) {
-                try
-                {
-                    //String listadoMovs = "";
-                    Toast.makeText(LoginActivity.this, "entro la respuesta", Toast.LENGTH_SHORT).show();
-                    if(response.isSuccessful()){
-                        Toast.makeText(LoginActivity.this, "Conectado", Toast.LENGTH_SHORT).show();
-                        List<Tabla_Peliculas> m=response.body();
-
-                    }
-
-                }catch (Exception ex){
-
-                    Toast.makeText(LoginActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Tabla_Peliculas>> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, t.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 
 

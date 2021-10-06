@@ -5,7 +5,7 @@ public class Tabla_Peliculas {
     private String nombre_original;
     private String nombre;
     private String duracion;
-    private byte[] imagen;
+    private String imagen;
     private String clasificacion;
     private int precio_menores;
     private int precio_adultos;
@@ -23,7 +23,7 @@ public class Tabla_Peliculas {
         this.duracion = duracion;
     }
 
-    public void setImagen(byte[] imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
@@ -55,7 +55,7 @@ public class Tabla_Peliculas {
         return duracion;
     }
 
-    public byte[] getImagen() {
+    public String getImagen() {
         return imagen;
     }
 

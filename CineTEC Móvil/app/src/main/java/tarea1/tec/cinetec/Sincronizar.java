@@ -1,5 +1,8 @@
 package tarea1.tec.cinetec;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -12,42 +15,51 @@ import tarea1.tec.cinetec.model.Tabla_Peliculas;
 
 public class Sincronizar {
 
-    static String BASEURL = "https://localhost:44349/";
+    static String BASEURL = "http://192.168.1.3:8081/";
 
 
     /**
      * Metodo que envia una solicitud de tipo Get al API para obtener el listado de los movimientos de la cuenta
      * */
-    public void SincronizarTablas()
+    public void SincronizarPeliculas(Context c)
     {
+        //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASEURL)
                 //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
 
-        PeliculasAPI movimientoAPI=retrofit.create(PeliculasAPI.class);
-        Call<List<Tabla_Peliculas>> call=movimientoAPI.find();
-        call.enqueue(new Callback<List<Tabla_Peliculas>>() {
+        PeliculasAPI peliculaAPI=retrofit.create(PeliculasAPI.class);
+        Call<List<Tabla_Peliculas>> call=peliculaAPI.find();
+        call.enqueue(new Callback<List<Tabla_Peliculas>> () {
             @Override
             public void onResponse(Call<List<Tabla_Peliculas>> call, Response<List<Tabla_Peliculas>> response) {
                 try
                 {
-                    String listadoMovs = "";
-                    //Toast.makeText(actividad_movimientos.this, "res"+response.body(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if(response.isSuccessful()){
-                        System.out.println("Conectado");
+                        Toast.makeText(c, "Conectado", Toast.LENGTH_SHORT).show();
                         List<Tabla_Peliculas> m=response.body();
+                        final BaseDeDatos db = new BaseDeDatos (c);
+                        for (Tabla_Peliculas peli:m) {
+                            try {
+                                db.AgregarPelicula(peli.getNombre_original(), peli.getNombre(), peli.getDuracion(), peli.getImagen(), peli.getClasificacion(), peli.getPrecio_menores(), peli.getPrecio_adultos(), peli.getPrecio_terceraEdad());
+                            }catch (Exception ex){
+
+                            }
+
+                        }
 
                     }
 
                 }catch (Exception ex){
 
-                    System.out.println(ex);
+                    Toast.makeText(c, ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Tabla_Peliculas>> call, Throwable t) {
-                System.out.println("Error de conexion");
+                Toast.makeText(c, "Error de conexion", Toast.LENGTH_SHORT).show();
             }
         });
     }
