@@ -229,7 +229,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
      * @param usuario   String Usuario para iniciar sesion
      * @param pass  String contraseña del cliente
      */
-    public void AgregarCliente(String cedula, int edad, String nombre, String fecha, int numero, int idsucursal, String usuario, String pass) {
+    public void AgregarCliente(int cedula, int edad, String nombre, String fecha, int numero, int idsucursal, String usuario, String pass) {
         ContentValues valores = new ContentValues ();
         valores.put (CEDULA, cedula);
         valores.put (EDAD, edad);
@@ -255,15 +255,19 @@ public class BaseDeDatos extends SQLiteOpenHelper {
      * @param precio_terceraEdad Entero precio de la tercera edad
      */
     public void AgregarPelicula(String nombre_original, String nombre, String duracion, String imagen, int precio_menores, int precio_adultos, int precio_terceraEdad) {
-        ContentValues valores = new ContentValues ();
-        valores.put (NOMBRE0, nombre_original);
-        valores.put (NOMBRE, nombre);
-        valores.put (DURACION, duracion);
-        valores.put (IMAGEN, imagen);
-        valores.put (PRECIOMEN, precio_menores);
-        valores.put (PRECIOADUL, precio_adultos);
-        valores.put (PRECIOTER, precio_terceraEdad);
-        this.getWritableDatabase ().insert (TABLE_PELICULA, null, valores);
+        try {
+            ContentValues valores = new ContentValues();
+            valores.put(NOMBRE0, nombre_original);
+            valores.put(NOMBRE, nombre);
+            valores.put(DURACION, duracion);
+            valores.put(IMAGEN, imagen);
+            valores.put(PRECIOMEN, precio_menores);
+            valores.put(PRECIOADUL, precio_adultos);
+            valores.put(PRECIOTER, precio_terceraEdad);
+            this.getWritableDatabase().insert(TABLE_PELICULA, null, valores);
+        }catch (Exception e){
+
+        }
 
     }
 

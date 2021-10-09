@@ -42,10 +42,18 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_login);
-        generarCliente();
-        generarPelicula();
+        //generarCliente();
+        //generarPelicula();
         Sincronizar sinc = new Sincronizar();
         //sinc.SincronizarPeliculas(LoginActivity.this);
+        //sinc.SincronizarSucursales(LoginActivity.this);
+        //sinc.SincronizarSalas(LoginActivity.this);
+        //sinc.SincronizarCliente(LoginActivity.this);
+        //sinc.SincronizarAsiento(LoginActivity.this);
+        //sinc.SincronizarPeliPSala(LoginActivity.this);
+        //sinc.SincronizarClasificacion(LoginActivity.this);
+        //sinc.SincronizarDirector(LoginActivity.this);
+        //sinc.SincronizarProtagonista(LoginActivity.this);
 
         //final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
 
@@ -113,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void generarCliente(){
         final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
-        db.AgregarCliente ("117790696",20, "Armando Fallas", "16-06-2000", 85465732,1,"Mando", "1234m");
+        db.AgregarCliente (117790696,20, "Armando Fallas", "16-06-2000", 85465732,1,"Mando", "1234m");
     }
 
     /**

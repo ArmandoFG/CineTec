@@ -31,6 +31,13 @@ namespace CineTec.Backend
             services.AddSingleton(postgreSQLConnectionConfiguration);
 
             services.AddScoped<IPeliculaRepository, PeliculaRepository>();
+            services.AddScoped<ISucursalRepository, SucursalRepository>();
+            services.AddScoped<ISalaRepository, SalaRepository>();
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
+            services.AddScoped<IFacturaRepository, FacturaRepository>();
+            services.AddScoped<IAsientoRepository, AsientoRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

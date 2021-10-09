@@ -27,7 +27,7 @@ namespace CineTec.Backend.Data.Repositories
             var db = dbConnection();
 
             var sql = @"
-                        SELECT nombre_original, nombre, duracion, clasificacion, precio_menores, precio_adultos, precio_tercera_edad
+                        SELECT nombre_original, nombre, duracion, imagen, precio_menores, precio_adultos, precio_tercera_edad
                         FROM public.pelicula
                         ";
 
@@ -39,7 +39,7 @@ namespace CineTec.Backend.Data.Repositories
             var db = dbConnection();
 
             var sql = @"
-                        SELECT nombre_original, nombre, duracion, imagen, clasificacion
+                        SELECT nombre_original,nombre, duracion, imagen, precio_menores, precio_adultos, precio_tercera_edad
                         FROM public.pelicula
                         WHERE nombre_original = @NombreOriginal
                         ";
@@ -97,6 +97,55 @@ namespace CineTec.Backend.Data.Repositories
             var result = await db.ExecuteAsync(sql, new { nombre_Original = nombre_pelicula });
 
             return result > 0;
+        }
+
+        public async Task<IEnumerable<Pelicula_por_sala>> GetAllPPS()
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT *
+                        FROM public.pelicula_por_sala
+                        ";
+
+            return await db.QueryAsync<Pelicula_por_sala>(sql, new { });
+
+        }
+
+        public async Task<IEnumerable<Director>> GetAllDirectores()
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT *
+                        FROM public.director
+                        ";
+
+            return await db.QueryAsync<Director>(sql, new { });
+        }
+
+        public async Task<IEnumerable<Protagonista>> GetAllProtagonistas()
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT *
+                        FROM public.protagonista
+                        ";
+
+            return await db.QueryAsync<Protagonista>(sql, new { });
+        }
+
+        public async Task<IEnumerable<Clasificacion>> GetAllClasificaciones()
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT *
+                        FROM public.clasificacion
+                        ";
+
+            return await db.QueryAsync<Clasificacion>(sql, new { });
         }
     }
 }
