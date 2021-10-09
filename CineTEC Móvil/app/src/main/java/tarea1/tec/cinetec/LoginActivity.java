@@ -44,8 +44,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView (R.layout.activity_login);
         //generarCliente();
         //generarPelicula();
-        Sincronizar sinc = new Sincronizar();
-        sinc.SincronizarPeliculas(LoginActivity.this);
+        //Sincronizar sinc = new Sincronizar();
+        //sinc.SincronizarPeliculas(LoginActivity.this);
+
+        //final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
+
+
+
+        //db.AgregarPelicula ("Pobochnyi","La mano del demonio", "93 min", "http://192.168.0.111/img/imgpeli1.png","+16",3200,3200, 2500);
+        //db.AgregarPelicula ("Prueba","La mano del demonio", "93 min", "http://192.168.0.11/img/imgpeli1.png","+16",3200,3200, 2500);
+        //db.AgregarPelicula ("Prueba2","La mano del demonio", "93 min", "http://192.168.0.111/img/imgpeli1.png","+16",3200,3200, 2500);
 
 
     }

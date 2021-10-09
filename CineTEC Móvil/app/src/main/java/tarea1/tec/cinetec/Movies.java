@@ -7,7 +7,6 @@ import android.net.Uri;
 
 public class Movies {
 
-    private String id;
     private String imagen;
     private String nombre;
     private Context context;
@@ -19,9 +18,7 @@ public class Movies {
 
     }
 
-    public String getId() {
-        return id;
-    }
+
 
     public String getImagen() {
         return imagen;
@@ -35,9 +32,7 @@ public class Movies {
         return context;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
