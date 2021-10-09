@@ -25,7 +25,6 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     public static final String NOMBRE = "nombre";
     public static final String DURACION = "duracion";
     public static final String IMAGEN = "imagen";
-    public static final String CLASIF = "clasificacion";
     public static final String PRECIOMEN = "precio_menores";
     public static final String PRECIOADUL = "precio_adultos";
     public static final String PRECIOTER = "precio_tercera_edad";
@@ -39,9 +38,10 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     public static final String NOMBREC = "nombre";
     public static final String FECHAN = "fecha_nacimiento";
     public static final String NUMTEL = "numero_telefono";
-    public static final String IDSUCL = "id_sucursal";
     public static final String PASSC = "pass";
     public static final String USERC = "usuario";
+    public static final String IDSUCL = "id_sucursal";
+
 
     /**
      *Datos necesarios para la sucursal
@@ -67,8 +67,11 @@ public class BaseDeDatos extends SQLiteOpenHelper {
      *Datos necesarios para la pelicula por sala
      */
     public static final String TablaPeliSala = "Pelicula_por_sala";
+    public static final String IDCAR = "id_en_cartelera";
+    public static final String SALA_SUCURSAL = "sucursal_id";
     public static final String SALAID = "sala_id";
     public static final String NOMBREPELICULA = "nombre_pelicula";
+    public static final String HORA = "hora";
 
     /**
      *Datos necesarios para la Clasificacion
@@ -93,7 +96,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     /**
      *
-     * uraDatos necesarios para Facti
+     * Datos necesarios para Factura
      */
 
     public static final String TABLA_FACTURA = "Factura";
@@ -105,6 +108,21 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     public static final String CEDULACLIENTEFAC = "cedula_cliente";
 
 
+    /**
+     *
+     * Datos necesarios para Asiento
+     */
+    public static final String Tabla_Asiento = "Asiento";
+    public static final String SALA = "Salaid";
+    public static final String ASID = "AsientoID";
+    public static final String DISPOIBILIDAD = "Disponibilidad";
+
+    /**
+     *
+     * Datos necesarios para Horas
+     */
+    public static final String Tabla_Horas = "Horas";
+    public static final String Hora = "hora";
 
 
 
@@ -125,11 +143,11 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         /**
          * Creando tabla pelicula
          */
-        db.execSQL ("CREATE TABLE " + TABLE_PELICULA + "(" + NOMBRE0 + " TEXT PRIMARY KEY NOT NULL, " + NOMBRE + " TEXT, " + DURACION + " INTEGER NOT NULL, " + IMAGEN + " TEXT, " +CLASIF + " TEXT, " + PRECIOMEN + " INTEGER, " + PRECIOADUL + " INTEGER, " + PRECIOTER + " INTEGER, " + "FOREIGN KEY("+CLASIF+") REFERENCES "+Tabla_Clasificacion+"("+TIPO_CLA+"))");
+        db.execSQL ("CREATE TABLE " + TABLE_PELICULA + "(" + NOMBRE0 + " TEXT PRIMARY KEY NOT NULL, " + NOMBRE + " TEXT, " + DURACION + " INTEGER NOT NULL, " + IMAGEN + " TEXT, " + PRECIOMEN + " INTEGER, " + PRECIOADUL + " INTEGER, " + PRECIOTER + " INTEGER)");
         /**
          * Creando tabla Cliente
          */
-        db.execSQL ("CREATE TABLE " + TABLA_CLIENTE + "(" + CEDULA + " INTEGER PRIMARY KEY NOT NULL, " + EDAD + " INTEGER NOT NULL, " + NOMBREC + " TEXT NOT NULL, " + FECHAN + " TEXT NOT NULL, " + NUMTEL + " INTEGER, " + IDSUCL + " INTEGER NOT NULL, " + USERC + " TEXT NOT NULL, " + PASSC + " TEXT NOT NULL, " + "FOREIGN KEY("+IDSUCL+") REFERENCES "+Tabla_Sucursal+"("+IDSUCURSAL+"))");
+        db.execSQL ("CREATE TABLE " + TABLA_CLIENTE + "(" + CEDULA + " INTEGER PRIMARY KEY NOT NULL, " + EDAD + " INTEGER, " + NOMBREC + " TEXT NOT NULL, " + FECHAN + " TEXT NOT NULL, " + NUMTEL + " INTEGER, " + PASSC + " TEXT NOT NULL, " + USERC + " TEXT NOT NULL, "  + IDSUCL + " INTEGER , "  + "FOREIGN KEY("+IDSUCL+") REFERENCES "+Tabla_Sucursal+"("+IDSUCURSAL+"))");
         /**
          * Creando tabla Sucursal
          */
@@ -141,31 +159,64 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         /**
          * Creando tabla Pelicula por sala
          */
-        db.execSQL ("CREATE TABLE " + TablaPeliSala + "(" + SALAID + " INTEGER  NOT NULL, " + NOMBREPELICULA + " TEXT NOT NULL, " + "FOREIGN KEY("+SALAID+") REFERENCES "+Tabla_Sala+"("+IDSALA+"), " + "FOREIGN KEY("+NOMBREPELICULA+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"))");
+        db.execSQL ("CREATE TABLE " + TablaPeliSala + "("+ IDCAR + " INTEGER, " + SALA_SUCURSAL + " INTEGER, " + SALAID + " INTEGER, " + NOMBREPELICULA + " TEXT, " + HORA + " TEXT, " + "FOREIGN KEY("+SALAID+") REFERENCES "+Tabla_Sala+"("+IDSALA+"), " + "FOREIGN KEY("+NOMBREPELICULA+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"), " + "FOREIGN KEY("+SALA_SUCURSAL+") REFERENCES "+Tabla_Sucursal+"("+IDSUCURSAL+"))");
         /**
          * Creando tabla Clasificacion
          */
-        db.execSQL ("CREATE TABLE " + Tabla_Clasificacion + "(" + TIPO_CLA + " TEXT PRIMARY KEY NOT NULL, " + NOMBREPELISALA + " TEXT NOT NULL, " + "FOREIGN KEY("+NOMBREPELISALA+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"))");
+        db.execSQL ("CREATE TABLE " + Tabla_Clasificacion + "(" + TIPO_CLA + " TEXT PRIMARY KEY NOT NULL, " + NOMBREPELISALA + " TEXT, " + "FOREIGN KEY("+NOMBREPELISALA+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"))");
         /**
          * Creando tabla Director
          */
-        db.execSQL ("CREATE TABLE " + Tabla_Director + "(" + NombreDIR + " TEXT PRIMARY KEY NOT NULL, " + Nombre_Pelicula + " TEXT NOT NULL, " + "FOREIGN KEY("+Nombre_Pelicula+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"))");
+        db.execSQL ("CREATE TABLE " + Tabla_Director + "(" + NombreDIR + " TEXT PRIMARY KEY NOT NULL, " + Nombre_Pelicula + " TEXT, " + "FOREIGN KEY("+Nombre_Pelicula+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"))");
         /**
          * Creando tabla Protagonista
          */
-        db.execSQL ("CREATE TABLE " + Tabla_Protagonista + "(" + NombrePro + " TEXT PRIMARY KEY NOT NULL, " + NomPeliProtagonista + " TEXT NOT NULL, " + "FOREIGN KEY("+NomPeliProtagonista+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"))");
+        db.execSQL ("CREATE TABLE " + Tabla_Protagonista + "(" + NombrePro + " TEXT PRIMARY KEY NOT NULL, " + NomPeliProtagonista + " TEXT, " + "FOREIGN KEY("+NomPeliProtagonista+") REFERENCES "+TABLE_PELICULA+"("+NOMBRE0+"))");
         /**
          * Creando tabla factura
          */
-        db.execSQL ("CREATE TABLE " + TABLA_FACTURA + "(" + CLAVE + " INTEGER NOT NULL, " + CONSECUTIVO + " INTEGER NOT NULL, "+ FACT_ID + " INTEGER NOT NULL, "+ DETALLE + " TEXT NOT NULL, "+ FECHA + " NUMERIC NOT NULL, " + CEDULACLIENTEFAC + " INTEGER NOT NULL, " + "PRIMARY KEY("+ CLAVE +", "+ CONSECUTIVO +", "+ FACT_ID +"), "  + "FOREIGN KEY("+CEDULACLIENTEFAC+") REFERENCES "+TABLA_CLIENTE+"("+CEDULA+"))");
-
+        db.execSQL ("CREATE TABLE " + TABLA_FACTURA + "(" + CLAVE + " INTEGER NOT NULL, " + CONSECUTIVO + " INTEGER NOT NULL, "+ FACT_ID + " INTEGER NOT NULL, "+ DETALLE + " TEXT NOT NULL, "+ FECHA + " TEXT NOT NULL, " + CEDULACLIENTEFAC + " INTEGER, " + "PRIMARY KEY("+ CLAVE +", "+ CONSECUTIVO +", "+ FACT_ID +"), "  + "FOREIGN KEY("+CEDULACLIENTEFAC+") REFERENCES "+TABLA_CLIENTE+"("+CEDULA+"))");
+    /**
+     * Creando tabla Asientos
+     */
+        db.execSQL ("CREATE TABLE " + Tabla_Asiento + "(" + SALA + " INTEGER, " + ASID + " TEXT, "+ DISPOIBILIDAD + " TEXT, " + "PRIMARY KEY("+ SALA +", "+ ASID +"), "+ "FOREIGN KEY("+SALA+") REFERENCES "+Tabla_Sala+"("+IDSALA+"))");
+    /**
+     * Creando tabla Hora
+     */
+        db.execSQL ("CREATE TABLE " + Tabla_Horas + "(" + Hora + " TEXT)");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 
     }
 
+
+
+
+    /**
+     *
+     * @param condition Valor que se quiere obtener de la tabla cliente
+     * @return  Valores de la tabla
+     */
+
+    public Cursor ObtenerCliente(String condition) {
+        String columnas[] = {
+                CEDULA,
+                EDAD,
+                NOMBREC,
+                FECHAN,
+                NUMTEL,
+                IDSUCL,
+                USERC,
+                PASSC
+
+        };
+        String[] args = new String[]{condition};
+        Cursor c = this.getReadableDatabase ().query (TABLA_CLIENTE, columnas, USERC + "=?", args, null, null, null);
+        return c;
+    }
 
     /**
      *
@@ -195,45 +246,20 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     /**
      *
-     * @param condition Valor que se quiere obtener de la tabla cliente
-     * @return  Valores de la tabla
-     */
-
-    public Cursor ObtenerCliente(String condition) {
-        String columnas[] = {
-                CEDULA,
-                EDAD,
-                NOMBREC,
-                FECHAN,
-                NUMTEL,
-                IDSUCL,
-                USERC,
-                PASSC
-
-        };
-        String[] args = new String[]{condition};
-        Cursor c = this.getReadableDatabase ().query (TABLA_CLIENTE, columnas, USERC + "=?", args, null, null, null);
-        return c;
-    }
-
-    /**
-     *
      * @param nombre_original String nombre original de la pelicula
      * @param nombre    String nombre de la pelicula
      * @param duracion  String duración de la pelicula
      * @param imagen    Array de byte de la imagen de la pelicula
-     * @param clasificacion String Clasificación de la pelicula
      * @param precio_menores    Entero precio de menores de edad
      * @param precio_adultos    Entero precio de adultos
      * @param precio_terceraEdad Entero precio de la tercera edad
      */
-    public void AgregarPelicula(String nombre_original, String nombre, String duracion, String imagen, String clasificacion, int precio_menores, int precio_adultos, int precio_terceraEdad) {
+    public void AgregarPelicula(String nombre_original, String nombre, String duracion, String imagen, int precio_menores, int precio_adultos, int precio_terceraEdad) {
         ContentValues valores = new ContentValues ();
         valores.put (NOMBRE0, nombre_original);
         valores.put (NOMBRE, nombre);
         valores.put (DURACION, duracion);
         valores.put (IMAGEN, imagen);
-        valores.put (CLASIF, clasificacion);
         valores.put (PRECIOMEN, precio_menores);
         valores.put (PRECIOADUL, precio_adultos);
         valores.put (PRECIOTER, precio_terceraEdad);
@@ -241,16 +267,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     }
 
-    /**
-     *
-     * @return Todos los datos de la tabla de peliculas
-     */
 
-    public Cursor ObtenerTodasLasPeliculas() {
-        String columnas[] = {NOMBRE0, NOMBRE, DURACION, IMAGEN, CLASIF, PRECIOMEN, PRECIOADUL, PRECIOTER};
-        Cursor c = this.getReadableDatabase ().query (TABLE_PELICULA, columnas, null, null, null, null, null);
-        return c;
-    }
 
     public void AgregarSucursal(int id, String ubicacion, String cine, int salas) {
         ContentValues valores = new ContentValues ();
@@ -262,11 +279,104 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     }
 
+    public void AgregarFactura(int clave, int consecutivo, int fac, String detalle, String FECHA, int cedula) {
+        ContentValues valores = new ContentValues ();
+        valores.put (CLAVE, clave);
+        valores.put (CONSECUTIVO, consecutivo);
+        valores.put (FACT_ID, fac);
+        valores.put (DETALLE, detalle);
+        valores.put (FECHA, FECHA);
+        valores.put (CEDULACLIENTEFAC, cedula);
+        this.getWritableDatabase ().insert (TABLA_FACTURA, null, valores);
+
+    }
+
+    public void AgregarSala(int idSala, int filas, int capacidad, int columnas, int idSuc){
+        ContentValues valores = new ContentValues ();
+        valores.put (IDSALA, idSala);
+        valores.put (FILAS, filas);
+        valores.put (CAPACIDAD, capacidad);
+        valores.put (COLUMNAS, columnas);
+        valores.put (IDSUCSALA, idSuc);
+        this.getWritableDatabase ().insert (Tabla_Sala, null, valores);
+
+    }
+
+    public void AgreparPeliPorSala(int idCar, int SucID, int SalaID, String Nombre_peli, String hora){
+        ContentValues valores = new ContentValues ();
+        valores.put (IDCAR, idCar);
+        valores.put (SALA_SUCURSAL, SucID);
+        valores.put (SALAID, SalaID);
+        valores.put (NOMBREPELICULA, Nombre_peli);
+        valores.put (HORA, hora);
+        this.getWritableDatabase ().insert (TablaPeliSala, null, valores);
+
+    }
+
+    public void AgregarClasificacion(String Clas, String Nombre_peli){
+        ContentValues valores = new ContentValues ();
+        valores.put (TIPO_CLA, Clas);
+        valores.put (NOMBREPELISALA, Nombre_peli);
+        this.getWritableDatabase ().insert (Tabla_Clasificacion, null, valores);
+
+    }
+    public void AgregarDirector(String nombre, String Nombre_peli){
+        ContentValues valores = new ContentValues ();
+        valores.put (NombreDIR, nombre);
+        valores.put (Nombre_Pelicula, Nombre_peli);
+        this.getWritableDatabase ().insert (Tabla_Director, null, valores);
+    }
+    public void AgregarProtagonista(String nombre, String Nombre_peli){
+        ContentValues valores = new ContentValues ();
+        valores.put (NombrePro, nombre);
+        valores.put (NomPeliProtagonista, Nombre_peli);
+        this.getWritableDatabase ().insert (Tabla_Protagonista, null, valores);
+    }
+    public void AgregarAsientos(int sala, String asiento, String disponibilidad){
+        ContentValues valores = new ContentValues ();
+        valores.put (SALA, sala);
+        valores.put (ASID, asiento);
+        valores.put (DISPOIBILIDAD, disponibilidad);
+        this.getWritableDatabase ().insert (Tabla_Asiento, null, valores);
+    }
+    public void Agregarhoras(String hora){
+        ContentValues valores = new ContentValues ();
+        valores.put (Hora, hora);
+        this.getWritableDatabase ().insert (Tabla_Horas, null, valores);
+
+    }
+
+
+
+    /**
+     *
+     * @return Todos los datos de la tabla de peliculas
+     */
+
+    public Cursor ObtenerTodasLasPeliculas() {
+        String columnas[] = {NOMBRE0, NOMBRE, DURACION, IMAGEN, PRECIOMEN, PRECIOADUL, PRECIOTER};
+        Cursor c = this.getReadableDatabase ().query (TABLE_PELICULA, columnas, null, null, null, null, null);
+        return c;
+    }
+
     public Cursor ObtenerSucursales(){
         String columnas[] = {IDSUCURSAL, UBICACION, NOMBRECINE, CANTIDADSALAS};
         Cursor c = this.getReadableDatabase ().query (Tabla_Sucursal, columnas, null, null, null, null, null);
         return c;
     }
+
+    public Cursor ObtenerTodasLasFacturas() {
+        String columnas[] = {CLAVE, CONSECUTIVO, FACT_ID, DETALLE, FECHA, CEDULACLIENTEFAC};
+        Cursor c = this.getReadableDatabase ().query (TABLA_FACTURA, columnas, null, null, null, null, null);
+        return c;
+    }
+
+    public Cursor ObtenerTodosLosAsientos() {
+        String columnas[] = {SALA, ASID, DISPOIBILIDAD};
+        Cursor c = this.getReadableDatabase ().query (Tabla_Asiento, columnas, null, null, null, null, null);
+        return c;
+    }
+
 
 
 

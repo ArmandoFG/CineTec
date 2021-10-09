@@ -42,9 +42,9 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_login);
-        //generarCliente();
-        //generarPelicula();
-        //Sincronizar sinc = new Sincronizar();
+        generarCliente();
+        generarPelicula();
+        Sincronizar sinc = new Sincronizar();
         //sinc.SincronizarPeliculas(LoginActivity.this);
 
         //final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", "http://192.168.1.3:8081/img/imgpeli1.png","+16",3200,3200, 2500);
+        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", "http://192.168.1.3:8081/img/imgpeli1.png",3200,3200, 2500);
 
     }
 

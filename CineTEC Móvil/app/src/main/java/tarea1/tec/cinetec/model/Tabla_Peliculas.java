@@ -6,7 +6,6 @@ public class Tabla_Peliculas {
     private String nombre;
     private String duracion;
     private String imagen;
-    private String clasificacion;
     private int precio_menores;
     private int precio_adultos;
     private int precio_tercera_edad;
@@ -25,10 +24,6 @@ public class Tabla_Peliculas {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }
-
-    public void setClasificacion(String clasificacion) {
-        this.clasificacion = clasificacion;
     }
 
     public void setPrecio_menores(int precio_menores) {
@@ -57,10 +52,6 @@ public class Tabla_Peliculas {
 
     public String getImagen() {
         return imagen;
-    }
-
-    public String getClasificacion() {
-        return clasificacion;
     }
 
     public int getPrecio_menores() {
