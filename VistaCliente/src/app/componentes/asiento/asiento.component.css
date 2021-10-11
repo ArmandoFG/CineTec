@@ -1,0 +1,30 @@
+.container{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 80px;
+    height: 100%;
+
+    background-color: black;
+    color: white;
+}
+
+#pantalla {
+    position: relative;
+    top: 20px;
+    left: 35%;
+}
+
+.img-content{
+
+}
+.img-container{
+    
+    margin-left: 410px;
+    margin-top: 100px;
+    margin-right: 450px;
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+  grid-gap: 10px;
+  grid-auto-rows: 60px;
+}

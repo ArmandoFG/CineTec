@@ -1,0 +1,26 @@
+<menubar></menubar>
+
+<div class="container">
+    <div>
+        <h1 id="titulo">Proyecciones</h1>
+        <h3 id="nombre-pelicula">{{nombre_pelicula}}</h3>
+    </div>
+    <img id="logoitem" src="https://1.bp.blogspot.com/-le75ftEBpYc/YVQQTYvaNRI/AAAAAAAATuo/AqUnZ_NDl1Ejoz4QvuuWovXnRd3c7_7nwCLcBGAsYHQ/s496/LOGO.PNG">
+    
+    <div class= "main-container">
+        <mat-accordion class="mat-accordion">
+        <mat-expansion-panel *ngFor="let value of proyecciones">
+          <!-- Header del panel -->
+            <mat-expansion-panel-header>
+                <h3 id= 'pelicula'> Hora: {{value.hora}} </h3> 
+            </mat-expansion-panel-header>
+
+          <!--Info dentro del panel-->
+          <button class="button" id="seleccionar"><span>Elegir </span></button>
+          
+        </mat-expansion-panel>
+    </mat-accordion>
+    </div>
+    <button class="button" id="volver"><span>↩ </span></button>
+
+</div>

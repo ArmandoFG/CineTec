@@ -1,0 +1,19 @@
+<menubar></menubar>
+<div class="container">
+    <img id="pantalla" src="https://1.bp.blogspot.com/-NDPAAuXcP7U/YVuYMdzr2_I/AAAAAAAAUG8/TB5r5XqtV4c2OImnGiGcXPPmdOcJmuAmACLcBGAsYHQ/s450/pantalla.png">
+    <div class="img-container">
+        <div class="img-content" *ngFor="let asiento of asientos">
+            <div *ngIf="asiento.estado; else elseBlock">
+                <img [src]="tipoDeAsiento(asiento)" height="40px" width="40px">
+    
+                
+            </div>
+    <ng-template #elseBlock></ng-template>
+    
+            <header class="img-content-header">
+                
+            </header>
+        </div>
+    </div>
+    
+</div>

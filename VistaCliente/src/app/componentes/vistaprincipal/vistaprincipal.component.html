@@ -1,0 +1,41 @@
+<menubar></menubar>
+<div class="container">
+    <div>
+        <h1 id="titulo">Cartelera</h1>
+    </div>
+    <img id="logoitem" src="https://1.bp.blogspot.com/-le75ftEBpYc/YVQQTYvaNRI/AAAAAAAATuo/AqUnZ_NDl1Ejoz4QvuuWovXnRd3c7_7nwCLcBGAsYHQ/s496/LOGO.PNG">
+    
+    <!------Contenedor para la lista de items de los lugares------>
+    <div class="form-container">
+        <form action="/action_page.php">
+          <label for="ubicacion">Ubicacion</label>
+          <!--Opciones del-->
+          <select  id="ubicacion" name="ubicacion" [(ngModel)]="selectedOption">
+            <option *ngFor="let lugar of options">
+                {{lugar.name}}
+            </option>
+          </select>
+        </form>
+      </div>
+
+      <!------- Contenedor para los paneles expansivos ------>
+    <div class= "main-container">
+        <mat-accordion class="mat-accordion">
+        <mat-expansion-panel *ngFor="let value of peliculas">
+          <!-- Header del panel -->
+            <mat-expansion-panel-header>
+                <h3 id= 'pelicula'> Nombre de pelicula: {{value.nombre}}</h3> 
+            </mat-expansion-panel-header>
+
+          <!--Info dentro del panel-->
+          <p>Saldo disponible: {{value.saldo}}</p>
+          <p>Fecha expiración: {{value.fechaexp}}</p>
+          <p>Tipo: {{value.tipo}}</p>
+          <button class="button" id="seleccionar"><span>Elegir </span></button>
+          
+        </mat-expansion-panel>
+    </mat-accordion>
+    </div>
+
+</div>
+

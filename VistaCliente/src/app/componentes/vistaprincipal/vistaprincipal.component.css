@@ -1,0 +1,74 @@
+
+.container{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 80px;
+    height: 100%;
+
+    background-color: black;
+    color: white;
+}
+
+#titulo {
+    font-style: oblique;
+    font-family: Impact;
+    margin-left: 250px;
+    margin-top:30px;
+    font-size: 60px;
+}
+
+#logoitem{
+    width: 10%;
+    height: 10%;
+    position: fixed;
+    top: 90px;
+}
+
+.main-container{
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+
+.form-container{
+    
+    margin-top: -50px;
+    margin-left: 1200px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+
+select{
+    background-color: black;
+    margin-left: 15px;
+    margin-top: -30px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#seleccionar {
+    background-color: black;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #ffffff;
+    
+    height: 40px;
+    width: 100%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 4px;
+    transition: all 0.5s ease;
+  }
+  
+  #seleccionar:hover {
+    background: #edc420;
+    color: black;
+  }
+
+  
+
+ 
+
+
+

@@ -1,0 +1,86 @@
+.container{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 80px;
+    height: 100%;
+
+    background-color: black;
+    color: white;
+}
+
+.main-container{
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#titulo {
+    font-style: oblique;
+    font-family: Impact;
+    margin-left: 250px;
+    margin-top:30px;
+    font-size: 60px;
+}
+
+#logoitem{
+    width: 10%;
+    height: 10%;
+    position: fixed;
+    top: 90px;
+}
+
+#seleccionar {
+    background-color: black;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #ffffff;
+    
+    height: 40px;
+    width: 100%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 4px;
+    transition: all 0.5s ease;
+  }
+  
+  #seleccionar:hover {
+    background: #edc420;
+    color: black;
+  }
+
+  #volver {
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #ffffff;
+    
+    height: 40px;
+    width: 10%;
+    font-size: 20px;
+    padding: 4px;
+    transition: all 0.5s ease;
+    position: relative;
+
+    top: 30px;
+    left: 60px;
+  }
+  #volver:hover{
+    background: #edc420;
+    color: black;
+  }
+
+  #nombre-pelicula{
+    font-style: oblique;
+    font-family: Impact;
+    margin-left: 350px;
+    margin-top:30px;
+    font-size: 60px;
+    color: black;
+    text-shadow: 0px 0px 8px #edc420;
+ 
+  box-sizing: border-box;
+ 
+  font-size: min(200%, 5vmin);
+
+  }
