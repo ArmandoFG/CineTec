@@ -26,6 +26,30 @@ namespace CineTec.Backend.Controllers
             return Ok(await _peliculaRepository.GetAllPeliculas());
         }
 
+        [HttpGet("PPS")]
+        public async Task<IActionResult> GetAllPPS()
+        {
+            return Ok(await _peliculaRepository.GetAllPPS());
+        }
+
+        [HttpGet("Director")]
+        public async Task<IActionResult> GetAllDirectores()
+        {
+            return Ok(await _peliculaRepository.GetAllDirectores());
+        }
+
+        [HttpGet("Prota")]
+        public async Task<IActionResult> GetAllProtas()
+        {
+            return Ok(await _peliculaRepository.GetAllProtagonistas());
+        }
+
+        [HttpGet("Clas")]
+        public async Task<IActionResult> GetAllClas()
+        {
+            return Ok(await _peliculaRepository.GetAllClasificaciones());
+        }
+
         [HttpGet("p/{nombreOriginal}")]
         public async Task<IActionResult> GetPeliculaDetails(string nombreOriginal)
         {
@@ -46,7 +70,7 @@ namespace CineTec.Backend.Controllers
             return Created("created", created);
         }
 
-        [HttpPut]
+        [HttpPut("updatemovie")]
         public async Task<IActionResult> UpdatePelicula([FromBody] Pelicula pelicula)
         {
             if (pelicula == null)

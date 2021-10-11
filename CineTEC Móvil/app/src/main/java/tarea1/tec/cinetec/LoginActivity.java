@@ -45,7 +45,23 @@ public class LoginActivity extends AppCompatActivity {
         //generarCliente();
         //generarPelicula();
         Sincronizar sinc = new Sincronizar();
-        sinc.SincronizarPeliculas(LoginActivity.this);
+        //sinc.SincronizarPeliculas(LoginActivity.this);
+        //sinc.SincronizarSucursales(LoginActivity.this);
+        //sinc.SincronizarSalas(LoginActivity.this);
+        //sinc.SincronizarCliente(LoginActivity.this);
+        //sinc.SincronizarAsiento(LoginActivity.this);
+        //sinc.SincronizarPeliPSala(LoginActivity.this);
+        //sinc.SincronizarClasificacion(LoginActivity.this);
+        //sinc.SincronizarDirector(LoginActivity.this);
+        //sinc.SincronizarProtagonista(LoginActivity.this);
+
+        //final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
+
+
+
+        //db.AgregarPelicula ("Pobochnyi","La mano del demonio", "93 min", "http://192.168.0.111/img/imgpeli1.png","+16",3200,3200, 2500);
+        //db.AgregarPelicula ("Prueba","La mano del demonio", "93 min", "http://192.168.0.11/img/imgpeli1.png","+16",3200,3200, 2500);
+        //db.AgregarPelicula ("Prueba2","La mano del demonio", "93 min", "http://192.168.0.111/img/imgpeli1.png","+16",3200,3200, 2500);
 
 
     }
@@ -105,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void generarCliente(){
         final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
-        db.AgregarCliente ("117790696",20, "Armando Fallas", "16-06-2000", 85465732,1,"Mando", "1234m");
+        db.AgregarCliente (117790696,20, "Armando Fallas", "16-06-2000", 85465732,1,"Mando", "1234m");
     }
 
     /**
@@ -117,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", "http://192.168.1.3:8081/img/imgpeli1.png","+16",3200,3200, 2500);
+        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", "http://192.168.1.3:8081/img/imgpeli1.png",3200,3200, 2500);
 
     }
 

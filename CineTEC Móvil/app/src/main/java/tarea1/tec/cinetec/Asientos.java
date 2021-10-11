@@ -12,10 +12,18 @@ import android.widget.Toast;
 
 public class Asientos extends AppCompatActivity {
 
+    int numAsientos = 0;
+    int contador = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_asientos);
+        Bundle bundle = this.getIntent ().getExtras ();
+
+        numAsientos = bundle.getInt ("num_asientos");
+
+
 
 
     }
@@ -26,15 +34,24 @@ public class Asientos extends AppCompatActivity {
             Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento0)).getBitmap();
             imagen.setContentDescription ("desocupado");
             imagen.setImageBitmap (bitmap);
-        }else if(imagen.getContentDescription ().equals ("desocupado")){
+            contador--;
+        }else if(imagen.getContentDescription ().equals ("desocupado") && contador<numAsientos){
             Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento1)).getBitmap();
             imagen.setContentDescription ("seleccionado");
             imagen.setImageBitmap (bitmap);
-        }else{
+            contador++;
+        }else if(imagen.getContentDescription ().equals ("desocupadoDiscapacitado") && contador<numAsientos){
             Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento1)).getBitmap();
-            imagen.setContentDescription ("seleccionado");
+            imagen.setContentDescription ("seleccionadoDiscapacitado");
             imagen.setImageBitmap (bitmap);
+            contador++;
+        }else if(imagen.getContentDescription ().equals ("seleccionadoDiscapacitado")){
+            Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento4)).getBitmap();
+            imagen.setContentDescription ("desocupadoDiscapacitado");
+            imagen.setImageBitmap (bitmap);
+            contador--;
         }
+
     }
 
 }

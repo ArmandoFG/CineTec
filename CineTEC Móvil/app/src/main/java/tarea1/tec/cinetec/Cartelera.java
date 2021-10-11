@@ -73,13 +73,11 @@ public class Cartelera extends AppCompatActivity {
     /**
      *
      * @param imagen Bitmap de la imagen de la pelicula
-     * @param id    Id de la pelicula
      * @param nombre String nombre de la pelicula
      */
 
-    public void CreateMensaje(String imagen, String id, String nombre){
+    public void CreateMensaje(String imagen, String nombre){
         Movies movAuxiliar = new Movies ();
-        movAuxiliar.setId (id);
         movAuxiliar.setImagen (imagen);
         movAuxiliar.setNombre (nombre);
         movAuxiliar.SetContext (this);
@@ -107,7 +105,6 @@ public class Cartelera extends AppCompatActivity {
         String nombre = "";
         String duracion = "";
         String imagen = "";
-        String clasificacion = "";
         int precio_menores = 0;
         int precio_adultos = 0;
         int precio_terceraEdad = 0;
@@ -120,15 +117,14 @@ public class Cartelera extends AppCompatActivity {
                 nombre = c.getString (1);
                 duracion = c.getString (2);
                 imagen = c.getString (3);
-                clasificacion = c.getString (4);
-                precio_menores = c.getInt (5);
-                precio_adultos = c.getInt (6);
-                precio_terceraEdad = c.getInt (7);
+                precio_menores = c.getInt (4);
+                precio_adultos = c.getInt (5);
+                precio_terceraEdad = c.getInt (6);
 
 
 
 
-                CreateMensaje (imagen,nombre, nombre);
+                CreateMensaje (imagen,nombre);
 
             }while (c.moveToNext ());
         }

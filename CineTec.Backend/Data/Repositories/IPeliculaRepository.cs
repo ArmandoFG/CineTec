@@ -10,6 +10,11 @@ namespace CineTec.Backend.Data.Repositories
     {
         Task<IEnumerable<Pelicula>> GetAllPeliculas();
 
+        Task<IEnumerable<Pelicula_por_sala>> GetAllPPS();
+        Task<IEnumerable<Director>> GetAllDirectores();
+        Task<IEnumerable<Protagonista>> GetAllProtagonistas();
+        Task<IEnumerable<Clasificacion>> GetAllClasificaciones();
+
         Task<Pelicula> GetPeliculaDetails(string nombreOriginal);
 
         Task<bool> InsertPelicula(Pelicula pelicula);

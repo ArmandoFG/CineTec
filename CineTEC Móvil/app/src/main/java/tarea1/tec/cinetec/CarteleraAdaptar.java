@@ -1,6 +1,8 @@
 package tarea1.tec.cinetec;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.LinearLayoutCompat;
@@ -19,7 +22,9 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 public class CarteleraAdaptar extends RecyclerView.Adapter<CarteleraAdaptar.moviesViewHolder>{
@@ -58,7 +63,17 @@ public class CarteleraAdaptar extends RecyclerView.Adapter<CarteleraAdaptar.movi
         holder.cardView.setLayoutParams (rl);
         holder.mensajeBg.setLayoutParams (fl);
         holder.image.setLayoutParams (llimage);
-        Glide.with(pelis_cartelera.get (position).getContext ()).load(pelis_cartelera.get (position).getImagen ()).into(holder.image);
+
+        Glide.with(pelis_cartelera.get (position).getContext ()).load(pelis_cartelera.get (position).getImagen ()).placeholder(R.drawable.error).error(R.drawable.error).into(holder.image);
+
+
+
+
+
+
+
+
+
         holder.texto_nombre.setText (pelis_cartelera.get (position).getNombre ());
         holder.cardView.setContentDescription (pelis_cartelera.get (position).getNombre ());
 
