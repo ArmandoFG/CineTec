@@ -150,7 +150,7 @@
                 android:id="@+id/A1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -159,7 +159,7 @@
                 android:id="@+id/A2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -169,7 +169,7 @@
                 android:id="@+id/A3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -178,7 +178,7 @@
                 android:id="@+id/A4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -187,7 +187,7 @@
                 android:id="@+id/A5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -196,7 +196,7 @@
                 android:id="@+id/A6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupadoDiscapacitado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento4"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -205,7 +205,7 @@
                 android:id="@+id/A7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupadoDiscapacitado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento4"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -214,7 +214,7 @@
                 android:id="@+id/A8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -223,7 +223,7 @@
                 android:id="@+id/A9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -232,7 +232,7 @@
                 android:id="@+id/A10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -242,7 +242,7 @@
                 android:id="@+id/A11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -251,7 +251,7 @@
                 android:id="@+id/A12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -266,7 +266,7 @@
                 android:id="@+id/B1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -275,7 +275,7 @@
                 android:id="@+id/B2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -285,7 +285,7 @@
                 android:id="@+id/B3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -294,7 +294,7 @@
                 android:id="@+id/B4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -303,7 +303,7 @@
                 android:id="@+id/B5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -312,7 +312,7 @@
                 android:id="@+id/B6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -321,7 +321,7 @@
                 android:id="@+id/B7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -330,7 +330,7 @@
                 android:id="@+id/B8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -339,7 +339,7 @@
                 android:id="@+id/B10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -349,7 +349,7 @@
                 android:id="@+id/B9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -358,7 +358,7 @@
                 android:id="@+id/B11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -367,7 +367,7 @@
                 android:id="@+id/B12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -382,7 +382,7 @@
                 android:id="@+id/C1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -391,7 +391,7 @@
                 android:id="@+id/C2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -401,7 +401,7 @@
                 android:id="@+id/C3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -410,7 +410,7 @@
                 android:id="@+id/C4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -419,7 +419,7 @@
                 android:id="@+id/C5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -428,7 +428,7 @@
                 android:id="@+id/C6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -437,7 +437,7 @@
                 android:id="@+id/C7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -446,7 +446,7 @@
                 android:id="@+id/C8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -455,7 +455,7 @@
                 android:id="@+id/C9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -464,7 +464,7 @@
                 android:id="@+id/C10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -474,7 +474,7 @@
                 android:id="@+id/C11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -483,7 +483,7 @@
                 android:id="@+id/C12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -498,7 +498,7 @@
                 android:id="@+id/D1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -507,7 +507,7 @@
                 android:id="@+id/D2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -517,7 +517,7 @@
                 android:id="@+id/D3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -526,7 +526,7 @@
                 android:id="@+id/D4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -535,7 +535,7 @@
                 android:id="@+id/D5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -544,7 +544,7 @@
                 android:id="@+id/D6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -553,7 +553,7 @@
                 android:id="@+id/D7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -562,7 +562,7 @@
                 android:id="@+id/D8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -571,7 +571,7 @@
                 android:id="@+id/D9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -580,7 +580,7 @@
                 android:id="@+id/D10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -590,7 +590,7 @@
                 android:id="@+id/D11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -599,7 +599,7 @@
                 android:id="@+id/D12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -614,7 +614,7 @@
                 android:id="@+id/E1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -623,7 +623,7 @@
                 android:id="@+id/E2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -633,7 +633,7 @@
                 android:id="@+id/E3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -642,7 +642,7 @@
                 android:id="@+id/E4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -651,7 +651,7 @@
                 android:id="@+id/E5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -660,7 +660,7 @@
                 android:id="@+id/E6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -669,7 +669,7 @@
                 android:id="@+id/E7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -678,7 +678,7 @@
                 android:id="@+id/E8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -687,7 +687,7 @@
                 android:id="@+id/E9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -696,7 +696,7 @@
                 android:id="@+id/E10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -706,7 +706,7 @@
                 android:id="@+id/E11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -715,7 +715,7 @@
                 android:id="@+id/E12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -729,7 +729,7 @@
                 android:id="@+id/F1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -738,7 +738,7 @@
                 android:id="@+id/F2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -748,7 +748,7 @@
                 android:id="@+id/F3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -757,7 +757,7 @@
                 android:id="@+id/F4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -766,7 +766,7 @@
                 android:id="@+id/F5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -775,7 +775,7 @@
                 android:id="@+id/F6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -784,7 +784,7 @@
                 android:id="@+id/F7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -793,7 +793,7 @@
                 android:id="@+id/F8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -802,7 +802,7 @@
                 android:id="@+id/F9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -811,7 +811,7 @@
                 android:id="@+id/F10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -821,7 +821,7 @@
                 android:id="@+id/F11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -830,7 +830,7 @@
                 android:id="@+id/F12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="desocupado"
+                android:contentDescription="Disponible"
                 android:onClick="AsientosClick"
                 app:srcCompat="@drawable/asiento0"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
@@ -853,7 +853,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="125dp"
             android:background="#040303"
-            android:text="Siguiente"
+            android:text="Confirmar"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

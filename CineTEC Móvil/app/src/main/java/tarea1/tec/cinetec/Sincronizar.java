@@ -371,6 +371,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Cursor con datos de clasificación
+     */
     public void SincronizarClasificacion(Context c) {
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
@@ -412,6 +416,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Cursor datos de todas las facturas
+     */
     public void EnviarDatosFactura(Context c) {
         final BaseDeDatos db = new BaseDeDatos (c);
 

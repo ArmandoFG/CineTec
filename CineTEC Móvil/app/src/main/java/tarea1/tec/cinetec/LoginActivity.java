@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -20,6 +22,10 @@ import com.bumptech.glide.Glide;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,8 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_login);
-        //generarCliente();
-        //generarPelicula();
+
         Sincronizar sinc = new Sincronizar();
         //sinc.SincronizarPeliculas(LoginActivity.this);
         //sinc.SincronizarSucursales(LoginActivity.this);
@@ -55,19 +60,20 @@ public class LoginActivity extends AppCompatActivity {
         //sinc.SincronizarDirector(LoginActivity.this);
         //sinc.SincronizarProtagonista(LoginActivity.this);
 
-        //final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
+        final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
+        db.AgregarFactura (1223,124,643,"Esta","16-06-20",144461234);
+        db.AgregarFactura (123,12,43,"Esta X2","16-07-20",260012001);
+        db.AgregarFactura (122332,124654,64323,"Esta X3","15-06-20",313340092);
 
 
 
-        //db.AgregarPelicula ("Pobochnyi","La mano del demonio", "93 min", "http://192.168.0.111/img/imgpeli1.png","+16",3200,3200, 2500);
-        //db.AgregarPelicula ("Prueba","La mano del demonio", "93 min", "http://192.168.0.11/img/imgpeli1.png","+16",3200,3200, 2500);
-        //db.AgregarPelicula ("Prueba2","La mano del demonio", "93 min", "http://192.168.0.111/img/imgpeli1.png","+16",3200,3200, 2500);
 
 
     }
 
-    public void Ini_Principal(){
+    public void Ini_Principal(int cedula){
         Intent principal = new Intent(this, Cartelera.class);
+        principal.putExtra ("cedula", cedula);
         startActivity (principal);
     }
 
@@ -85,13 +91,13 @@ public class LoginActivity extends AppCompatActivity {
         final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
         Cursor c = db.ObtenerCliente (String.valueOf(UsuarioText.getText ()));
         String pass = "";
-        String user = "";
+        int cedula = 0;
 
 
                 if (c != null && c.moveToFirst()){
         do{
-            user = c.getString (6);
             pass = c.getString (7);
+            cedula = c.getInt (0);
 
 
         }while (c.moveToNext ());
@@ -104,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
         }else{
 
             if(String.valueOf(PassText.getText ()).equals (pass)){
-                Ini_Principal ();
+                Ini_Principal (cedula);
             }else{
                 Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
             }
@@ -119,32 +125,17 @@ public class LoginActivity extends AppCompatActivity {
      * Agrega los datos de un cliente a la base de datos
      */
 
-    public void generarCliente(){
-        final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
-        db.AgregarCliente (117790696,20, "Armando Fallas", "16-06-2000", 85465732,1,"Mando", "1234m");
-    }
+
 
     /**
      * Agrega los datos de una pelicula a la base de datos
      */
 
-    public void generarPelicula(){
-        final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
 
 
 
-        db.AgregarPelicula ("Pobochnyi effekt","La mano del demonio", "93 min", "http://192.168.1.3:8081/img/imgpeli1.png",3200,3200, 2500);
 
-    }
 
-    public void GenerarSucursales(){
-        BaseDeDatos db = new BaseDeDatos (this);
-        db.AgregarSucursal (0,"Cartago", "CineTec", 8);
-        db.AgregarSucursal (1,"San José", "CineTec", 5);
-        db.AgregarSucursal (2,"Heredia", "CineTec", 12);
-        db.AgregarSucursal (3,"Puntarenas", "CineTec", 6);
-
-    }
 
 
 

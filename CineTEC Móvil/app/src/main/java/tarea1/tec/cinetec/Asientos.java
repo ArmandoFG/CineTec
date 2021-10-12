@@ -14,6 +14,7 @@ public class Asientos extends AppCompatActivity {
 
     int numAsientos = 0;
     int contador = 0;
+    int CEDULA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class Asientos extends AppCompatActivity {
         Bundle bundle = this.getIntent ().getExtras ();
 
         numAsientos = bundle.getInt ("num_asientos");
-
+        CEDULA = bundle.getInt ("cedula");
 
 
 
@@ -35,19 +36,20 @@ public class Asientos extends AppCompatActivity {
             imagen.setContentDescription ("desocupado");
             imagen.setImageBitmap (bitmap);
             contador--;
-        }else if(imagen.getContentDescription ().equals ("desocupado") && contador<numAsientos){
+        }else if(imagen.getContentDescription ().equals ("Disponible") && view.getId () != R.id.A6 && view.getId () != R.id.A7 && contador<numAsientos){
             Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento1)).getBitmap();
             imagen.setContentDescription ("seleccionado");
             imagen.setImageBitmap (bitmap);
             contador++;
-        }else if(imagen.getContentDescription ().equals ("desocupadoDiscapacitado") && contador<numAsientos){
+            Toast.makeText (Asientos.this, view.getResources ().getResourceEntryName (view.getId ()), Toast.LENGTH_SHORT).show ();
+        }else if(imagen.getContentDescription ().equals ("Disponible") && contador<numAsientos && view.getResources ().getResourceEntryName (view.getId ()).equals ("A6") || imagen.getContentDescription ().equals ("Disponible") && contador<numAsientos && view.getResources ().getResourceEntryName (view.getId ()).equals ("A7")){
             Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento1)).getBitmap();
             imagen.setContentDescription ("seleccionadoDiscapacitado");
             imagen.setImageBitmap (bitmap);
             contador++;
         }else if(imagen.getContentDescription ().equals ("seleccionadoDiscapacitado")){
             Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento4)).getBitmap();
-            imagen.setContentDescription ("desocupadoDiscapacitado");
+            imagen.setContentDescription ("Disponible");
             imagen.setImageBitmap (bitmap);
             contador--;
         }

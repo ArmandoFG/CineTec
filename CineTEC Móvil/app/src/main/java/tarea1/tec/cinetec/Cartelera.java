@@ -14,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -35,21 +36,30 @@ public class Cartelera extends AppCompatActivity {
     private RecyclerView rv;
     private List<Movies> pelis_cartelera;
     public CarteleraAdaptar adapter;
+    public String SucursalSeleccionada;
+    public int idSuc;
+    public int CEDULA;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_cartelera);
+        Bundle bundle = this.getIntent ().getExtras ();
+        CEDULA = bundle.getInt ("cedula");
+
 
         CargarSucursales ();
 
 
         rv = (RecyclerView) findViewById (R.id.Recycler_sms);
         pelis_cartelera = new ArrayList<> ();
-
-
         LinearLayoutManager lm = new LinearLayoutManager (this);
         rv.setLayoutManager (lm);
+
+        Spinner spinner2 = findViewById (R.id.spinner2);
+        SucursalSeleccionada = spinner2.getSelectedItem ().toString ();
+
 
         adapter = new CarteleraAdaptar (pelis_cartelera, this, new CarteleraAdaptar.OnItemClickListener (){
             @Override
@@ -76,13 +86,20 @@ public class Cartelera extends AppCompatActivity {
      * @param nombre String nombre de la pelicula
      */
 
-    public void CreateMensaje(String imagen, String nombre){
+    public void CreateMensaje(String imagen, String nombre, String nombreOr){
         Movies movAuxiliar = new Movies ();
         movAuxiliar.setImagen (imagen);
         movAuxiliar.setNombre (nombre);
+        movAuxiliar.setNombreOr (nombreOr);
         movAuxiliar.SetContext (this);
-        pelis_cartelera.add (movAuxiliar);
-        adapter.notifyDataSetChanged ();
+
+        try {
+            pelis_cartelera.add (movAuxiliar);
+            adapter.notifyDataSetChanged ();
+        }catch (Exception ex) {
+        }
+
+
 
     }
 
@@ -96,10 +113,38 @@ public class Cartelera extends AppCompatActivity {
      */
 
     public void MostarPeliculas(){
-
+        pelis_cartelera.clear ();
+        rv.clearOnChildAttachStateChangeListeners ();
+        rv.clearAnimation ();
         BaseDeDatos db = new BaseDeDatos (this);
         Cursor c = db.ObtenerTodasLasPeliculas ();
         ArrayList<String> peliculas = new ArrayList<String> ();
+
+
+        Cursor c2 = db.Obtenerid_sucursal (SucursalSeleccionada);
+        if (c2 != null && c2.moveToFirst()){
+            do{
+                idSuc = c2.getInt (0);
+
+
+            }while (c2.moveToNext ());
+
+        }
+
+        ArrayList<String> pelis = new ArrayList<String> ();
+        Cursor c3 = db.ObtenerPeliID (String.valueOf (idSuc));
+        if (c3 != null && c3.moveToFirst()){
+            do{
+
+
+                pelis.add (c3.getString (0));
+
+
+            }while (c3.moveToNext ());
+
+        }
+
+
 
         String nombre_original = "";
         String nombre = "";
@@ -122,9 +167,10 @@ public class Cartelera extends AppCompatActivity {
                 precio_terceraEdad = c.getInt (6);
 
 
+                if(pelis.contains (nombre_original) == true){
+                    CreateMensaje (imagen,nombre, nombre_original);
+                }
 
-
-                CreateMensaje (imagen,nombre);
 
             }while (c.moveToNext ());
         }
@@ -137,6 +183,8 @@ public class Cartelera extends AppCompatActivity {
     public void inicioProyecciones(String nombre_pelicula){
         Intent intent = new Intent (this,Proyeccion.class);
         intent.putExtra ("nombre", nombre_pelicula);
+        intent.putExtra ("sucursal", idSuc);
+        intent.putExtra ("cedula", CEDULA);
         startActivity (intent);
     }
 
@@ -150,7 +198,6 @@ public class Cartelera extends AppCompatActivity {
 
 
         String Sucursal = "";
-        String Cine = "";
 
         Spinner spinner;
         ArrayList<String> sucursales;
@@ -160,15 +207,29 @@ public class Cartelera extends AppCompatActivity {
         if(c.moveToFirst () != false){
             do{
                 Sucursal = c.getString (1);
-                Cine = c.getString (2);
 
-                sucursales.add (Sucursal + " " + Cine);
+                sucursales.add (Sucursal);
 
             }while (c.moveToNext ());
         }
 
         ArrayAdapter<String> adaptador = new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1,sucursales);
         spinner.setAdapter (adaptador);
+
+        spinner.setOnItemSelectedListener (new AdapterView.OnItemSelectedListener ()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                SucursalSeleccionada = spinner.getSelectedItem ().toString ();
+                MostarPeliculas ();
+            }
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+
+        });
 
     }
 

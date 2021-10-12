@@ -3,7 +3,7 @@ package tarea1.tec.cinetec.model;
 public class Tabla_Asiento {
     private int salaid;
     private String asientoid;
-    private String disponibildad;
+    private String disponibilidad;
 
     public int getSalaid() {
         return salaid;
@@ -22,10 +22,10 @@ public class Tabla_Asiento {
     }
 
     public String getDisponibildad() {
-        return disponibildad;
+        return disponibilidad;
     }
 
     public void setDisponibildad(String disponibildad) {
-        this.disponibildad = disponibildad;
+        this.disponibilidad = disponibildad;
     }
 }

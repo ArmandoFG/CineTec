@@ -218,6 +218,78 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         return c;
     }
 
+    public Cursor ObtenerPeliculasSucursales(String condition) {
+        String columnas[] = {
+                SALA_SUCURSAL,
+                SALAID,
+                NOMBREPELICULA,
+                HORA
+
+        };
+        String[] args = new String[]{condition};
+        Cursor c = this.getReadableDatabase ().query (TablaPeliSala, columnas, USERC + "=?", args, null, null, null);
+        return c;
+    }
+
+    /**
+     *
+     * @param condition Valor que desea de la tabla
+     * @return cursor con los datos
+     */
+    public Cursor Obtenerid_sucursal(String condition){
+        String columnas[] = {
+                IDSUCURSAL
+        };
+        String[] args = new String[]{condition};
+        Cursor c = this.getReadableDatabase ().query (Tabla_Sucursal, columnas, UBICACION + "=?", args, null, null, null);
+        return c;
+    }
+
+    public Cursor ObtenerPeliID(String condition){
+        String columnas[] = {
+                NOMBREPELICULA
+        };
+        String[] args = new String[]{condition};
+        Cursor c = this.getReadableDatabase ().query (TablaPeliSala, columnas, SALA_SUCURSAL + "=?", args, null, null, null);
+        return c;
+    }
+
+    public Cursor ObtenerHoras(String condition){
+        String columnas[] = {
+                NOMBREPELICULA,
+                HORA
+
+        };
+        String[] args = new String[]{condition};
+        Cursor c = this.getReadableDatabase ().query (TablaPeliSala, columnas, SALA_SUCURSAL + "=?", args, null, null, null);
+        return c;
+    }
+
+    public Cursor ObtenerPrecios(String condition){
+        String columnas[] = {
+                PRECIOMEN,
+                PRECIOADUL,
+                PRECIOTER
+        };
+        String[] args = new String[]{condition};
+        Cursor c = this.getReadableDatabase ().query (TABLE_PELICULA, columnas, NOMBRE0 + "=?", args, null, null, null);
+        return c;
+    }
+
+    public Cursor ObtenerAsientosSala(String condition){
+        String columnas[] = {
+                ASID,
+                DISPOIBILIDAD
+        };
+        String[] args = new String[]{condition};
+        Cursor c = this.getReadableDatabase ().query (Tabla_Asiento, columnas, SALA + "=?", args, null, null, null);
+        return c;
+    }
+
+
+
+
+
     /**
      *
      * @param cedula Entero cédula del cliente
@@ -272,7 +344,13 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     }
 
 
-
+    /**
+     *
+     * @param id entero id sucursal
+     * @param ubicacion string ubicación de la sucursal
+     * @param cine string cine de la sucursal
+     * @param salas entero salas del cine
+     */
     public void AgregarSucursal(int id, String ubicacion, String cine, int salas) {
         ContentValues valores = new ContentValues ();
         valores.put (IDSUCURSAL, id);
@@ -282,6 +360,16 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         this.getWritableDatabase ().insert (Tabla_Sucursal, null, valores);
 
     }
+
+    /**
+     *
+     * @param clave entero, clave de la factura
+     * @param consecutivo entero, consecutivo de la factura
+     * @param fac entero, numero de factura
+     * @param detalle string, detalle de la factura
+     * @param FECHA string Fecha de la factura
+     * @param cedula entero, cédula del cliente
+     */
 
     public void AgregarFactura(int clave, int consecutivo, int fac, String detalle, String FECHA, int cedula) {
         ContentValues valores = new ContentValues ();
@@ -380,6 +468,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         Cursor c = this.getReadableDatabase ().query (Tabla_Asiento, columnas, null, null, null, null, null);
         return c;
     }
+
 
 
 

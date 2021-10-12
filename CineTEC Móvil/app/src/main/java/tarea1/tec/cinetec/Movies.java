@@ -9,6 +9,7 @@ public class Movies {
 
     private String imagen;
     private String nombre;
+    private String nombreOriginal;
     private Context context;
 
 
@@ -28,6 +29,11 @@ public class Movies {
         return nombre;
     }
 
+    public String getNombreOR() {
+        return nombreOriginal;
+    }
+
+
     public Context getContext() {
         return context;
     }
@@ -41,6 +47,11 @@ public class Movies {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public void setNombreOr(String nombre) {
+        this.nombreOriginal = nombre;
+    }
+
 
     public void SetContext(Context context) {
         this.context = context;

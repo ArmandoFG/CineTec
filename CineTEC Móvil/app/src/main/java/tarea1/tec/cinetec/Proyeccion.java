@@ -3,6 +3,7 @@ package tarea1.tec.cinetec;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,30 +17,46 @@ import java.util.ArrayList;
 
 public class Proyeccion extends AppCompatActivity {
 
-    String NombrePelicula = "";
+    public String NombrePelicula = "";
+    public int Sucursal;
+    public int CEDULA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_proyeccion);
         Bundle bundle = this.getIntent ().getExtras ();
-        CargarHoras ();
 
         NombrePelicula = bundle.getString ("nombre");
+        Sucursal = bundle.getInt ("sucursal");
+        CEDULA = bundle.getInt ("cedula");
 
-        Toast.makeText (Proyeccion.this, NombrePelicula, Toast.LENGTH_SHORT).show ();
+        CargarHoras ();
+        CargarPrecios ();
+
+
     }
 
 
     public void CargarHoras(){
+        final BaseDeDatos db = new BaseDeDatos (Proyeccion.this);
 
+        Cursor c = db.ObtenerHoras (String.valueOf (Sucursal));
         ListView listview;
         ArrayList<String> horas;
         listview = findViewById (R.id.Lista_pro);
         horas = new ArrayList<String> ();
-        horas.add ("8:00");
-        horas.add ("10:00");
-        horas.add ("15:00");
+
+
+        if(c.moveToFirst () != false){
+            do{
+
+                if(NombrePelicula.equals (c.getString (0))){
+                    horas.add (c.getString (1));
+                }
+            }while (c.moveToNext ());
+        }
+
 
         ArrayAdapter<String> adaptador = new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1,horas);
 
@@ -62,6 +79,7 @@ public class Proyeccion extends AppCompatActivity {
 
                     Intent Asientos = new Intent(Proyeccion.this, Asientos.class);
                     Asientos.putExtra ("num_asientos", asientos);
+                    Asientos.putExtra ("cedula",CEDULA);
                     startActivity(Asientos);
                 }
 
@@ -128,6 +146,26 @@ public class Proyeccion extends AppCompatActivity {
             int num = Integer.parseInt (TN.getText ().toString ());
             num--;
             TN.setText (String.valueOf (num));
+        }
+    }
+
+    public void CargarPrecios(){
+        final BaseDeDatos db = new BaseDeDatos (Proyeccion.this);
+        Cursor c = db.ObtenerPrecios (NombrePelicula);
+        TextView PrecioN = findViewById (R.id.textView8);
+        TextView PrecioA = findViewById (R.id.textView9);
+        TextView Precio3A = findViewById (R.id.textView10);
+
+
+        if (c != null && c.moveToFirst()){
+            do{
+
+                PrecioN.setText (PrecioN.getText ()+" "+c.getString (0));
+                PrecioA.setText (PrecioA.getText ()+" "+c.getString (1));
+                Precio3A.setText (Precio3A.getText ()+" "+c.getString (2));
+
+            }while (c.moveToNext ());
+
         }
     }
 }
