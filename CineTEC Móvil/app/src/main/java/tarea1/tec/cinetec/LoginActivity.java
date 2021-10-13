@@ -61,9 +61,14 @@ public class LoginActivity extends AppCompatActivity {
         //sinc.SincronizarProtagonista(LoginActivity.this);
 
         final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
-        db.AgregarFactura (1223,124,643,"Esta","16-06-20",144461234);
-        db.AgregarFactura (123,12,43,"Esta X2","16-07-20",260012001);
-        db.AgregarFactura (122332,124654,64323,"Esta X3","15-06-20",313340092);
+        //db.AgregarFactura (1223,124,643,"Esta","16-06-20",144461234);
+        //db.AgregarFactura (123,12,43,"Esta X2","16-07-20",260012001);
+        //db.AgregarFactura (122332,124654,64323,"Esta X3","15-06-20",313340092);
+        //sinc.EnviarDatosFactura(LoginActivity.this);
+
+
+
+        sinc.EnviarDatosAsientos(LoginActivity.this);
 
 
 

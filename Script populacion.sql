@@ -1,24 +1,19 @@
 --Insercion Sucursales
 INSERT INTO Sucursal(ubicacion, nombre_cine, cantidad_salas) 
-VALUES('San Francisco de Heredia', 'CineTec Oxigeno', 5); 
+VALUES('San Francisco de Heredia', 'CineTec Oxigeno', 3); 
 
 INSERT INTO Sucursal(ubicacion, nombre_cine, cantidad_salas) 
-VALUES('San Rafael de Escazu', 'CineTec Multiplaza Escazu', 4); 
+VALUES('San Rafael de Escazu', 'CineTec Multiplaza Escazu', 2); 
 
 INSERT INTO Sucursal(ubicacion, nombre_cine, cantidad_salas) 
-VALUES('Cartago', 'CineTec Paseo Metropoli', 4);
+VALUES('Cartago', 'CineTec Paseo Metropoli', 3);
 
-INSERT INTO Sucursal(ubicacion, nombre_cine, cantidad_salas) 
-VALUES('Cartago', 'CineTec Paseo Metropoli', 5);
-
-INSERT INTO Sucursal(ubicacion, nombre_cine, cantidad_salas) 
-VALUES('Moravia', 'CineTec VIP Linconl', 2);
 
 INSERT INTO Sucursal(ubicacion, nombre_cine, cantidad_salas) 
 VALUES('Moravia', 'CineTec Linconl', 4);
 
 INSERT INTO Sucursal(ubicacion, nombre_cine, cantidad_salas) 
-VALUES('Curridabat', 'CineTec Multiplaza Curridabat', 5);
+VALUES('Curridabat', 'CineTec Multiplaza Curridabat', 2);
 
 --Insercion Salas
 

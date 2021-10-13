@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,6 +29,7 @@ import tarea1.tec.cinetec.model.Tabla_Asiento;
 import tarea1.tec.cinetec.model.Tabla_Clasificacion;
 import tarea1.tec.cinetec.model.Tabla_Cliente;
 import tarea1.tec.cinetec.model.Tabla_Director;
+import tarea1.tec.cinetec.model.Tabla_Factura;
 import tarea1.tec.cinetec.model.Tabla_Peliculas;
 import tarea1.tec.cinetec.model.Tabla_Protagonista;
 import tarea1.tec.cinetec.model.Tabla_Sala;
@@ -424,46 +426,88 @@ public class Sincronizar {
         final BaseDeDatos db = new BaseDeDatos (c);
 
         Cursor cursor = db.ObtenerTodasLasFacturas ();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASEURL)
+                .addConverterFactory(GsonConverterFactory.create()).build();
+        PeliculasAPI peliculasAPI=retrofit.create(PeliculasAPI.class);
 
-
-        JSONArray array = new JSONArray ();
         if (cursor != null && cursor.getCount () > 0) {
             while (cursor.moveToNext ()) {
-                JSONObject object = new JSONObject ();
+                Tabla_Factura object = new Tabla_Factura ();
                 try {
-                    object.put ("clave", cursor.getInt (0));
-                    object.put ("consecutivo", cursor.getInt (1));
-                    object.put ("fact_id", cursor.getInt (2));
-                    object.put ("detalle", cursor.getString (3));
-                    object.put ("fecha", cursor.getString (4));
-                    object.put ("cedula_cliente", cursor.getInt (5));
+                    object.setClave(cursor.getInt (0));
+                    object.setConsecutivo(cursor.getInt (1));
+                    object.setFact_id(cursor.getInt (2));
+                    object.setDetalle(cursor.getString (3));
+                    object.setFecha(cursor.getString (4));
+                    object.setCedula_cliente(cursor.getInt (5));
 
-                    array.put (object);
-                } catch (JSONException e) {
+                    Call<Tabla_Factura> call=peliculasAPI.env(object);
+                    call.enqueue(new Callback<Tabla_Factura>() {
+                        @Override
+                        public void onResponse(Call<Tabla_Factura> call, Response<Tabla_Factura> response) {
+                            try
+                            {
+                                Toast.makeText(c, "fact enviada", Toast.LENGTH_SHORT).show();
+                            }catch (Exception ex){
+                                Toast.makeText(c, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Tabla_Factura> call, Throwable t) {
+                            Toast.makeText(c, "fact env", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+                } catch (Exception e) {
                     e.printStackTrace ();
                 }
 
             }
         }
+
+
+
+
+
     }
     public void EnviarDatosAsientos(Context c) {
         final BaseDeDatos db = new BaseDeDatos (c);
 
         Cursor cursor = db.ObtenerTodosLosAsientos ();
 
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASEURL)
+                .addConverterFactory(GsonConverterFactory.create()).build();
+        AsientoAPI asientoAPI=retrofit.create(AsientoAPI.class);
 
-        JSONArray array = new JSONArray ();
         if (cursor != null && cursor.getCount () > 0) {
             while (cursor.moveToNext ()) {
-                JSONObject object = new JSONObject ();
+                Tabla_Asiento object = new Tabla_Asiento ();
                 try {
-                    object.put ("Salaid", cursor.getInt (0));
-                    object.put ("AsientoID", cursor.getInt (1));
-                    object.put ("Disponibilidad", cursor.getInt (2));
+                    object.setSalaid (cursor.getInt (0));
+                    object.setAsientoid (cursor.getString (1));
+                    object.setDisponibildad (cursor.getString (2));
 
+                    Call<Tabla_Asiento> call=asientoAPI.env(object);
+                    call.enqueue(new Callback<Tabla_Asiento>() {
+                        @Override
+                        public void onResponse(Call<Tabla_Asiento> call, Response<Tabla_Asiento> response) {
+                            try
+                            {
+                                Toast.makeText(c, "asiento mod", Toast.LENGTH_SHORT).show();
+                            }catch (Exception ex){
+                                Toast.makeText(c, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
 
-                    array.put (object);
-                } catch (JSONException e) {
+                        @Override
+                        public void onFailure(Call<Tabla_Asiento> call, Throwable t) {
+                            Toast.makeText(c, "asiento mod", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                } catch (Exception e) {
                     e.printStackTrace ();
                 }
 

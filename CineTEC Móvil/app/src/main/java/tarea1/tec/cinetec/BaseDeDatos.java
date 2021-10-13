@@ -367,17 +367,17 @@ public class BaseDeDatos extends SQLiteOpenHelper {
      * @param consecutivo entero, consecutivo de la factura
      * @param fac entero, numero de factura
      * @param detalle string, detalle de la factura
-     * @param FECHA string Fecha de la factura
+     * @param FECH string Fecha de la factura
      * @param cedula entero, cédula del cliente
      */
 
-    public void AgregarFactura(int clave, int consecutivo, int fac, String detalle, String FECHA, int cedula) {
+    public void AgregarFactura(int clave, int consecutivo, int fac, String detalle, String FECH, int cedula) {
         ContentValues valores = new ContentValues ();
         valores.put (CLAVE, clave);
         valores.put (CONSECUTIVO, consecutivo);
         valores.put (FACT_ID, fac);
         valores.put (DETALLE, detalle);
-        valores.put (FECHA, FECHA);
+        valores.put (FECHA, FECH);
         valores.put (CEDULACLIENTEFAC, cedula);
         this.getWritableDatabase ().insert (TABLA_FACTURA, null, valores);
 
