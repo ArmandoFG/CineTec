@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 interface Pelicula {
   nombrePelicula:string;
   nombreCine:string;
+  hora:string
 }
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class PeliculaService {
   public sucursalInfo:any;
   public pelicula: Pelicula={
     nombrePelicula:'',
-    nombreCine:''
+    nombreCine:'',
+    hora:''
   }
   constructor(
     public _http: HttpClient
@@ -41,5 +43,11 @@ export class PeliculaService {
   getHoraPelicula():Observable<any>{
     return this._http.get(this.url+"api/sucursal/horas/"+
     this.pelicula.nombreCine+"/"+this.pelicula.nombrePelicula);
+  }
+  elegirAsiento(hora:string){
+
+  }
+  setHora(hora:string){
+    this.pelicula.hora=hora;
   }
 }

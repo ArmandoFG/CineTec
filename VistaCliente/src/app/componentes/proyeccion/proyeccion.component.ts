@@ -19,7 +19,6 @@ export class ProyeccionComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
     this.getHoras();
   }
   getHoras(){
@@ -34,14 +33,16 @@ export class ProyeccionComponent implements OnInit {
           this.proyecciones.push({hora: auxiliar});
           counter++;
         }
-        //this.proyecciones=result;
-        
       },
       error => {
         console.log("hubo algun error obteniendo Sucursales \n" + <any>error);
         alert("Error obteniendo las sucursales \n Vuelva a ingresar al sistema");
       }
     ); 
+  }
+  setHora(hora:string){
+    this._peliculaService.pelicula.hora= hora;
+    this.router.navigate(['Asientos']);
   }
   goBack(){
     this.router.navigate(['Cartelera']);
