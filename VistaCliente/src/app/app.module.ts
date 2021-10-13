@@ -4,6 +4,8 @@ import { routing, appRoutingProviders } from './app.routings';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
@@ -12,6 +14,11 @@ import { VistaprincipalComponent } from './componentes/vistaprincipal/vistaprinc
 import { ProyeccionComponent } from './componentes/proyeccion/proyeccion.component';
 import { AsientoComponent } from './componentes/asiento/asiento.component';
 import { PagoComponent } from './componentes/pago/pago.component';
+import { InformacionComponent } from './componentes/Informacion/informacion.component';
+import { ClienteService } from './services/cliente.service';
+import { PeticionesService } from './services/peticiones.service';
+import { PopupComponent } from './componentes/popup/popup.component';
+import { PeliculaService } from './services/pelicula.service';
 
 
 @NgModule({
@@ -22,7 +29,9 @@ import { PagoComponent } from './componentes/pago/pago.component';
     VistaprincipalComponent,
     ProyeccionComponent,
     AsientoComponent,
-    PagoComponent
+    PagoComponent,
+    InformacionComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +39,14 @@ import { PagoComponent } from './componentes/pago/pago.component';
     BrowserAnimationsModule,
     MatExpansionModule,
     FormsModule,
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    ClienteService,
+    PeticionesService,
+    PeliculaService
   ],
   bootstrap: [AppComponent]
 })

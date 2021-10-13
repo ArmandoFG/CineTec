@@ -22,7 +22,7 @@ li a {
   padding: 14px 16px;
   text-decoration: brown;
   height: 55px;
-  font-family: fantasy;
+  font-family: unset;
   font-size: 13px;
   transition: all 0.35s;
   
@@ -49,6 +49,8 @@ li a:hover {
   left: 15px;
   top: 0px;
   font-size: 20px;
+  text-shadow: 2px 2px #000000;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #nombreU{
@@ -56,5 +58,7 @@ li a:hover {
   top: 30px;
   left: 140px;
   font-size: 14px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #000000;
 }
 
