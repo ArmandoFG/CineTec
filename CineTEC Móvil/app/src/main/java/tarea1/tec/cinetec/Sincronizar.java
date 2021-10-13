@@ -45,6 +45,9 @@ public class Sincronizar {
      * Metodo que envia una solicitud de tipo Get al API para obtener el listado de los movimientos de la cuenta
      */
     public void SincronizarPeliculas(Context c) {
+        final BaseDeDatos db = new BaseDeDatos (c);
+        db.BorrarDatosPeliculas();
+        db.BorrarDatosPelisPorSala();
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
                 //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
@@ -58,7 +61,7 @@ public class Sincronizar {
                 try {
                     //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful ()) {
-                        Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
+                        //Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
                         List<Tabla_Peliculas> m = response.body ();
                         final BaseDeDatos db = new BaseDeDatos (c);
                         for (Tabla_Peliculas peli : m) {
@@ -86,6 +89,8 @@ public class Sincronizar {
     }
 
     public void SincronizarSucursales(Context c) {
+        final BaseDeDatos db = new BaseDeDatos (c);
+        db.BorrarSucursales();
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
                 //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
@@ -99,7 +104,7 @@ public class Sincronizar {
                 try {
                     //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful ()) {
-                        Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
+                        //Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
                         List<Tabla_Sucursal> m = response.body ();
                         final BaseDeDatos db = new BaseDeDatos (c);
                         for (Tabla_Sucursal suc : m) {
@@ -140,7 +145,7 @@ public class Sincronizar {
                 try {
                     //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful ()) {
-                        Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
+                        //Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
                         List<Tabla_Sala> m = response.body ();
                         final BaseDeDatos db = new BaseDeDatos (c);
                         for (Tabla_Sala sala : m) {
@@ -168,11 +173,13 @@ public class Sincronizar {
     }
 
     public void SincronizarCliente(Context c) {
-        //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
+        final BaseDeDatos db = new BaseDeDatos (c);
+        db.BorrarDatosClientes();
+        Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
                 //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory (GsonConverterFactory.create ()).build ();
-
+       //Toast.makeText(c, "toast2", Toast.LENGTH_SHORT).show();
         ClienteAPI clienteAPI = retrofit.create (ClienteAPI.class);
         Call<List<Tabla_Cliente>> call = clienteAPI.find ();
         call.enqueue (new Callback<List<Tabla_Cliente>> () {
@@ -181,15 +188,17 @@ public class Sincronizar {
                 try {
                     //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful ()) {
-                        Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
+                        //Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
                         List<Tabla_Cliente> m = response.body ();
                         final BaseDeDatos db = new BaseDeDatos (c);
                         for (Tabla_Cliente cliente : m) {
                             try {
+                                //Toast.makeText (c, cliente.getNombre(), Toast.LENGTH_SHORT).show ();
+                                //Toast.makeText (c, "prueba", Toast.LENGTH_SHORT).show ();
                                 db.AgregarCliente (cliente.getCedula(),cliente.getEdad(),cliente.getNombre(),cliente.getFecha_nacimiento(),
                                         cliente.getNumero_telefono(),cliente.getId_sucursal(),cliente.getUsuario(),cliente.getPass());
                             } catch (Exception ex) {
-
+                                //Toast.makeText (c, "catch", Toast.LENGTH_SHORT).show ();
                             }
 
                         }
@@ -264,7 +273,7 @@ public class Sincronizar {
                 try {
                     //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful ()) {
-                        Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
+                        //Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
                         List<Tabla_peliPsala> m = response.body ();
                         final BaseDeDatos db = new BaseDeDatos (c);
                         for (Tabla_peliPsala pps : m) {
@@ -305,7 +314,7 @@ public class Sincronizar {
                 try {
                     //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful ()) {
-                        Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
+                        //Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
                         List<Tabla_Director> m = response.body ();
                         final BaseDeDatos db = new BaseDeDatos (c);
                         for (Tabla_Director dir : m) {
@@ -346,7 +355,7 @@ public class Sincronizar {
                 try {
                     //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful ()) {
-                        Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
+                        //Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
                         List<Tabla_Protagonista> m = response.body ();
                         final BaseDeDatos db = new BaseDeDatos (c);
                         for (Tabla_Protagonista prota : m) {
@@ -391,7 +400,7 @@ public class Sincronizar {
                 try {
                     //Toast.makeText(c, "HOLA", Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful ()) {
-                        Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
+                        //Toast.makeText (c, "Conectado", Toast.LENGTH_SHORT).show ();
                         List<Tabla_Clasificacion> m = response.body ();
                         final BaseDeDatos db = new BaseDeDatos (c);
                         for (Tabla_Clasificacion clas : m) {
@@ -447,7 +456,7 @@ public class Sincronizar {
                         public void onResponse(Call<Tabla_Factura> call, Response<Tabla_Factura> response) {
                             try
                             {
-                                Toast.makeText(c, "fact enviada", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(c, "fact enviada", Toast.LENGTH_SHORT).show();
                             }catch (Exception ex){
                                 Toast.makeText(c, ex.getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -455,7 +464,7 @@ public class Sincronizar {
 
                         @Override
                         public void onFailure(Call<Tabla_Factura> call, Throwable t) {
-                            Toast.makeText(c, "fact env", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(c, "fact env", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -495,7 +504,7 @@ public class Sincronizar {
                         public void onResponse(Call<Tabla_Asiento> call, Response<Tabla_Asiento> response) {
                             try
                             {
-                                Toast.makeText(c, "asiento mod", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(c, "asiento mod", Toast.LENGTH_SHORT).show();
                             }catch (Exception ex){
                                 Toast.makeText(c, ex.getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -503,7 +512,7 @@ public class Sincronizar {
 
                         @Override
                         public void onFailure(Call<Tabla_Asiento> call, Throwable t) {
-                            Toast.makeText(c, "asiento mod", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(c, "asiento mod", Toast.LENGTH_SHORT).show();
                         }
                     });
 

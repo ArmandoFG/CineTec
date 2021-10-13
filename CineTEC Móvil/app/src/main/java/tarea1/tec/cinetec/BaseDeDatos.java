@@ -482,5 +482,9 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TablaPeliSala);
     }
+    public void BorrarSucursales(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + Tabla_Sucursal);
+    }
 
 }

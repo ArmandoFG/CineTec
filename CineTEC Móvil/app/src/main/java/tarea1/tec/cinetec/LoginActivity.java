@@ -49,24 +49,26 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_login);
 
-        Sincronizar sinc = new Sincronizar();
-        //sinc.SincronizarPeliculas(LoginActivity.this);
-        //sinc.SincronizarSucursales(LoginActivity.this);
-        //sinc.SincronizarSalas(LoginActivity.this);
-        //sinc.SincronizarCliente(LoginActivity.this);
-        //sinc.SincronizarAsiento(LoginActivity.this);
-        //sinc.SincronizarPeliPSala(LoginActivity.this);
-        //sinc.SincronizarClasificacion(LoginActivity.this);
-        //sinc.SincronizarDirector(LoginActivity.this);
-        //sinc.SincronizarProtagonista(LoginActivity.this);
-
         final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
-        db.BorrarDatosClientes ();
-        db.BorrarDatosPelisPorSala ();
-        //db.AgregarFactura (1223,124,643,"Esta","16-06-20",144461234);
-        //db.AgregarFactura (123,12,43,"Esta X2","16-07-20",260012001);
-        //db.AgregarFactura (122332,124654,64323,"Esta X3","15-06-20",313340092);
-        //sinc.EnviarDatosFactura(LoginActivity.this);
+
+
+        Sincronizar sinc = new Sincronizar();
+        sinc.SincronizarPeliculas(LoginActivity.this);
+        sinc.SincronizarSucursales(LoginActivity.this);
+        sinc.SincronizarSalas(LoginActivity.this);
+        sinc.SincronizarCliente(LoginActivity.this);
+        sinc.SincronizarAsiento(LoginActivity.this);
+        sinc.SincronizarPeliPSala(LoginActivity.this);
+        sinc.SincronizarClasificacion(LoginActivity.this);
+        sinc.SincronizarDirector(LoginActivity.this);
+        sinc.SincronizarProtagonista(LoginActivity.this);
+
+
+        db.AgregarFactura (1223,124,643,"Esta","16-06-20",144461234);
+        db.AgregarCliente(12347747,21,"Harold","14-10-2000",63139863,1,"hrld","spnz");
+        db.AgregarFactura (123,12,43,"Esta X2","16-07-20",260012001);
+        db.AgregarFactura (122332,124654,64323,"Esta X3","15-06-20",313340092);
+        sinc.EnviarDatosFactura(LoginActivity.this);
 
 
 
