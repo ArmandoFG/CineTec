@@ -9,7 +9,7 @@ namespace CineTec.Backend.Data.Repositories
     public interface IAsientoRepository
     {
         Task<Asiento> GetAsientoDetails(string AsientoId);
-        Task<bool> UpdateAsientos(List<Asiento>asientos);
+        Task<bool> UpdateAsientos(Asiento asiento);
 
         Task<IEnumerable<Asiento>> GetAllAsientos();
     }

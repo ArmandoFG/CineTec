@@ -31,9 +31,9 @@ namespace CineTec.Backend.Controllers
         }
 
         [HttpPut("syncAsiento")]
-        public async Task<IActionResult> UpdateAsientos([FromBody] List<Asiento> asientos) 
+        public async Task<IActionResult> UpdateAsientos([FromBody] Asiento asiento) 
         {
-            return Ok(await _asientoRepository.UpdateAsientos(asientos));
+            return Ok(await _asientoRepository.UpdateAsientos(asiento));
         }
     }
 }

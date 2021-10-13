@@ -108,5 +108,43 @@ namespace CineTec.Backend.Data.Repositories
 
             return result > 0;
         }
+
+        public async Task<IEnumerable<string>> GetCinesName()
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT nombre_cine
+                        FROM public.sucursal
+                        ";
+
+            return await db.QueryAsync<string>(sql, new { });
+        }
+
+        public async Task<IEnumerable<string>> ProyeccionesPCine(string nombreCine)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT DISTINCT nombre_pelicula
+                        FROM sucursal JOIN pelicula_por_sala ON sucursal_id = id_sucursal
+                        WHERE nombre_cine = @NombreCine
+                        ";
+
+            return await db.QueryAsync<string>(sql, new {NombreCine = nombreCine });
+        }
+
+        public async Task<IEnumerable<string>> HorasProyeccion(string nombreCine, string nombrePeli)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT hora
+                        FROM sucursal JOIN pelicula_por_sala ON sucursal_id = id_sucursal
+                        WHERE nombre_cine = @NombreCine AND nombre_pelicula = @NombrePelicula 
+                        ";
+
+            return await db.QueryAsync<string>(sql, new { NombreCine = nombreCine, NombrePelicula = nombrePeli });
+        }
     }
 }

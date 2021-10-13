@@ -32,6 +32,12 @@ namespace CineTec.Backend.Controllers
             return Ok(await _peliculaRepository.GetAllPPS());
         }
 
+        [HttpGet("PPStot/{nombrepeli}")]
+        public async Task<IActionResult> GetAllPPSPelicula(string nombrepeli)
+        {
+            return Ok(await _peliculaRepository.GetAllPPSPelicula(nombrepeli));
+        }
+
         [HttpGet("Director")]
         public async Task<IActionResult> GetAllDirectores()
         {

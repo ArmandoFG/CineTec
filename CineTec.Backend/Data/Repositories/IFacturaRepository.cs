@@ -9,6 +9,12 @@ namespace CineTec.Backend.Data.Repositories
     public interface IFacturaRepository
     {
         Task<Factura> GetFacturadetails(int factId);
+
         Task<IEnumerable<Factura>> GetAllFacturas();
+
+        Task<bool> InsertFact(Factura fact);
+
+
+
     }
 }

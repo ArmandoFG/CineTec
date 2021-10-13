@@ -112,6 +112,19 @@ namespace CineTec.Backend.Data.Repositories
 
         }
 
+        public async Task<IEnumerable<string>> GetAllPPSPelicula(string nombrePeli)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT nombre_pelicula, nombre_cine,sala_id,hora
+                        FROM sucursal JOIN pelicula_por_sala ON sucursal_id = id_sucursal
+                        WHERE nombre_pelicula = @nombre_pelicula
+                        ";
+
+            return await db.QueryAsync<string>(sql, new { nombre_pelicula = nombrePeli });
+        }
+
         public async Task<IEnumerable<Director>> GetAllDirectores()
         {
             var db = dbConnection();
@@ -147,5 +160,6 @@ namespace CineTec.Backend.Data.Repositories
 
             return await db.QueryAsync<Clasificacion>(sql, new { });
         }
+
     }
 }

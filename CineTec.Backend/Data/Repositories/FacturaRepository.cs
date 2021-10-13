@@ -45,5 +45,29 @@ namespace CineTec.Backend.Data.Repositories
 
             return await db.QueryAsync<Factura>(sql, new { });
         }
+
+        public async Task<bool> InsertFact(Factura fact)
+        {
+            var db = dbConnection();
+            var sql = @"
+                        INSERT INTO public.factura (clave,consecutivo,fact_id,detalle,fecha,cedula_cliente)
+                        VALUES (@clave,@consecutivo,@fact_id,@detalle,@DateTime,@cedula_cliente)
+                        ";
+
+
+            var result = await db.ExecuteAsync(sql, new
+            {
+                fact.clave,
+                fact.consecutivo,
+                fact.fact_id,
+                fact.detalle,
+                DateTime = DateTime.Parse(fact.fecha),
+                fact.cedula_cliente
+
+            });
+
+
+            return result > 0;
+        }
     }
 }

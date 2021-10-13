@@ -25,6 +25,24 @@ namespace CineTec.Backend.Controllers
             return Ok(await _sucursalRepository.GetAllSucursales());
         }
 
+        [HttpGet("nombres")]
+        public async Task<IActionResult> GetAllNombres()
+        {
+            return Ok(await _sucursalRepository.GetCinesName());
+        }
+
+        [HttpGet("proyecciones/{nombreCine}")]
+        public async Task<IActionResult> ProyeccionesPCine(string nombreCine)
+        {
+            return Ok(await _sucursalRepository.ProyeccionesPCine(nombreCine));
+        }
+
+        [HttpGet("horas/{nombreCine}/{nombrePeli}")]
+        public async Task<IActionResult> HorasProyec(string nombreCine,string nombrePeli)
+        {
+            return Ok(await _sucursalRepository.HorasProyeccion(nombreCine, nombrePeli));
+        }
+
         [HttpGet("s/{idSuc}")]
         public async Task<IActionResult> GetSucursalDetails(int idSuc)
         {

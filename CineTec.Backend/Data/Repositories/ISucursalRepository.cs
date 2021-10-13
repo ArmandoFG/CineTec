@@ -10,6 +10,12 @@ namespace CineTec.Backend.Data.Repositories
     {
         Task<IEnumerable<Sucursal>> GetAllSucursales();
 
+        Task<IEnumerable<string>> GetCinesName();
+
+        Task<IEnumerable<string>> ProyeccionesPCine(string nombreCine);
+
+        Task<IEnumerable<string>> HorasProyeccion(string nombreCine, string nombrePeli);
+
         Task<Sucursal> GetSucursalDetails(int sucursal_id);
 
         Task<bool> InsertSucursal(Sucursal pelicula);

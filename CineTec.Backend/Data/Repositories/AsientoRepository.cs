@@ -46,31 +46,25 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Asiento>(sql, new { });
         }
 
-        public async Task<bool> UpdateAsientos(List<Asiento> asientos)
+        public async Task<bool> UpdateAsientos(Asiento asiento)
         {
             var db = dbConnection();
-            var result = 1;
-            foreach (Asiento asiento in asientos) 
-            { 
-                var sql = @"
-                            UPDATE public.pelicula 
-                            SET nombre= @nombre,
-                                duracion=@duracion,
-                                imagen=@imagen,
-                                precio_menores= @precio_menores,
-                                precio_adultos= @precio_adultos,
-                                precio_tercera_edad= @precio_tercera_edad
-                            WHERE nombre_original = @nombre_Original
-                            ";
+           
+            var sql = @"
+                        UPDATE public.asiento
+                        SET disponibilidad = @disponibilidad
+                        WHERE asientoid = @asientoid AND salaid = @salaid
+                        ";
 
-                result = await db.ExecuteAsync(sql, new
-                {
-                    asiento.asientoid,
-                    asiento.disponibilidad,
-                    asiento.salaid,
+            var result = await db.ExecuteAsync(sql, new
+        {
+            asiento.salaid,
+            asiento.asientoid,
+            asiento.disponibilidad
+                    
                                 
-                });
-            }
+        });
+           
             
 
             return result > 0;

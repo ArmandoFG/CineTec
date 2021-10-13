@@ -1,4 +1,5 @@
 ﻿using CineTec.Backend.Data.Repositories;
+using CineTec.Backend.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,26 @@ namespace CineTec.Backend.Controllers
             return Ok(await _facturaRepository.GetAllFacturas());
         }
 
-        [HttpGet("f/{asientoId}")]
+        [HttpGet("f/{factId}")]
         public async Task<IActionResult> GetFacturaDetails(int factId)
         {
             return Ok(await _facturaRepository.GetFacturadetails(factId));
         }
+
+        [HttpPost("Addfact")]
+        public async Task<IActionResult> CreatePelicula([FromBody] Factura fact)
+        {
+            if (fact == null)
+
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var created = await _facturaRepository.InsertFact(fact);
+
+            return Created("created", created);
+        }
+
+
     }
 }
