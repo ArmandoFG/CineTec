@@ -469,8 +469,18 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         return c;
     }
 
+    public void BorrarDatosPeliculas(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_PELICULA);
+    }
 
-
-
+    public void BorrarDatosClientes(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLA_CLIENTE);
+    }
+    public void BorrarDatosPelisPorSala(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TablaPeliSala);
+    }
 
 }

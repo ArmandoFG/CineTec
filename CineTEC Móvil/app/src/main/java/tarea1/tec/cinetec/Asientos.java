@@ -2,6 +2,7 @@ package tarea1.tec.cinetec;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -54,6 +55,11 @@ public class Asientos extends AppCompatActivity {
             contador--;
         }
 
+    }
+
+    public void CargarAsientos(){
+        final BaseDeDatos db = new BaseDeDatos (Asientos.this);
+        //Cursor c = db.ObtenerAsientosSala ();
     }
 
 }
