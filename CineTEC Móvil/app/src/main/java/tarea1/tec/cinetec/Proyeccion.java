@@ -80,6 +80,10 @@ public class Proyeccion extends AppCompatActivity {
                     Intent Asientos = new Intent(Proyeccion.this, Asientos.class);
                     Asientos.putExtra ("num_asientos", asientos);
                     Asientos.putExtra ("cedula",CEDULA);
+                    Asientos.putExtra ("pelicula",NombrePelicula);
+                    String text = (String) listview.getItemAtPosition(position);
+                    Asientos.putExtra ("hora",text);
+                    Asientos.putExtra ("sucursal", Sucursal);
                     startActivity(Asientos);
                 }
 

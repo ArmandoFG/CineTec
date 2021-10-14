@@ -245,6 +245,12 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         return c;
     }
 
+    /**
+     *
+     * @param condition String condicion de las peliculas que se quiere
+     * @return Cursor de las peliculas
+     */
+
     public Cursor ObtenerPeliID(String condition){
         String columnas[] = {
                 NOMBREPELICULA
@@ -254,6 +260,28 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         return c;
     }
 
+    /**
+     *
+     * @param condition String condicion de los horas de una pelicula que se quiere
+     * @return Cursor horas
+     */
+
+    public Cursor ObtenerPeliHoras(String condition){
+        String columnas[] = {
+                HORA,
+                SALAID,
+                SALA_SUCURSAL
+        };
+        String[] args = new String[]{condition};
+        Cursor c = this.getReadableDatabase ().query (TablaPeliSala, columnas, NOMBREPELICULA + "=?", args, null, null, null);
+        return c;
+    }
+
+    /**
+     *
+     * @param condition String condicion de las horas que se quiere
+     * @return Cursor de las horas
+     */
     public Cursor ObtenerHoras(String condition){
         String columnas[] = {
                 NOMBREPELICULA,
@@ -265,6 +293,12 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         return c;
     }
 
+    /**
+     *
+     * @param condition String condicion de los precios que se quiere
+     * @return Cursor con los precios
+     */
+
     public Cursor ObtenerPrecios(String condition){
         String columnas[] = {
                 PRECIOMEN,
@@ -275,6 +309,12 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         Cursor c = this.getReadableDatabase ().query (TABLE_PELICULA, columnas, NOMBRE0 + "=?", args, null, null, null);
         return c;
     }
+
+    /**
+     *
+     * @param condition String condicion de los asientos que se quiere
+     * @return Cursor todos los asientos
+     */
 
     public Cursor ObtenerAsientosSala(String condition){
         String columnas[] = {
@@ -383,6 +423,14 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     }
 
+    /**
+     *
+     * @param idSala int ID Sala
+     * @param filas int Filas de la sala
+     * @param capacidad int Capacidad de la sala
+     * @param columnas int columnas de la sala
+     * @param idSuc int ID sucursal
+     */
     public void AgregarSala(int idSala, int filas, int capacidad, int columnas, int idSuc){
         ContentValues valores = new ContentValues ();
         valores.put (IDSALA, idSala);
@@ -393,6 +441,15 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         this.getWritableDatabase ().insert (Tabla_Sala, null, valores);
 
     }
+
+    /**
+     *
+     * @param idCar Int ID de la cartelera
+     * @param SucID int ID sucursal
+     * @param SalaID int ID sala
+     * @param Nombre_peli String Nombre de la pelicula
+     * @param hora String Hora de la pelicula
+     */
 
     public void AgreparPeliPorSala(int idCar, int SucID, int SalaID, String Nombre_peli, String hora){
         ContentValues valores = new ContentValues ();
@@ -405,6 +462,11 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     }
 
+    /**
+     *
+     * @param Clas String Clasificacion de la pelicula
+     * @param Nombre_peli String Nombre de la pelicula
+     */
     public void AgregarClasificacion(String Clas, String Nombre_peli){
         ContentValues valores = new ContentValues ();
         valores.put (TIPO_CLA, Clas);
@@ -412,18 +474,37 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         this.getWritableDatabase ().insert (Tabla_Clasificacion, null, valores);
 
     }
+
+    /**
+     *
+     * @param nombre String Nombre del director
+     * @param Nombre_peli String Nombre de la pelicula
+     */
     public void AgregarDirector(String nombre, String Nombre_peli){
         ContentValues valores = new ContentValues ();
         valores.put (NombreDIR, nombre);
         valores.put (Nombre_Pelicula, Nombre_peli);
         this.getWritableDatabase ().insert (Tabla_Director, null, valores);
     }
+
+    /**
+     *
+     * @param nombre String nombre del protagonista
+     * @param Nombre_peli String Nombre de la pelicula
+     */
     public void AgregarProtagonista(String nombre, String Nombre_peli){
         ContentValues valores = new ContentValues ();
         valores.put (NombrePro, nombre);
         valores.put (NomPeliProtagonista, Nombre_peli);
         this.getWritableDatabase ().insert (Tabla_Protagonista, null, valores);
     }
+
+    /**
+     *
+     * @param sala int Sala de la pelicula
+     * @param asiento String Id del asiento
+     * @param disponibilidad String disponibilidad del asiento
+     */
     public void AgregarAsientos(int sala, String asiento, String disponibilidad){
         ContentValues valores = new ContentValues ();
         valores.put (SALA, sala);
@@ -451,17 +532,30 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         return c;
     }
 
+    /**
+     *
+     * @return Todos los datos de la tabla sucursales
+     */
     public Cursor ObtenerSucursales(){
         String columnas[] = {IDSUCURSAL, UBICACION, NOMBRECINE, CANTIDADSALAS};
         Cursor c = this.getReadableDatabase ().query (Tabla_Sucursal, columnas, null, null, null, null, null);
         return c;
     }
 
+    /**
+     *
+     * @return Todos los datos de la tabla facturas
+     */
     public Cursor ObtenerTodasLasFacturas() {
         String columnas[] = {CLAVE, CONSECUTIVO, FACT_ID, DETALLE, FECHA, CEDULACLIENTEFAC};
         Cursor c = this.getReadableDatabase ().query (TABLA_FACTURA, columnas, null, null, null, null, null);
         return c;
     }
+
+    /**
+     *
+     * @return Todos los datos de la tabla Asientos
+     */
 
     public Cursor ObtenerTodosLosAsientos() {
         String columnas[] = {SALA, ASID, DISPOIBILIDAD};
@@ -485,6 +579,19 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     public void BorrarSucursales(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + Tabla_Sucursal);
+    }
+
+    /**
+     *
+     * @param disponible String si el asiento está disponible
+     * @param Sala String Sala donde se da la pelicula
+     * @param Asiento String Asiento de la sala
+     */
+    public void ActualizarAsiento(String disponible, String Sala, String Asiento){
+        SQLiteDatabase db = this.getWritableDatabase ();
+        db.execSQL ("UPDATE "+Tabla_Asiento+" SET "+ DISPOIBILIDAD+" = "+ disponible +" WHERE "+SALA+"="+Sala+" AND "+ASID+"="+Asiento);
+
+
     }
 
 }

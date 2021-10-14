@@ -42,7 +42,8 @@ public class Sincronizar {
 
 
     /**
-     * Metodo que envia una solicitud de tipo Get al API para obtener el listado de los movimientos de la cuenta
+     *
+     * @param c Actividad en la que se llama la función
      */
     public void SincronizarPeliculas(Context c) {
         final BaseDeDatos db = new BaseDeDatos (c);
@@ -88,6 +89,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Actividad en la que se llama la función
+     */
     public void SincronizarSucursales(Context c) {
         final BaseDeDatos db = new BaseDeDatos (c);
         db.BorrarSucursales();
@@ -131,6 +136,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Actividad en la que se llama la función
+     */
     public void SincronizarSalas(Context c) {
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
@@ -172,6 +181,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Actividad en la que se llama la función
+     */
     public void SincronizarCliente(Context c) {
         final BaseDeDatos db = new BaseDeDatos (c);
         db.BorrarDatosClientes();
@@ -218,6 +231,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Actividad en la que se llama la función
+     */
     public void SincronizarAsiento(Context c) {
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
@@ -259,6 +276,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Actividad en la que se llama la función
+     */
     public void SincronizarPeliPSala(Context c) {
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
@@ -300,6 +321,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Actividad en la que se llama la función
+     */
     public void SincronizarDirector(Context c) {
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
@@ -341,6 +366,10 @@ public class Sincronizar {
         });
     }
 
+    /**
+     *
+     * @param c Actividad en la que se llama la función
+     */
     public void SincronizarProtagonista(Context c) {
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
@@ -384,7 +413,7 @@ public class Sincronizar {
 
     /**
      *
-     * @param c Cursor con datos de clasificación
+     * @param c Actividad en la que se llama
      */
     public void SincronizarClasificacion(Context c) {
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
@@ -429,7 +458,7 @@ public class Sincronizar {
 
     /**
      *
-     * @param c Cursor datos de todas las facturas
+     * @param c Actividad en la que se llama
      */
     public void EnviarDatosFactura(Context c) {
         final BaseDeDatos db = new BaseDeDatos (c);
@@ -481,6 +510,11 @@ public class Sincronizar {
 
 
     }
+
+    /**
+     *
+     * @param c Actividad en la que se llama
+     */
     public void EnviarDatosAsientos(Context c) {
         final BaseDeDatos db = new BaseDeDatos (c);
 
