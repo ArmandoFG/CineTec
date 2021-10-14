@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
 
-/**
+
         Sincronizar sinc = new Sincronizar();
         sinc.SincronizarPeliculas(LoginActivity.this);
         sinc.SincronizarSucursales(LoginActivity.this);
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         sinc.SincronizarClasificacion(LoginActivity.this);
         sinc.SincronizarDirector(LoginActivity.this);
         sinc.SincronizarProtagonista(LoginActivity.this);
-*/
+
 
 
 

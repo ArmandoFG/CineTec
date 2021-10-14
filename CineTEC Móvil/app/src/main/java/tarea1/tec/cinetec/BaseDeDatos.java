@@ -581,6 +581,11 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM " + Tabla_Sucursal);
     }
 
+    public void BorrarAsiento(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + Tabla_Asiento);
+    }
+
     /**
      *
      * @param disponible String si el asiento está disponible

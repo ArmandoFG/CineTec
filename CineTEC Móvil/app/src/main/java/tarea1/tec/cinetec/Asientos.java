@@ -51,6 +51,7 @@ public class Asientos extends AppCompatActivity {
      */
     public void AsientosClick(View view){
         ImageView imagen = (ImageView) view;
+        int id = this.getResources ().getIdentifier (view.getResources().getResourceEntryName(view.getId()),"id",getPackageName ());
 
         if(imagen.getContentDescription ().equals ("seleccionado")){
             Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento0)).getBitmap();
@@ -98,7 +99,7 @@ public class Asientos extends AppCompatActivity {
             do{
                 int id = this.getResources ().getIdentifier (c1.getString (0),"id",getPackageName ());
                 ImageView img = findViewById (id);
-                if(c1.getString (1).equals ("Disponible") && id != R.id.A6 || c1.getString (1).equals ("Disponible") && id != R.id.A7){
+                if(c1.getString (1).equals ("Disponible") && id != R.id.A6 && id != R.id.A7){
                     Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.asiento0)).getBitmap();
                     img.setContentDescription ("Disponible");
                     img.setImageBitmap (bitmap);

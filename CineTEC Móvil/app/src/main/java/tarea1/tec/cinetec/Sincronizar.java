@@ -236,6 +236,8 @@ public class Sincronizar {
      * @param c Actividad en la que se llama la función
      */
     public void SincronizarAsiento(Context c) {
+        final BaseDeDatos db = new BaseDeDatos (c);
+        db.BorrarAsiento();
         //Toast.makeText(c, "SINCRONIZANDO", Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder ().baseUrl (BASEURL)
                 //Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
