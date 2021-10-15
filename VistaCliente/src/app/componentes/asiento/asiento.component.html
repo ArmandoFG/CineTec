@@ -3,9 +3,8 @@
     <img id="pantalla" src="https://1.bp.blogspot.com/-NDPAAuXcP7U/YVuYMdzr2_I/AAAAAAAAUG8/TB5r5XqtV4c2OImnGiGcXPPmdOcJmuAmACLcBGAsYHQ/s450/pantalla.png">
     <div class="img-container">
         <div class="img-content" *ngFor="let asiento of asientos">
-            <div *ngIf="asiento.estado; else elseBlock">
+            <div *ngIf="asiento.disponibilidad ; else elseBlock" (click)="clickea(asiento)">
                 <img [src]="tipoDeAsiento(asiento)" height="40px" width="40px">
-    
                 
             </div>
     <ng-template #elseBlock></ng-template>
