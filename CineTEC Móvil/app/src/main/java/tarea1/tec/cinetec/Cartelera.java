@@ -103,10 +103,7 @@ public class Cartelera extends AppCompatActivity {
 
     }
 
-    public void Ini_Proyecciones(){
-        Intent principal = new Intent(this, Proyeccion.class);
-        startActivity (principal);
-    }
+
 
     /**
      * Solicita todas las peliculas a la base de datos y se muestra en cartelera
@@ -188,6 +185,9 @@ public class Cartelera extends AppCompatActivity {
         startActivity (intent);
     }
 
+    /**
+     * Función que agregar las sucursales que hay en la base de datos
+     */
 
 
     public void CargarSucursales(){

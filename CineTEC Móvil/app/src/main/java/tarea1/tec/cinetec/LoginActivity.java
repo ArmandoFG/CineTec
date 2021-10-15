@@ -64,15 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         sinc.SincronizarProtagonista(LoginActivity.this);
 
 
-        db.AgregarFactura (1223,124,643,"Esta","16-06-20",144461234);
-        db.AgregarCliente(12347747,21,"Harold","14-10-2000",63139863,1,"hrld","spnz");
-        db.AgregarFactura (123,12,43,"Esta X2","16-07-20",260012001);
-        db.AgregarFactura (122332,124654,64323,"Esta X3","15-06-20",313340092);
-        sinc.EnviarDatosFactura(LoginActivity.this);
 
-
-
-        sinc.EnviarDatosAsientos(LoginActivity.this);
 
 
 
@@ -80,6 +72,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Dunción donde se inicia la cartelera
+     * @param cedula int cédula del cliente
+     */
     public void Ini_Principal(int cedula){
         Intent principal = new Intent(this, Cartelera.class);
         principal.putExtra ("cedula", cedula);
@@ -130,15 +126,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Agrega los datos de un cliente a la base de datos
-     */
 
-
-
-    /**
-     * Agrega los datos de una pelicula a la base de datos
-     */
 
 
 

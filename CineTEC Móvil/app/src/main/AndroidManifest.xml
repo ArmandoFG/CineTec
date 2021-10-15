@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tarea1.tec.cinetec">
 
-    <uses-permission
-        android:name="android.permission.INTERNET">
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -15,8 +13,14 @@
         android:theme="@style/Theme.CineTEC"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Factura"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Asientos"
             android:exported="true"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Proyeccion"

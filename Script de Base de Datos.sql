@@ -161,11 +161,7 @@ CREATE TABLE Asiento (
 	PRIMARY KEY(Salaid, AsientoID)
 );
 
---Tabla horas
 
-CREATE TABLE Horas (
-	hora date
-);
 
 
 ALTER TABLE Empleado
