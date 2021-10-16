@@ -43,6 +43,12 @@ namespace CineTec.Backend.Controllers
             return Ok(await _sucursalRepository.HorasProyeccion(nombreCine, nombrePeli));
         }
 
+        [HttpGet("sala/{nombreCine}/{nombrePeli}/{hora}")]
+        public async Task<IActionResult> SalasProyec(string nombreCine, string nombrePeli,string hora)
+        {
+            return Ok(await _sucursalRepository.SalasProyec(nombreCine, nombrePeli,hora));
+        }
+
         [HttpGet("s/{idSuc}")]
         public async Task<IActionResult> GetSucursalDetails(int idSuc)
         {

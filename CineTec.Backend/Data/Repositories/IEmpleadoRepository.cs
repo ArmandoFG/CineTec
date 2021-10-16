@@ -10,5 +10,10 @@ namespace CineTec.Backend.Data.Repositories
     {
         Task<Empleados> GetEmpleadoDetails(int cedula);
         Task<IEnumerable<Empleados>> GetAllEmpleados();
+        Task<bool> InsertEmpl(Empleados emp);
+        Task<bool> UpdateEmp(Empleados emp);
+        Task<bool> Validacion(string user, string pwd);
+        Task<bool> DeleteEmp(int cedula);
+
     }
 }

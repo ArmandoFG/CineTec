@@ -12,5 +12,10 @@ namespace CineTec.Backend.Data.Repositories
         Task<bool> UpdateAsientos(Asiento asiento);
 
         Task<IEnumerable<Asiento>> GetAllAsientos();
+
+        Task<IEnumerable<Asiento>> GetAllAsientosfromSala(int salaid);
+        Task<bool> Restriccion();
+
+
     }
 }

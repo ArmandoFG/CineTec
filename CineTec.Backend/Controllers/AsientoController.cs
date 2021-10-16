@@ -24,6 +24,12 @@ namespace CineTec.Backend.Controllers
             return Ok(await _asientoRepository.GetAllAsientos());
         }
 
+        [HttpGet("sala/{salaid}")]
+        public async Task<IActionResult> GetAllAsientosfromSala(int salaid)
+        {
+            return Ok(await _asientoRepository.GetAllAsientosfromSala(salaid));
+        }
+
         [HttpGet("a/{asientoId}")]
         public async Task<IActionResult> GetAsientoDetails(string asientoId)
         {
@@ -34,6 +40,12 @@ namespace CineTec.Backend.Controllers
         public async Task<IActionResult> UpdateAsientos([FromBody] Asiento asiento) 
         {
             return Ok(await _asientoRepository.UpdateAsientos(asiento));
+        }
+
+        [HttpGet("Restriccion")]
+        public async Task<IActionResult> Restriccion()
+        {
+            return Ok(await _asientoRepository.Restriccion());
         }
     }
 }

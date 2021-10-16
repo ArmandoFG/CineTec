@@ -13,6 +13,10 @@ namespace CineTec.Backend.Model
         public string Apellido2 { get; set; }
         public int cedula { get; set; }
         public string fecha_de_nacimiento { get; set; }
+
+        public string fecha_ingreso { get; set; }
+
+        public int numero_telefono { get; set; }
         public int edad { get; set; }
         public string pass { get; set; }
         public string usuario { get; set; }

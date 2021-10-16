@@ -45,5 +45,44 @@ namespace CineTec.Backend.Data.Repositories
 
             return await db.QueryAsync<Cliente>(sql, new { });
         }
+
+        public async Task<Cliente> GetClienteUser(string usuario)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT cedula,edad,nombre,fecha_nacimiento, numero_telefono,usuario,pass,id_sucursal
+                        FROM public.cliente
+                        WHERE usuario = @Usuario
+                        ";
+
+            return await db.QueryFirstOrDefaultAsync<Cliente>(sql, new { Usuario = usuario });
+        }
+
+        public async Task<bool> Validacion(string user, string pwd)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT usuario, pass
+                        FROM public.cliente
+                        WHERE usuario = @Usuario AND pass = @Pwd
+                        ";
+
+            var result = await db.QueryFirstOrDefaultAsync<Cliente>(sql, new { Usuario = user, Pwd = pwd });
+
+            if (result == null)
+            {
+                return false;
+            }
+            if (result.usuario == user && result.pass == pwd)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

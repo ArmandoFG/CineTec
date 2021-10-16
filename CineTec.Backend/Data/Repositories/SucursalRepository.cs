@@ -146,5 +146,20 @@ namespace CineTec.Backend.Data.Repositories
 
             return await db.QueryAsync<string>(sql, new { NombreCine = nombreCine, NombrePelicula = nombrePeli });
         }
+
+
+
+        public async Task<string> SalasProyec(string nombreCine, string nombrePeli, string hora)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT sala_id
+                        FROM sucursal JOIN pelicula_por_sala ON sucursal_id = id_sucursal
+                        WHERE nombre_cine = @NombreCine AND nombre_pelicula = @NombrePelicula AND hora = @Hora
+                        ";
+
+            return await db.QueryFirstOrDefaultAsync<string>(sql, new { NombreCine = nombreCine, NombrePelicula = nombrePeli, Hora = hora });
+        }
     }
 }
