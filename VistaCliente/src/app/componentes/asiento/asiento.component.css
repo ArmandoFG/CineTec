@@ -11,18 +11,76 @@
 
 #pantalla {
     position: relative;
-    top: 20px;
-    left: 35%;
+    top: 18px;
+    left: 24%;
+    width: 50%;
+    height: 10%;
 }
 
 
 .img-container{
-    
-    margin-left: 410px;
+    position: relative;
+    margin-left: 23%;
     margin-top: 80px;
-    margin-right: 450px;
     display: grid;
     grid-template-columns: repeat(12, 60px);
   grid-gap: 10px;
   grid-auto-rows: 60px;
 }
+#titulo {
+    font-style: oblique;
+    font-family: Impact;
+    margin-left: 250px;
+    margin-top:30px;
+    font-size: 50px;
+}
+
+#logoitem{
+    width: 10%;
+    height: 10%;
+    position: fixed;
+    top: 90px;
+}
+
+#anterior {
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #ffffff;
+    
+    height: 40px;
+    width: 10%;
+    font-size: 20px;
+    padding: 4px;
+    transition: all 0.5s ease;
+    position: relative;
+    top: -100px;
+    left: -10%;
+
+  }
+  #anterior:hover{
+    background: #edc420;
+    color: black;
+  }
+  
+  #siguiente{
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #ffffff;
+    
+    height: 40px;
+    width: 10%;
+    font-size: 20px;
+    padding: 4px;
+    transition: all 0.5s ease;
+    position: relative;
+    top: -100px;
+    left: 90%;
+  }
+  #siguiente:hover{
+    background: #edc420;
+    color: black;
+  }

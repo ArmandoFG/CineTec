@@ -48,5 +48,6 @@ export class PeticionesService {
     getCurrentlyUser(){
         return this.user.nombre;
     }
+    
 
 }

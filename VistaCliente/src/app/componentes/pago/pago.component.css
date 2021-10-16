@@ -1,0 +1,32 @@
+.container{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 80px;
+    height: 100%;
+
+    background-color: black;
+    color: white;
+}
+
+#titulo {
+    font-style: oblique;
+    font-family: Impact;
+    margin-left: 250px;
+    margin-top:30px;
+    font-size: 60px;
+}
+
+#logoitem{
+    width: 10%;
+    height: 10%;
+    position: fixed;
+    top: 90px;
+}
+
+.data-container{
+    position: relative;
+    display: auto;
+    align-items: center;
+    align-content: center;
+}

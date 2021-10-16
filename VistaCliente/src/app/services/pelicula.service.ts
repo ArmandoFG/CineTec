@@ -24,6 +24,7 @@ export class PeliculaService {
     hora:'',
     sala:''
   }
+  public asientos: string[]=[];
   constructor(
     public _http: HttpClient
   ) {
@@ -61,7 +62,7 @@ export class PeliculaService {
     this.pelicula.sala=numSala;
   }
   getAsientos(): Observable<any>{
-    console.log("estoy en get asientos");
+    console.log("estoy en get asientos y es sala "+ this.pelicula.sala);
     return this._http.get(this.url+"api/asiento/sala/"+this.pelicula.sala);
   }
   cambiarEstadoAsiento(estado:any){
@@ -69,6 +70,12 @@ export class PeliculaService {
     let headers= new HttpHeaders().set('Content-Type', 'application/json');
 
     return this._http.put(this.url+'api/asiento/syncAsiento', params, {headers: headers});
+  }
+  agregarAsiento(asiento:string){
+    this.asientos.push(asiento);
+  }
+  getAsientosSeleccionados(){
+    return this.asientos;
   }
   
 
