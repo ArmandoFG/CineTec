@@ -19,6 +19,7 @@ import { MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -46,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatRadioModule
   ],
   exports: [
     CommonModule,
@@ -68,7 +70,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatRadioModule
   ]
 })
 export class SharedModule { }

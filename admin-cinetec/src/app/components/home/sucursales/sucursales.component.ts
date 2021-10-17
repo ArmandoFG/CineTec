@@ -11,6 +11,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class SucursalesComponent implements OnInit {
   public sucursalesData: any;
   listSucursales: any[] = [];
+  opcion1 = false;
+  checked = false; 
 
   displayedColumns: string[] = ['id_sucursal', 'nombre_cine', 'ubicacion', 'cantidad_salas', 'acciones'];
   dataSource!: MatTableDataSource<any>;
@@ -23,7 +25,19 @@ export class SucursalesComponent implements OnInit {
     this.cargarSucursales();
   }
 
+
+
+  restriccionCovid(){
+   /* this._sucursalService.covidRestriccion().subscribe(data => {
+      console.log(data);
+    });*/
+    if( this.checked == false){
+      console.log("disabled")
+    }
+  }
+
   cargarSucursales(){
+    this.listSucursales = [];
     this._sucursalService.getSucursales().subscribe(
       result => {
         result;
@@ -42,7 +56,11 @@ export class SucursalesComponent implements OnInit {
       });
   }
 
-  deleteSucursal(){
-    this._sucursalService.deleteSucursal('8');
+  eliminarSucursal(index: number){
+    console.log(this.listSucursales[index].id_sucursal)
+    this._sucursalService.deleteSucursal(this.listSucursales[index].id_sucursal);
+    this.listSucursales = [];
+    this.cargarSucursales();
   }
+
 }

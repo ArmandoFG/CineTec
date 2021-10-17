@@ -22,11 +22,13 @@ export class AgregarSalaComponent implements OnInit {
   displayedColumns: string[] = ['id_sucursal', 'id_sala', 'capacidad', 'acciones'];
   dataSource!: MatTableDataSource<any>;
 
+  
 
   constructor(
     private _sucursalService: SucursalService,
     private aRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router:Router
   ) {
     this.id_sucursal = this.aRoute.snapshot.paramMap.get("id_sucursal");
     this.nombre_cine = this.aRoute.snapshot.paramMap.get("nombre_cine");
@@ -87,12 +89,33 @@ export class AgregarSalaComponent implements OnInit {
   }
 
   editarSucursal(){
-    console.log("ES EDITAR")
+    const sucursal: Object = {
+      id_sucursal: Number(this.id_sucursal),
+      nombre_cine: this.form.value.nombre_cine,
+      ubicacion: this.form.value.ubicacion,
+      cantidad_salas: this.form.value.cantidad_salas
+    }
+    this._sucursalService.updateSucursal(sucursal).subscribe(data => {
+      console.log(data);
+    });
+    this.router.navigate(['/home/sucursales']);
   }
 
   
   agregarSucursal(){
-    console.log("ES AGREGAR")
+    if (this.form.invalid){
+      return;
+    }
+    const sucursal: Object =
+    {
+      ubicacion: this.form.value.ubicacion,
+      nombre_cine: this.form.value.nombre_cine,
+      cantidad_salas: Number(this.form.value.cantidad_salas)
+    }
+    this._sucursalService.addNewSucursal(sucursal).subscribe(data => {
+      console.log(data);
+    });
+    this.router.navigate(['/home/sucursales']);
   }
 
   eliminarSala(index: number){
@@ -101,10 +124,6 @@ export class AgregarSalaComponent implements OnInit {
 
   agregarSala(){
     console.log("Agregar Sala")
-  }
-
-  restriccionCovid(index: number){
-    console.log("Restriccion por covid activada");
   }
 
 
