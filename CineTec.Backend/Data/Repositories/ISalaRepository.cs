@@ -10,5 +10,7 @@ namespace CineTec.Backend.Data.Repositories
     {
         Task<Sala> GetSalaDetails(int salaId);
         Task<IEnumerable<Sala>> GetAllSalas();
+        Task<IEnumerable<Sala>> GetSalasXSucursal(int Sucid);
+        Task<IEnumerable<Sala>> GetSalasXNomSucursal(string nombreSuc);
     }
 }

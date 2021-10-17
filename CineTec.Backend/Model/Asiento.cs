@@ -9,6 +9,6 @@ namespace CineTec.Backend.Model
     {
         public int salaid { get; set; }
         public string asientoid { get; set; }
-        public string disponibilidad {get;set; }
+        public string disponibilidad { get;set; }
     }
 }

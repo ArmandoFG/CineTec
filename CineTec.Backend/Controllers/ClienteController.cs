@@ -27,5 +27,17 @@ namespace CineTec.Backend.Controllers
         {
             return Ok(await _clienteRepository.GetClienteDetails(cedula));
         }
+
+        [HttpGet("usuario/{usuario}")]
+        public async Task<IActionResult> GetClienteUser(string usuario)
+        {
+            return Ok(await _clienteRepository.GetClienteUser(usuario));
+        }
+
+        [HttpGet("val/{user}/{pwd}")]
+        public async Task<IActionResult> Validacion(string user, string pwd)
+        {
+            return Ok(await _clienteRepository.Validacion(user, pwd));
+        }
     }
 }

@@ -28,5 +28,17 @@ namespace CineTec.Backend.Controllers
         {
             return Ok(await _salaRepository.GetSalaDetails(salaId));
         }
+
+        [HttpGet("suc/{sucId}")]
+        public async Task<IActionResult> GetSalaXSuc(int sucId)
+        {
+            return Ok(await _salaRepository.GetSalasXSucursal(sucId));
+        }
+
+        [HttpGet("sucn/{nombrecine}")]
+        public async Task<IActionResult> GetSalaXNSuc(string nombrecine)
+        {
+            return Ok(await _salaRepository.GetSalasXNomSucursal(nombrecine));
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace CineTec.Backend.Data.Repositories
 
         Task<IEnumerable<Pelicula_por_sala>> GetAllPPS();
 
-        Task<IEnumerable<string>> GetAllPPSPelicula(string nombrePeli);
+        Task<IEnumerable<PPSTot>> GetAllPPSPelicula(string nombrePeli);
 
         Task<IEnumerable<Director>> GetAllDirectores();
 
@@ -27,5 +27,9 @@ namespace CineTec.Backend.Data.Repositories
         Task<bool> UpdatePelicula(Pelicula pelicula);
 
         Task<bool> DeletePelicula(string nombre_pelicula);
+
+        Task<bool> InsertPPS(Pelicula_por_sala proyeccion);
+
+        Task<bool> UpdatePPS(Pelicula_por_sala proyeccion);
     }
 }

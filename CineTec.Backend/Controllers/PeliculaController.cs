@@ -90,6 +90,35 @@ namespace CineTec.Backend.Controllers
             return NoContent();
         }
 
+        [HttpPost("addpps")]
+        public async Task<IActionResult> CreatePPS([FromBody] Pelicula_por_sala pelicula)
+        {
+            if (pelicula == null)
+
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var created = await _peliculaRepository.InsertPPS(pelicula);
+
+            return Created("created", created);
+        }
+
+        [HttpPut("modpps")]
+        public async Task<IActionResult> UpdatePPS([FromBody] Pelicula_por_sala pelicula)
+        {
+            if (pelicula == null)
+
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            await _peliculaRepository.UpdatePPS(pelicula);
+
+            return NoContent();
+        }
+
+
         [HttpDelete("quitmovie/{nombre_pelicula}")]
         public async Task<IActionResult> DeletePelicula(string nombre_pelicula)
         {

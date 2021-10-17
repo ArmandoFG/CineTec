@@ -10,5 +10,7 @@ namespace CineTec.Backend.Data.Repositories
     {
         Task<Cliente> GetClienteDetails (int cedula);
         Task<IEnumerable<Cliente>> GetAllClientes();
+        Task<Cliente> GetClienteUser(string usuario);
+        Task<bool> Validacion(string user, string pwd);
     }
 }
