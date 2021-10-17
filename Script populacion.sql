@@ -148,42 +148,42 @@ VALUES ('Tecnico', 'Encargados de verificar el funcionamiento de las salas corre
 -- Insert para los empleado
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Ricardo', 'Mauricio', 'Gonzalez', 'Rivera', 118903345, '1965-05-20', 22772277, '2018-02-13', 'daH58#e', 'Rigonza',
+VALUES ('Ricardo', 'Mauricio', 'Gonzalez', 'Rivera', 118903345, '1965-05-20', 22772277, '2018-02-13', 'daH58e', 'Rigonza',
 	1, 'Conserje' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Valeria', 'Maria', 'Fallas', 'Rodriguez', 418203496, '1985-01-13', 21141539, '2018-03-15', 'h4$faas', 'Valefa',
+VALUES ('Valeria', 'Maria', 'Fallas', 'Rodriguez', 418203496, '1985-01-13', 21141539, '2018-03-15', 'h4faas', 'Valefa',
 	1, 'Cajero' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Francisco', 'Juan', 'Araya', 'Barva', 118998765, '1978-08-17', 22234577, '2019-07-26', 'htf#JH45', 'Fraraya',
+VALUES ('Francisco', 'Juan', 'Araya', 'Barva', 118998765, '1978-08-17', 22234577, '2019-07-26', 'htfJH45', 'Fraraya',
 	1, 'Seguridad' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Carmen', 'Tatiana', 'Cordero', 'Ulloa', 219873335, '1974-05-31', 22562222, '2020-05-13', 'gua45F#e', 'Tacorderu',
+VALUES ('Carmen', 'Tatiana', 'Cordero', 'Ulloa', 219873335, '1974-05-31', 22562222, '2020-05-13', 'gua45Fe', 'Tacorderu',
 	1, 'Administrador' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Jeferson', 'Aaron', 'Granados', 'Solis', 519873947, '1983-09-19', 22406010, '2018-10-29', 'gfER4$S', 'Jefergra',
+VALUES ('Jeferson', 'Aaron', 'Granados', 'Solis', 519873947, '1983-09-19', 22406010, '2018-10-29', 'gfER4S', 'Jefergra',
 	1, 'Tecnico' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Maria', 'Victoria', 'Naranjo', 'Mena', 619883754, '1970-06-21', 87940655, '2019-07-16', 'oi9W6&e', 'Manaranjo',
+VALUES ('Maria', 'Victoria', 'Naranjo', 'Mena', 619883754, '1970-06-21', 87940655, '2019-07-16', 'oi9W6e', 'Manaranjo',
 	2, 'Administrador' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Bryan', 'Enrique', 'Fonseca', 'Badilla', 319874290, '1984-02-28', 85858585, '2010-06-24', 'esa45&P', 'Bryfonse',
+VALUES ('Bryan', 'Enrique', 'Fonseca', 'Badilla', 319874290, '1984-02-28', 85858585, '2010-06-24', 'esa45P', 'Bryfonse',
 	2, 'Conserje' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Guadalupe', 'Johana', 'Navarro', 'Carvajal', 119889348, '1972-08-21', 88554433, '2020-12-02', 'har23#es', 'Guanava',
+VALUES ('Guadalupe', 'Johana', 'Navarro', 'Carvajal', 119889348, '1972-08-21', 88554433, '2020-12-02', 'har23es', 'Guanava',
 	2, 'Seguridad' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
@@ -198,7 +198,7 @@ VALUES ('Debora', 'Pamela', 'Vargas', 'Solis', 419887654, '1982-08-21', 71007100
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
 	id_sucursal, rol_name )
-VALUES ('Maria', 'Victoria', 'Naranjo', 'Mena', 619823754, '1970-06-21', 87940655, '2019-07-16', 'oi9W6&e', 'Manaranjo',
+VALUES ('Maria', 'Victoria', 'Naranjo', 'Mena', 619823754, '1970-06-21', 87940655, '2019-07-16', 'oi9W6e', 'Manaranjo',
 	3, 'Administrador' ); 
 
 INSERT INTO Empleado (nombre1, nombre2, apellido1, apellido2, cedula, fecha_de_nacimiento, numero_telefono, fecha_ingreso, pass, usuario,
