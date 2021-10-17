@@ -1,0 +1,61 @@
+<div class="container">
+    <mat-toolbar class="sectionTitle">
+        <span>Gestión de Peliculas</span>
+        <button mat-button routerLink="/home/peliculas/agregar-pelicula">Agregar</button>
+    </mat-toolbar>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre_original">
+          <th mat-header-cell *matHeaderCellDef> Nombre Original</th>
+
+          <td mat-cell *matCellDef="let element"> {{element.nombre_original}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="duracion">
+          <th mat-header-cell *matHeaderCellDef>Duracion(minutos)</th>
+          <td mat-cell *matCellDef="let element"> {{element.duracion}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="imagen">
+          <th mat-header-cell *matHeaderCellDef> URL imagen</th>
+          <td mat-cell *matCellDef="let element"> {{element.imagen}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
+              <a class="pointer" 
+                  [routerLink]="['/home/peliculas/proyecciones', element.nombre]" style="color:
+                   deepskyblue;" matTooltip="Ver proyecciones">
+                  <mat-icon>search</mat-icon>
+              </a>
+              <a class="pointer" 
+                  [routerLink]="['/home/peliculas/edit-pelicula', element.nombre_original]" style="color:
+                   limegreen;" matTooltip="Editar Pelicula">
+                  <mat-icon>edit</mat-icon>
+              </a>
+
+              <a class="pointer" style="color: indianred;" matTooltip="Eliminar Pelicula">
+                  <mat-icon>delete</mat-icon>
+              </a>
+          </td>
+      </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+</div>

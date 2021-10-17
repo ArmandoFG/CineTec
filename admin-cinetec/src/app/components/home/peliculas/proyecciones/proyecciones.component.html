@@ -1,0 +1,61 @@
+<div class="container">
+    <mat-toolbar class="sectionTitle">
+        <span>{{nombre_pelicula}}</span>
+    </mat-toolbar>
+
+    <div *ngIf="listProyecciones.length > 0">
+
+    <mat-form-field class="filter" appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Sucursal" #input autocomplete="off">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef='nombre_cine'>
+          <th mat-header-cell *matHeaderCellDef> Nombre cine </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre_cine}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="sala_id">
+          <th mat-header-cell *matHeaderCellDef> ID Sala </th>
+          <td mat-cell *matCellDef="let element"> {{element.sala_id}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="nombre_pelicula">
+          <th mat-header-cell *matHeaderCellDef> Nombre Pelicula</th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre_pelicula}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="hora">
+          <th mat-header-cell *matHeaderCellDef>hora</th>
+          <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+        </ng-container>
+    
+        
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
+                <a class="pointer" 
+                    routerLink="/home/peliculas" style="color:
+                     deepskyblue;" matTooltip="Ver y Editar Proyeccion">
+                    <mat-icon>search</mat-icon>
+                </a>
+                <a class="pointer" style="color: indianred;" matTooltip="Eliminar Tarjeta">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+</div>

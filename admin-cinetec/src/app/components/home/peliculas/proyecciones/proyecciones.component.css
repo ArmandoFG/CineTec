@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+  }
+
+  .filter{
+    width: 100%;
+  }
+
+  .sectionTitle{
+    margin-top: 10px;
+    color: slateblue;
+  }
