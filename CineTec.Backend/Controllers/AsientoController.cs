@@ -47,5 +47,11 @@ namespace CineTec.Backend.Controllers
         {
             return Ok(await _asientoRepository.Restriccion());
         }
+
+        [HttpGet("Habilitado")]
+        public async Task<IActionResult> Habilitado()
+        {
+            return Ok(await _asientoRepository.habilitado());
+        }
     }
 }

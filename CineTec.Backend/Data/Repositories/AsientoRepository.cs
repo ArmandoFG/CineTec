@@ -105,5 +105,28 @@ namespace CineTec.Backend.Data.Repositories
 
             return result > 0;
         }
+
+        public async Task<bool> habilitado()
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        UPDATE public.asiento
+                        SET disponibilidad = 'Disponible'
+                        WHERE asientoid = 'A1' OR asientoid = 'A2' OR asientoid = 'A5' OR asientoid = 'A6' OR asientoid = 'A9' OR asientoid = 'A10' OR
+                              asientoid = 'B1' OR asientoid = 'B2' OR asientoid = 'B5' OR asientoid = 'B6' OR asientoid = 'B9' OR asientoid = 'B10' OR
+                              asientoid = 'C1' OR asientoid = 'C2' OR asientoid = 'C5' OR asientoid = 'C6' OR asientoid = 'C9' OR asientoid = 'C10' OR
+                              asientoid = 'D1' OR asientoid = 'D2' OR asientoid = 'D5' OR asientoid = 'D6' OR asientoid = 'D9' OR asientoid = 'D10' OR
+                              asientoid = 'E1' OR asientoid = 'E2' OR asientoid = 'E5' OR asientoid = 'E6' OR asientoid = 'E9' OR asientoid = 'E10' OR
+                              asientoid = 'F1' OR asientoid = 'F2' OR asientoid = 'F5' OR asientoid = 'F6' OR asientoid = 'F9' OR asientoid = 'F10'
+                              
+                        ";
+
+            var result = await db.ExecuteAsync(sql, new { });
+
+
+
+            return result > 0;
+        }
     }
 }

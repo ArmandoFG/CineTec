@@ -15,6 +15,7 @@ namespace CineTec.Backend.Data.Repositories
 
         Task<IEnumerable<Asiento>> GetAllAsientosfromSala(int salaid);
         Task<bool> Restriccion();
+        Task<bool> habilitado();
 
 
     }
