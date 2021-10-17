@@ -14,6 +14,11 @@ using System.Threading.Tasks;
 
 namespace CineTec.Backend
 {
+    /**
+     * Clase inicializacion
+     * Se realiza la configuracion inicial del API
+     * @author Harold Espinoza 
+     */
     public class Startup
     {
         public Startup(IConfiguration configuration)

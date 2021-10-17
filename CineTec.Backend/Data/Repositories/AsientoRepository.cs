@@ -128,5 +128,21 @@ namespace CineTec.Backend.Data.Repositories
 
             return result > 0;
         }
+
+        public async Task<bool> DeleteAsientos(int salaid)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        DELETE
+                        FROM public.asiento
+                        WHERE salaid = @sala_id
+    
+                        ";
+
+            var result = await db.ExecuteAsync(sql, new { sala_id = salaid });
+
+            return result > 0;
+        }
     }
 }
