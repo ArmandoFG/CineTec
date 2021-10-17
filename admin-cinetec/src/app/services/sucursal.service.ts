@@ -51,5 +51,19 @@ export class SucursalService {
     
   }
 
+  deleteSala(id_sala:string | null){
+    this._http.delete(this.url+'api/asiento/delete'+id_sala)
+  }
+
+  addSala(dataSala: Object): Observable<any>{
+    return this._http.put(this.url+'api/sala', dataSala);
+  }
+
+
+  deleteAsientosSala(id_sala: string | null){
+    this._http.delete(this.url+'api/asiento/delete'+id_sala)
+  }
+
+
 }
 

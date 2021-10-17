@@ -29,4 +29,17 @@ export class PeliculaService {
     return this._http.get(this.url+'api/pelicula/p/'+nombre_pelicula);
   }
 
+  deletePelicula(){
+
+  }
+
+  addPelicula(dataPelicula: Object){
+    return this._http.post(this.url+'api/sucursal/addsuc', dataPelicula);
+  }
+
+  updatePelicula(dataPelicula: Object): Observable<any>{
+    return this._http.put(this.url+'api/pelicula/modpps', dataPelicula);
+  }
+
+
 }
