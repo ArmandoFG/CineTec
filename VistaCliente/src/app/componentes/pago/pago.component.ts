@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculaService } from 'src/app/services/pelicula.service';
 import { PeticionesService } from 'src/app/services/peticiones.service';
+import { Router } from '@angular/router';
 
 interface userData{
   nombre:string;
@@ -30,7 +31,8 @@ export class PagoComponent implements OnInit {
   }
   constructor(
     private _peliculaService: PeliculaService,
-    private _clienteService: PeticionesService
+    private _clienteService: PeticionesService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -54,6 +56,12 @@ export class PagoComponent implements OnInit {
     for(var i=0; i<this.user.asientoid.length; i++){
       console.log(this.user.asientoid[i]);
     }
+  }
+  abrirFactura(){
+    this.router.navigate(['Factura']);
+  }
+  abrirxml(){
+    this.router.navigate(['XML']);
   }
 
 }

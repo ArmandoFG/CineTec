@@ -94,6 +94,7 @@ export class AsientoComponent implements OnInit {
           counter++;
         }
         this.sortAsientos();
+        this.restriccionCovid();
       },
       error => {
         console.log("hubo algun error obteniendo Salas \n" + <any>error);
@@ -161,8 +162,14 @@ export class AsientoComponent implements OnInit {
     this.router.navigate(['Proyecciones']);
   }
   goOn(){
-    this.router.navigate(['Pago']);
+    if(this.asientosSeleccionados.length==this._peliculaService.getCantidadTotal()){
+      this.router.navigate(['Pago']);
     this.cambiarAsientos(); 
+    }else{
+      alert("Asegúrese de que la cantidad de asientos elegidos sea igual a la cantidad de asientos seleccionados"+
+      "\nVuelva a elegir correctamente los asientos");
+    }
+    
   }
   cambiarAsientos(){
     while(this.asientosSeleccionados.length!=0){
@@ -179,6 +186,16 @@ export class AsientoComponent implements OnInit {
       this.asientosSeleccionados.shift();
     }
     this.getAsientos();
+  }
+
+  restriccionCovid(){
+    console.log("En restriccion por covis el lenght de asientos es "+ this.asientos.length);
+    console.log(this.asientos[0].disponibilidad);
+    var valores= [2,3,6,7,10,11,12,13,16,17,20,21,26,27,30,31,34,35,36,37,40,41,44,45,50,51,54,55,58,59,60,
+    61,64,65,68,69];
+    for(let i of valores){
+      this.asientos[i].disponibilidad="Restringido";
+    }
   }
 
 }

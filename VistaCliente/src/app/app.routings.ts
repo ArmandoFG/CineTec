@@ -9,6 +9,8 @@ import { VistaprincipalComponent } from "./componentes/vistaprincipal/vistaprinc
 import { AsientoComponent } from "./componentes/asiento/asiento.component";
 import { PagoComponent } from "./componentes/pago/pago.component";
 import { ProyeccionComponent } from "./componentes/proyeccion/proyeccion.component";
+import { FacturaComponent } from "./componentes/factura/factura.component";
+import { XmlComponent } from "./componentes/xml/xml.component";
 
 //Array de rutas
 const appRoutes: Routes= [
@@ -17,6 +19,8 @@ const appRoutes: Routes= [
     {path: 'Proyecciones', component: ProyeccionComponent},
     {path: 'Asientos', component: AsientoComponent},
     {path: 'Pago', component: PagoComponent},
+    {path: 'Factura', component: FacturaComponent},
+    {path: 'XML', component:XmlComponent},
     {path: '**', component: VistaprincipalComponent}
     //
 ];

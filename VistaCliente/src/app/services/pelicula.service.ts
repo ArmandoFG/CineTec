@@ -9,6 +9,12 @@ interface Pelicula {
   nombreCine:string;
   hora:string;
   sala:string;
+  cantidadNino:number;
+  cantidadAdulto:number;
+  cantidadMayor:number;
+  precioNino:string;
+  precioAdulto:string;
+  precioMayor:string;
 }
 @Injectable({
   providedIn: 'root'
@@ -22,7 +28,13 @@ export class PeliculaService {
     nombrePelicula:'',
     nombreCine:'',
     hora:'',
-    sala:''
+    sala:'',
+    cantidadNino:0,
+    cantidadAdulto:0,
+    cantidadMayor:0,
+    precioNino:'',
+    precioAdulto:'',
+    precioMayor:''
   }
   public asientos: string[]=[];
   constructor(
@@ -44,6 +56,9 @@ export class PeliculaService {
     this.pelicula.nombrePelicula= nombrePeli;
     this.pelicula.nombreCine=cineNom;
     
+  }
+  getSrcPelicula(nombre:string): Observable<any>{
+    return this._http.get(this.url+'api/pelicula/p/'+ nombre);
   }
   getHoraPelicula():Observable<any>{
     return this._http.get(this.url+"api/sucursal/horas/"+
@@ -76,6 +91,20 @@ export class PeliculaService {
   }
   getAsientosSeleccionados(){
     return this.asientos;
+  }
+  setCantidades(ninos:number,adultos:number,viejos:number){
+    this.pelicula.cantidadNino=ninos;
+    this.pelicula.cantidadAdulto=adultos;
+    this.pelicula.cantidadMayor=viejos;
+  }
+  setPrecios(nino:string, adulto:string, mayor:string){
+    this.pelicula.precioNino=nino;
+    this.pelicula.precioAdulto=adulto;
+    this.pelicula.precioMayor=mayor;
+  }
+  getCantidadTotal():number{
+    var suma= this.pelicula.cantidadNino+this.pelicula.cantidadMayor+this.pelicula.cantidadAdulto;
+    return suma;
   }
   
 

@@ -34,8 +34,8 @@ export class PeticionesService {
         this.url='http://localhost:8081/';
     }
     getUserbyId(id:string): Observable<any>{
-        this.infoUser= this._http.get(this.url+'api/cliente/client/'+id);
-        return this._http.get(this.url+'api/cliente/client/'+id);
+        this.infoUser= this._http.get(this.url+'api/cliente/usuario/'+id);
+        return this._http.get(this.url+'api/cliente/usuario/'+id);
     }
     setCurrentlyUser(){
       this.user.nombre=this.infoUser.nombre;
@@ -47,6 +47,10 @@ export class PeticionesService {
     }
     getCurrentlyUser(){
         return this.user.nombre;
+    }
+    getValidacionPas(pas:string):Observable<any>{
+      console.log(this.user.user);
+      return this._http.get(this.url+'api/cliente/val/'+this.user.user+'/'+pas);
     }
     
 

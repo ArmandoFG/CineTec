@@ -10,7 +10,7 @@
 }
 
 .main-container{
-    margin-top: 100px;
+    margin-top: 70px;
     margin-left: 60px;
     margin-right: 60px;
 }
@@ -80,7 +80,11 @@
     text-shadow: 0px 0px 8px #edc420;
  
   box-sizing: border-box;
- 
   font-size: min(200%, 5vmin);
-
   }
+
+.cantidad-container{
+  position: relative;
+  margin-left: 1170px;
+    margin-top:-70px;
+}

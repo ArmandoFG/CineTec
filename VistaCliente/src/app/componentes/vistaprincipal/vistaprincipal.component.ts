@@ -49,6 +49,7 @@ export class VistaprincipalComponent implements OnInit {
         this.peliculas=[];
         result;
         var counter=0;
+
         
         while(result[counter]!=undefined){
           this.peliculas.push({nombre:result[counter].toString()});
@@ -61,7 +62,7 @@ export class VistaprincipalComponent implements OnInit {
       }
     );
     console.log("Opcion elegida es: "+this.selectedOption);
-  }
+  } 
   elegirPelicula(nombre:string){
     this._peliculaService.pelicula.nombreCine=this.selectedOption;
     this._peliculaService.pelicula.nombrePelicula=nombre;

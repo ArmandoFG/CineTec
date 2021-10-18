@@ -19,6 +19,8 @@ import { ClienteService } from './services/cliente.service';
 import { PeticionesService } from './services/peticiones.service';
 import { PopupComponent } from './componentes/popup/popup.component';
 import { PeliculaService } from './services/pelicula.service';
+import { FacturaComponent } from './componentes/factura/factura.component';
+import { XmlComponent } from './componentes/xml/xml.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { PeliculaService } from './services/pelicula.service';
     AsientoComponent,
     PagoComponent,
     InformacionComponent,
-    PopupComponent
+    PopupComponent,
+    FacturaComponent,
+    XmlComponent
   ],
   imports: [
     BrowserModule,
