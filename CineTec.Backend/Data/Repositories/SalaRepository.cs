@@ -94,7 +94,7 @@ namespace CineTec.Backend.Data.Repositories
                         SELECT MAX(id_sala)
                         FROM sala
                         ";
-            var result2 = await db.QueryAsync<int>(sql2, new { });
+            var result2 = await db.QueryFirstOrDefaultAsync<int>(sql2, new { });
 
             var sql3 = @"
                         INSERT INTO Asiento(Salaid, AsientoID, Disponibilidad) 
