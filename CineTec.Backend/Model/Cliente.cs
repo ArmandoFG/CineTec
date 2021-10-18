@@ -7,6 +7,10 @@ namespace CineTec.Backend.Model
 {
     public class Cliente
     {
+        /**
+         * Clase para definir los clientes
+         * @author Harold Espinoza
+         */
         public int cedula { get; set; }
         public int edad { get; set; }
         public string nombre { get; set; }

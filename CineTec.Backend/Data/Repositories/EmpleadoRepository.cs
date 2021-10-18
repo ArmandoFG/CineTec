@@ -21,6 +21,11 @@ namespace CineTec.Backend.Data.Repositories
         {
             return new NpgsqlConnection(_connectionString.ConnectionString);
         }
+
+        /**
+         * Metodo que obtiene los detalles de un empleado
+         * @return empleado empleado con sus detalles
+         */
         public async Task<Empleados> GetEmpleadoDetails(int cedula)
         {
             var db = dbConnection();
@@ -34,6 +39,10 @@ namespace CineTec.Backend.Data.Repositories
             return result;
         }
 
+        /**
+         * Metodo que obtiene todos los empleados 
+         * @return lista de todos los empleados 
+         */
         public async Task<IEnumerable<Empleados>> GetAllEmpleados()
         {
             var db = dbConnection();
@@ -46,6 +55,12 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Empleados>(sql, new { });
         }
 
+        /**
+         * Metodo que agrega un empleado
+         * @param emp Empleado que se desea agregar
+         * @return result resultado de la operacion
+         * 
+         */
         public async Task<bool> InsertEmpl(Empleados emp)
         {
             var db = dbConnection();
@@ -75,6 +90,11 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que actualiza un empleado
+         * @param emp Empleado que se desea actualizar
+         * @return result resultado de la operacion
+         */
         public async Task<bool> UpdateEmp(Empleados emp)
         {
             var db = dbConnection();
@@ -120,6 +140,12 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que valida el ingreso de un empleado administrador
+         * @param user Usuario del empleado
+         * @param pwd password del empleado
+         * @return result resultado de la operacion
+         */
         public async Task<bool> Validacion(string user, string pwd)
         {
             var db = dbConnection();
@@ -149,6 +175,11 @@ namespace CineTec.Backend.Data.Repositories
 
         }
 
+        /**
+         * Metodo que elimina un empleado
+         * @param cedula Cedula del empleado a eliminar
+         * @return result resultado de la operacion
+         */
         public async Task<bool> DeleteEmp(int cedula)
         {
             var db = dbConnection();

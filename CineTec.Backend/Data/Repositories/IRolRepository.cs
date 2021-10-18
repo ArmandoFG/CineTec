@@ -8,6 +8,9 @@ namespace CineTec.Backend.Data.Repositories
 {
     public interface IRolRepository
     {
+        /**
+         * Metodo que obtiene los detalles de un rol
+         */
         Task<Rol> GetRolDetails(string Rname);
     }
 }

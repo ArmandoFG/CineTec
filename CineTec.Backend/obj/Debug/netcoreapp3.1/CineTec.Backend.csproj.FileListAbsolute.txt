@@ -22,26 +22,3 @@ C:\Users\hrlds\Documents\GitHub\Pruebas bien prronas\CineTec.Backend\obj\Debug\n
 C:\Users\hrlds\Documents\GitHub\Pruebas bien prronas\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.dll
 C:\Users\hrlds\Documents\GitHub\Pruebas bien prronas\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.pdb
 C:\Users\hrlds\Documents\GitHub\Pruebas bien prronas\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.genruntimeconfig.cache
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\CineTec.Backend.StaticWebAssets.xml
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\CineTec.Backend.exe
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\CineTec.Backend.deps.json
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\CineTec.Backend.runtimeconfig.json
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\CineTec.Backend.runtimeconfig.dev.json
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\CineTec.Backend.dll
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\CineTec.Backend.pdb
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\Dapper.dll
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\bin\Debug\netcoreapp3.1\Npgsql.dll
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.csproj.AssemblyReference.cache
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.AssemblyInfoInputs.cache
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.AssemblyInfo.cs
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.csproj.CoreCompileInputs.cache
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\scopedcss\bundle\CineTec.Backend.styles.css
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\staticwebassets\CineTec.Backend.StaticWebAssets.Manifest.cache
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.RazorTargetAssemblyInfo.cache
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.dll
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.pdb
-C:\Users\valen\Documents\New folder\CineTec\CineTec.Backend\obj\Debug\netcoreapp3.1\CineTec.Backend.genruntimeconfig.cache

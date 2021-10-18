@@ -22,6 +22,11 @@ namespace CineTec.Backend.Data.Repositories
             return new NpgsqlConnection(_connectionString.ConnectionString);
         }
 
+        /**
+         * Metodo que elimina una sucursal
+         * @param sucursal_id id de la sala a eliminar
+         * @return resutl resultado de la operacion
+         */
         public async Task<bool> DeleteSucursal(int Sucursal_id)
         {
           
@@ -40,6 +45,10 @@ namespace CineTec.Backend.Data.Repositories
             
         }
 
+        /**
+         * Metodo que obtiene todas las sucursales
+         * @return lista de sucursarles
+         */
         public async Task<IEnumerable<Sucursal>> GetAllSucursales()
         {
             var db = dbConnection();
@@ -52,6 +61,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Sucursal>(sql, new { });
         }
 
+        /**
+         * Metodo que obtiene los nombres de los cines 
+         * @param sucursal_id id de la sala requerida
+         * @return sucursal con sus detalles
+         */
         public async Task<Sucursal> GetSucursalDetails(int sucursal_id)
         {
             var db = dbConnection();
@@ -65,6 +79,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Sucursal>(sql, new { Sucursal_id = sucursal_id });
         }
 
+        /**
+         * Metodo que ingresa una sucursal 
+         * @param sucursal sucursal a ingresar
+         * @return resutl resultado de la operacion
+         */
         public async Task<bool> InsertSucursal(Sucursal sucursal)
         {
             var db = dbConnection();
@@ -85,6 +104,11 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+        * Metodo que obtiene actualiza una sucursal
+        * @param sucursal sucursal a ingresar
+        * @return resutl resultado de la operacion
+        */
         public async Task<bool> UpdateSucursal(Sucursal sucursal)
         {
             var db = dbConnection();
@@ -109,6 +133,10 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que obtiene los nombres de los cines 
+         * @return Listado del nombre de los cines
+         */
         public async Task<IEnumerable<string>> GetCinesName()
         {
             var db = dbConnection();
@@ -121,6 +149,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<string>(sql, new { });
         }
 
+        /**
+         * Metodo que obtiene las proyecciones en determinado cine
+         * @param nombreCine nombre de la sucursal requerido
+         * @return listado de proyecciones
+         */
         public async Task<IEnumerable<string>> ProyeccionesPCine(string nombreCine)
         {
             var db = dbConnection();
@@ -134,6 +167,12 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<string>(sql, new {NombreCine = nombreCine });
         }
 
+        /**
+         * Metodo que obtiene las horas de proyeccion de una pelicula en cierto cine
+         * @param nombreCine nombre de la sucursal requerido
+         * @param nombrePeli nombre de la pelicula requerido
+         * @return Listado de horas de las proyeciones
+         */
         public async Task<IEnumerable<string>> HorasProyeccion(string nombreCine, string nombrePeli)
         {
             var db = dbConnection();
@@ -148,7 +187,13 @@ namespace CineTec.Backend.Data.Repositories
         }
 
 
-
+        /**
+         * Metodo que obtiene la sala en la que se transmite una pelicula, segun cierto cine y cierta hora
+         * @param nombreCine nombre de la sucursal requerido
+         * @param nombrePeli nombre de la pelicula requerido
+         * @param hora hora de la proyeccion
+         * @return id de la sala de la proyeccion
+         */
         public async Task<string> SalasProyec(string nombreCine, string nombrePeli, string hora)
         {
             var db = dbConnection();

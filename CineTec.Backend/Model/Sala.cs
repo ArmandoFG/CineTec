@@ -7,6 +7,10 @@ namespace CineTec.Backend.Model
 {
     public class Sala
     {
+        /**
+         * Clase para definir las salas 
+         * @author Harold Espinoza
+         */
         public int id_sala { get; set; }
         public int filas { get; set; }
         public int capacidad { get; set; }

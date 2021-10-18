@@ -7,6 +7,10 @@ namespace CineTec.Backend.Model
 {
     public class Factura
     {
+        /**
+         * Clase para definir las facturas 
+         * @author Harold Espinoza
+         */
         public int clave { get; set; }
         public int consecutivo { get; set; }
         public int fact_id { get; set; }

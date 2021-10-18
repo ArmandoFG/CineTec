@@ -21,6 +21,12 @@ namespace CineTec.Backend.Data.Repositories
         {
             return new NpgsqlConnection(_connectionString.ConnectionString);
         }
+
+        /**
+         * Metodo que obtiene los detalles de un cliente 
+         * @param cedula cedula del cliente requerido
+         * @return cliente con sus detalles 
+         */
         public async Task<Cliente> GetClienteDetails(int cedula)
         {
             var db = dbConnection();
@@ -34,6 +40,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Cliente>(sql, new { Cedula = cedula });
         }
 
+
+        /**
+         * Metodo que obtiene todos los clientes
+         * @return lista de clientes 
+         */
         public async Task<IEnumerable<Cliente>> GetAllClientes()
         {
             var db = dbConnection();
@@ -46,6 +57,12 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Cliente>(sql, new { });
         }
 
+
+        /**
+         * Metodo que obtiene un cliente por su usuario
+         * @usuario Usuario del cliente requerido
+         * @return cliente con sus detalles 
+         */
         public async Task<Cliente> GetClienteUser(string usuario)
         {
             var db = dbConnection();
@@ -59,6 +76,12 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Cliente>(sql, new { Usuario = usuario });
         }
 
+        /**
+         * Metodo que valida el ingreso de un usuario
+         * @param user Usuario del cliente
+         * @param pwd password del cliente 
+         * @return result resultado de la operacion
+         */
         public async Task<bool> Validacion(string user, string pwd)
         {
             var db = dbConnection();
