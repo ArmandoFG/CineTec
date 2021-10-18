@@ -21,6 +21,12 @@ namespace CineTec.Backend.Data.Repositories
         {
             return new NpgsqlConnection(_connectionString.ConnectionString);
         }
+
+        /**
+         * Metodo que obtiene los detalles de una factura 
+         * @param factID id de la factura deseada
+         * @return factura solicitada
+         */
         public async Task<Factura> GetFacturadetails(int factId)
         {
             var db = dbConnection();
@@ -34,6 +40,10 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Factura>(sql, new { factId = factId });
         }
 
+        /**
+         * Metodo que obtiene todas las facturas 
+         * @return Lista de facturas
+         */
         public async Task<IEnumerable<Factura>> GetAllFacturas()
         {
             var db = dbConnection();
@@ -46,6 +56,10 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Factura>(sql, new { });
         }
 
+        /**
+         * Metodo que agrega una factura 
+         * @param fact Factura por agregar
+         */
         public async Task<bool> InsertFact(Factura fact)
         {
             var db = dbConnection();

@@ -21,6 +21,12 @@ namespace CineTec.Backend.Data.Repositories
         {
             return new NpgsqlConnection(_connectionString.ConnectionString);
         }
+
+        /**
+         * Metodo que obtiene los detalles de un rol
+         * @param Rname nombre del rol deseado
+         * @return Rol con sus detalles
+         */
         public async Task<Rol> GetRolDetails(string Rname)
         {
             var db = dbConnection();

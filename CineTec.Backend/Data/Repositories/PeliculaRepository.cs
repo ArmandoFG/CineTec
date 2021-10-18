@@ -22,6 +22,10 @@ namespace CineTec.Backend.Data.Repositories
             return new NpgsqlConnection(_connectionString.ConnectionString);
         }
 
+        /**
+         * Metodo que obtiene todas las peliculas 
+         * @return listado de peliculas
+         */
         public async Task<IEnumerable<Pelicula>> GetAllPeliculas()
         {
             var db = dbConnection();
@@ -34,6 +38,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Pelicula>(sql, new { });
         }
 
+        /**
+         * Metodo que obtiene los detalles de una pelicula
+         * @param nombreOriginal nombre de la pelicula
+         * @return pelicula con los detalles 
+         */
         public async Task<Pelicula> GetPeliculaDetails(string nombreOriginal)
         {
             var db = dbConnection();
@@ -47,6 +56,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Pelicula>(sql, new {NombreOriginal = nombreOriginal });
         }
 
+        /**
+         * Metodo que agrega una pelicula
+         * @param pelicula pelicula a ingresar
+         * @return result resultado de la operacion
+         */
         public async Task<bool> InsertPelicula(Pelicula pelicula)
         {
             var db = dbConnection();
@@ -62,6 +76,11 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que actualiza una pelicula 
+         * @param pelicula pelicula a modificar
+         * @return result resultado de la operacion
+         */
         public async Task<bool> UpdatePelicula(Pelicula pelicula)
         {
             var db = dbConnection();
@@ -83,6 +102,11 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que elimina una pelicula 
+         * @param nombreOriginal nombre de la pelicula
+         * @return result resultado de la operacion
+         */
         public async Task<bool> DeletePelicula(string nombre_pelicula)
         {
             var db = dbConnection();
@@ -99,6 +123,10 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que obtiene las proyecciones
+         * @return lista de proyecciones
+         */
         public async Task<IEnumerable<Pelicula_por_sala>> GetAllPPS()
         {
             var db = dbConnection();
@@ -112,6 +140,11 @@ namespace CineTec.Backend.Data.Repositories
 
         }
 
+        /**
+         * Metodo que obtiene las proyecciones de una pelicula
+         * @param nombrePeli nombre de la pelicula
+         * @return proyecciones de esa pelicula 
+         */
         public async Task<IEnumerable<PPSTot>> GetAllPPSPelicula(string nombrePeli)
         {
             var db = dbConnection();
@@ -125,6 +158,10 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<PPSTot>(sql, new { nombre_pelicula = nombrePeli });
         }
 
+        /**
+         * Metodo que obtiene todos los directores 
+         * @return lista de directores 
+         */
         public async Task<IEnumerable<Director>> GetAllDirectores()
         {
             var db = dbConnection();
@@ -137,6 +174,10 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Director>(sql, new { });
         }
 
+        /**
+         * Metodo que obtiene todos los protagonistas
+         * @return lista de protagonistas
+         */
         public async Task<IEnumerable<Protagonista>> GetAllProtagonistas()
         {
             var db = dbConnection();
@@ -149,6 +190,10 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Protagonista>(sql, new { });
         }
 
+        /**
+         * Metodo que obtienen los tipos de clasificaciones 
+         * @return lista de clasificaciones
+         */
         public async Task<IEnumerable<Clasificacion>> GetAllClasificaciones()
         {
             var db = dbConnection();
@@ -161,6 +206,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Clasificacion>(sql, new { });
         }
 
+        /**
+         * Metodo que ingresa una proyeccion
+         * @param proyeccion proyeccion a ingresar
+         * @return result resultado de la operacion
+         */
         public async Task<bool> InsertPPS(Pelicula_por_sala proyeccion)
         {
             var db = dbConnection();
@@ -181,6 +231,11 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+        * Metodo que actualiza una proyeccion
+        * @param proyeccion proyeccion por modificar
+        * @return result resultado de la operacion
+        */
         public async Task<bool> UpdatePPS(Pelicula_por_sala proyeccion)
         {
             var db = dbConnection();

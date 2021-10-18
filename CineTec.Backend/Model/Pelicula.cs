@@ -7,6 +7,10 @@ namespace CineTec.Backend.Model
 {
     public class Pelicula
     {
+        /**
+         * Clase para definir las peliculas
+         * @author Harold Espinoza
+         */
         public string nombre_original { get; set; }
         public string nombre { get; set; }
         public int duracion { get; set; }

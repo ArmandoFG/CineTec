@@ -21,6 +21,11 @@ namespace CineTec.Backend.Data.Repositories
         {
             return new NpgsqlConnection(_connectionString.ConnectionString);
         }
+
+        /**
+         * Metodo que obtiene los detalles de un asiento
+         * @return asiento asiento y sus detalles
+         */
         public async Task<Asiento> GetAsientoDetails(string AsientoId)
         {
             var db = dbConnection();
@@ -34,6 +39,10 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Asiento>(sql, new { AsientoId = AsientoId });
         }
 
+        /**
+         * Metodo que obtiene los asientos 
+         * @return asientos Lista de los asientos
+         */
         public async Task<IEnumerable<Asiento>> GetAllAsientos()
         {
             var db = dbConnection();
@@ -46,6 +55,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Asiento>(sql, new { });
         }
 
+        /**
+         * Metodo que actualiza un asiento
+         * @param asiento Asiento que se desea actualizar
+         * @return result resultado de la operacion
+         */
         public async Task<bool> UpdateAsientos(Asiento asiento)
         {
             var db = dbConnection();
@@ -70,6 +84,11 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que obtiene los asientos de una sala
+         * @salaid Id de la sala que se requiere
+         * @return lista de asientos de esa sala
+         */
         public async Task<IEnumerable<Asiento>> GetAllAsientosfromSala(int salaid)
         {
             var db = dbConnection();
@@ -83,6 +102,10 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Asiento>(sql, new {Salaid = salaid });
         }
 
+        /**
+         * Metodo que actualiza los asientos con la restriccion de covid-19
+         * @return resutl resultado de la operacion
+         */
         public async Task<bool> Restriccion()
         {
             var db = dbConnection();
@@ -106,6 +129,10 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que habilita los asientos restringido por el covid-19
+         * @return result resultado de la operacion
+         */
         public async Task<bool> habilitado()
         {
             var db = dbConnection();
@@ -129,6 +156,10 @@ namespace CineTec.Backend.Data.Repositories
             return result > 0;
         }
 
+        /**
+         * Metodo que elimina los asientos de una sala
+         * @return result resultado de la operacion
+         */
         public async Task<bool> DeleteAsientos(int salaid)
         {
             var db = dbConnection();
