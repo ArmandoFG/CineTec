@@ -44,6 +44,7 @@ export class AgregarSalaComponent implements OnInit {
   }
 
   cargarSalasSucursal(){
+    this.listSalasSucursal = [];
     if (this.id_sucursal != null){
       this._sucursalService.getSalasBySucursal(this.id_sucursal).subscribe(
         result => {
@@ -123,7 +124,15 @@ export class AgregarSalaComponent implements OnInit {
   }
 
   agregarSala(){
-    console.log("Agregar Sala")
+    const sala: Object = {
+      filas: 6,
+      capacidad: 72,
+      columnas: 12,
+      id_sucursal: Number(this.id_sucursal)
+    }
+    this._sucursalService.addSala(sala).subscribe(data => {
+      console.log(data);
+    });
   }
 
 

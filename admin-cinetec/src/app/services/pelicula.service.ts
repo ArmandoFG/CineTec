@@ -48,5 +48,12 @@ export class PeliculaService {
     return this._http.post(this.url+'api/pelicula/addpps', dataProyeccion);
   }
 
+  deleteProyeccion(id_sucursal: string | null){
+    console.log(this.url+'api/sucursal/quitsuc/'+id_sucursal);
+      this._http.delete(this.url+'api/sucursal/quitsuc/'+id_sucursal).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 
 }

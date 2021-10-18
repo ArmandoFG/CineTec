@@ -37,6 +37,11 @@ export class ProyeccionesComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  delete(){
+    this.listProyecciones.pop();
+    this.dataSource = new MatTableDataSource(this.listProyecciones)
+  }
+
   cargarProyecciones(){
     if (this.nombre_pelicula != null){
       this._proyeccionesService.getProyeccionByPelicula(this.nombre_pelicula).subscribe(

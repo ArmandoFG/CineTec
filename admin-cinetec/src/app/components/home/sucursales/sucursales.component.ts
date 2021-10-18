@@ -11,8 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class SucursalesComponent implements OnInit {
   public sucursalesData: any;
   listSucursales: any[] = [];
-  opcion1 = false;
-  checked = false; 
+  estado = "Restriccion Covid"; 
 
   displayedColumns: string[] = ['id_sucursal', 'nombre_cine', 'ubicacion', 'cantidad_salas', 'acciones'];
   dataSource!: MatTableDataSource<any>;
@@ -31,8 +30,16 @@ export class SucursalesComponent implements OnInit {
    /* this._sucursalService.covidRestriccion().subscribe(data => {
       console.log(data);
     });*/
-    if( this.checked == false){
-      console.log("disabled")
+    if( this.estado == "Restriccion Covid"){
+      this._sucursalService.covidRestriccion().subscribe(data => {
+      console.log(data);
+      });
+      this.estado = "Habilitar Asientos";
+    }else{
+      this._sucursalService.habilitarAsientos().subscribe(data => {
+        console.log(data);
+        });
+      this.estado = "Restriccion Covid"
     }
   }
 

@@ -42,13 +42,11 @@ export class SucursalService {
   }
 
   covidRestriccion(): Observable<any>{
-    if(this.flagAsientos == 0){
-      return this._http.get(this.url+'api/asiento/habilitado');
-    }else{
-      this.flagAsientos = 1;
       return this._http.get(this.url+'api/asiento/restriccion');
     }
     
+  habilitarAsientos(): Observable<any>{
+    return this._http.get(this.url+'api/asiento/habilitado');
   }
 
   deleteSala(id_sala:string | null){
@@ -56,7 +54,7 @@ export class SucursalService {
   }
 
   addSala(dataSala: Object): Observable<any>{
-    return this._http.put(this.url+'api/sala/addsala', dataSala);
+    return this._http.post(this.url+'api/sala/addsala', dataSala);
   }
 
 

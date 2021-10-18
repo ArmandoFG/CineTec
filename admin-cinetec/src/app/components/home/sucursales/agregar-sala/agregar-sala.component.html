@@ -38,6 +38,9 @@
   <mat-toolbar class="sectionTitle2">
     <span>Salas</span>
     <button (click)="agregarSala()" mat-button >Agregar Sala</button>
+    <a class="pointer" (click)="cargarSalasSucursal()" style="color: slateblue;" matTooltip="Ver y Editar Sucursal">
+      <mat-icon>autorenew</mat-icon>
+    </a>
   </mat-toolbar>
 
   <div *ngIf="listSalasSucursal.length > 0">

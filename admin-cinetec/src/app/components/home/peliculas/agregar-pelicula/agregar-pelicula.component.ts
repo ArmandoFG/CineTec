@@ -122,10 +122,10 @@ export class AgregarPeliculaComponent implements OnInit {
     }
     const proyeccion: Object =
     {
-      hora: this.form2.value.hora,
-      nombre_cine: this.form2.value.nombre_cine,
-      nombre_pelicula: this.form.value.nombre_pelicula,
-      sala_id: Number(this.form.value.sala_id),
+      sucursal_id: 3,
+      sala_id: Number(this.form2.value.sala_id),
+      nombre_pelicula: this.form2.value.nombre_pelicula,
+      hora: this.form2.value.hora
     }
     this._peliculaService.addProyeccion(proyeccion).subscribe(data => {
       console.log(data);
