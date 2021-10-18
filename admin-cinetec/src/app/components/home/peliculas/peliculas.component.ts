@@ -26,6 +26,7 @@ export class PeliculasComponent implements OnInit {
   }
 
   cargarPeliculas(){
+    this.listPeliculas = [];
     this._peliculaService.getPeliculas().subscribe(
       result => {
         result;
@@ -42,5 +43,9 @@ export class PeliculasComponent implements OnInit {
       error => {
         console.log("hola")
       });
+  }
+
+  eliminarPelicula(index: number){
+    this._peliculaService.deletePelicula(this.listPeliculas[index].nombre_original);
   }
 }

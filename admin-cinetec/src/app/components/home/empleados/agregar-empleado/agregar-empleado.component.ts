@@ -49,11 +49,54 @@ export class AgregarEmpleadoComponent implements OnInit {
   }
 
   agregarEmpleado(){
-    console.log("es agregar")
+    if (this.form.invalid){
+      return;
+    }
+    const empleado: Object =
+    {
+      nombre1: this.form.value.nombre1,
+      nombre2: this.form.value.nombre2,
+      apellido1: this.form.value.apellido1,
+      apellido2: this.form.value.apellido2,
+      cedula: Number(this.form.value.cedula),
+      fecha_de_nacimiento: "05/10/1974",
+      fecha_ingreso: "06/10/2020",
+      numero_telefono: Number(this.form.value.numero_telefono),
+      edad: 0,
+      pass: this.form.value.password,
+      usuario: this.form.value.usuario,
+      id_sucursal:  Number(this.form.value.id_sucursal),
+      rol_name: "Administrador"
+    }
+    console.log(empleado)
+    this._empleadoService.addNewEmpleado(empleado).subscribe(data => {
+      console.log(data);
+    });
+    this.router.navigate(['/home/empleados']);
   }
 
   editarEmpleado(){
-    console.log("es editar")
+    const empleado: Object =
+    {
+      nombre1: this.form.value.nombre1,
+      nombre2: this.form.value.nombre2,
+      apellido1: this.form.value.apellido1,
+      apellido2: this.form.value.apellido2,
+      cedula: Number(this.form.value.cedula),
+      fecha_de_nacimiento: "05/10/1974",
+      fecha_ingreso: "06/10/2020",
+      numero_telefono: Number(this.form.value.numero_telefono),
+      edad: 0,
+      pass: this.form.value.password,
+      usuario: this.form.value.usuario,
+      id_sucursal:  Number(this.form.value.id_sucursal),
+      rol_name: "Administrador"
+    }
+    console.log(empleado)
+    this._empleadoService.updateEmpleado(empleado).subscribe(data => {
+      console.log(data);
+    });
+    this.router.navigate(['/home/empleados']);
   }
 
   esEditar(){

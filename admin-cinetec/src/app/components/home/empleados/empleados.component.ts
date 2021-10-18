@@ -67,9 +67,7 @@ export class EmpleadosComponent implements OnInit {
   }
 
   eliminarEmpleado(index: number){
-    console.log(this.listEmpleados[index].cedula)
     this._empleadoService.deleteEmpleado(this.listEmpleados[index].cedula);
-    this.cargarEmpleados();
   }
   
 }

@@ -29,16 +29,23 @@ export class PeliculaService {
     return this._http.get(this.url+'api/pelicula/p/'+nombre_pelicula);
   }
 
-  deletePelicula(){
-
+  deletePelicula(nombre_original: string | null){
+    console.log(this.url+'api/quitmovie/'+nombre_original);
+      this._http.delete(this.url+'api/pelicula/quitmovie/'+nombre_original).subscribe(data => {
+      console.log(data);
+    });
   }
 
-  addPelicula(dataPelicula: Object){
-    return this._http.post(this.url+'api/sucursal/addsuc', dataPelicula);
+  addPelicula(dataPelicula: Object): Observable<any>{
+    return this._http.post(this.url+'api/pelicula/addmovie', dataPelicula);
   }
 
   updatePelicula(dataPelicula: Object): Observable<any>{
-    return this._http.put(this.url+'api/pelicula/modpps', dataPelicula);
+    return this._http.put(this.url+'api/pelicula/updatemovie', dataPelicula);
+  }
+
+  addProyeccion(dataProyeccion: Object): Observable<any>{
+    return this._http.post(this.url+'api/pelicula/addpps', dataProyeccion);
   }
 
 

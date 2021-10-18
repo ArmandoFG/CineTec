@@ -2,7 +2,10 @@
     <mat-toolbar class="sectionTitle">
         <span>Gestión de Peliculas</span>
         <button mat-button routerLink="/home/peliculas/agregar-pelicula">Agregar</button>
-    </mat-toolbar>
+        <a class="pointer" (click)="cargarPeliculas()" style="color: slateblue;" matTooltip="Ver y Editar Sucursal">
+          <mat-icon>autorenew</mat-icon>
+        </a>
+      </mat-toolbar>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -48,7 +51,7 @@
                   <mat-icon>edit</mat-icon>
               </a>
 
-              <a class="pointer" style="color: indianred;" matTooltip="Eliminar Pelicula">
+              <a class="pointer" (click)="eliminarPelicula(i)" style="color: indianred;" matTooltip="Eliminar Pelicula">
                   <mat-icon>delete</mat-icon>
               </a>
           </td>

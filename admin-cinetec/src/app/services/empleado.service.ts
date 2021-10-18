@@ -26,8 +26,19 @@ export class EmpleadoService {
     return this._http.get(this.url+'api/empleado/e/'+cedula)
   }
 
-  deleteEmpleado(cedula: number){
-    return this._http.delete(this.url+'api/empleado/delete/'+cedula)
+  deleteEmpleado(cedula: string | null){
+    console.log(this.url+'api/empleado/delete/'+cedula);
+      this._http.delete(this.url+'api/empleado/delete/'+cedula).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  addNewEmpleado(dataEmpleado: Object): Observable<any>{
+    return this._http.post(this.url+'api/empleado/addempleado', dataEmpleado);
+  }
+
+  updateEmpleado(dataEmpleado: Object): Observable<any>{
+    return this._http.put(this.url+'api/empleado/modemp', dataEmpleado);
   }
 
 }

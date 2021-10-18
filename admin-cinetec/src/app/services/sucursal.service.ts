@@ -56,7 +56,7 @@ export class SucursalService {
   }
 
   addSala(dataSala: Object): Observable<any>{
-    return this._http.put(this.url+'api/sala', dataSala);
+    return this._http.put(this.url+'api/sala/addsala', dataSala);
   }
 
 

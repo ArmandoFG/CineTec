@@ -20,7 +20,8 @@ export class AgregarPeliculaComponent implements OnInit {
   constructor(private fb: FormBuilder, 
     private _peliculaService: PeliculaService,
     private aRoute: ActivatedRoute,
-    private fb2: FormBuilder) 
+    private fb2: FormBuilder,
+    private router:Router) 
     { 
       this.form = this.fb.group({
         nombre: ['', Validators.required],
@@ -80,16 +81,59 @@ export class AgregarPeliculaComponent implements OnInit {
   }
 
   editarPelicula(){
-    console.log("ES EDITAR");
+    const pelicula: Object = {
+      nombre_original: this.form.value.nombre_original,
+      nombre: this.form.value.nombre,
+      duracion: Number(this.form.value.duracion),
+      imagen: this.form.value.url_imagen,
+      precio_menores: 2200,
+      precio_adultos: 3000,
+      precio_tercera_edad: 2400
+    }
+    this._peliculaService.updatePelicula(pelicula).subscribe(data => {
+      console.log(data);
+    });
+    this.router.navigate(['/home/peliculas']);
   }
 
   agregarPelicula(){
-    console.log("ES AGREGAR");
+    if (this.form.invalid){
+      return;
+    }
+    const pelicula: Object =
+    {
+      nombre_original: this.form.value.nombre_original,
+      nombre: this.form.value.nombre,
+      duracion: Number(this.form.value.duracion),
+      imagen: this.form.value.url_imagen,
+      precio_menores: 2200,
+      precio_adultos: 3000,
+      precio_tercera_edad: 2400
+    }
+    this._peliculaService.addPelicula(pelicula).subscribe(data => {
+      console.log(data);
+    });
+    this.router.navigate(['/home/peliculas']);
   }
 
   agregarProyeccion(){
-    console.log("Agregar Proyeccion")
+    if (this.form.invalid){
+      return;
+    }
+    const proyeccion: Object =
+    {
+      hora: this.form2.value.hora,
+      nombre_cine: this.form2.value.nombre_cine,
+      nombre_pelicula: this.form.value.nombre_pelicula,
+      sala_id: Number(this.form.value.sala_id),
+    }
+    this._peliculaService.addProyeccion(proyeccion).subscribe(data => {
+      console.log(data);
+    });
+    this.router.navigate(['/home/peliculas']);
   }
+
+
 
 
 }
