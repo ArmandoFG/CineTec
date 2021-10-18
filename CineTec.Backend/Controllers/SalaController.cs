@@ -61,6 +61,11 @@ namespace CineTec.Backend.Controllers
             return Ok(await _salaRepository.GetSalasXNomSucursal(nombrecine));
         }
 
+        /**
+         * Metodo de tipo POST que crea una sala y sus asientos respectivos
+         * @param sala obtiene del cuerpo del mensaje los elementos de la nueva sala
+         * @return result booleano con el resultado de la operacion
+         */
         [HttpPost("addsala")]
         public async Task<IActionResult> CreateSucursal([FromBody] Sala sala)
         {
@@ -73,6 +78,17 @@ namespace CineTec.Backend.Controllers
             var created = await _salaRepository.InsertSala(sala);
 
             return Created("created", created);
+        }
+
+        /**
+         */
+        [HttpDelete("delete/{idsala}")]
+        public async Task<IActionResult> DeleteSucursal(int idsala)
+        {
+
+            await _salaRepository.DeleteSala(idsala);
+
+            return NoContent();
         }
     }
 }

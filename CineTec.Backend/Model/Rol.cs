@@ -7,6 +7,10 @@ namespace CineTec.Backend.Model
 {
     public class Rol
     {
+        /**
+         * Clase para definir los roles
+         * @author Harold Espinoza
+         */
         public string nombre { get; set; }
         public string descripcion { get; set; }
 

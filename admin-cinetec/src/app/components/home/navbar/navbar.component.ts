@@ -5,6 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
+/**
+ * Clase para el componente de Navbar
+ * @author Carmen Araya
+ * */
 export class NavbarComponent implements OnInit {
 
   constructor() { }

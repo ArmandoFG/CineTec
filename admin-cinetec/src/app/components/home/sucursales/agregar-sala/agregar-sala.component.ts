@@ -11,6 +11,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./agregar-sala.component.css'],
   providers: [SucursalService]
 })
+
+/**
+ * Clase para el componente de Crear Tarjeta
+ * @author Carmen Araya
+ * */
 export class AgregarSalaComponent implements OnInit {
   
   form: FormGroup;
@@ -23,7 +28,13 @@ export class AgregarSalaComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
 
   
-
+  /**
+   * Metodo que constructor de la clase
+   * @param FormBuilder formulario para crear un elemento
+   * @param CardService Servicio de la Tarjeta
+   * @param router 
+   * @param ActivatedRoute 
+   * */
   constructor(
     private _sucursalService: SucursalService,
     private aRoute: ActivatedRoute,
@@ -39,11 +50,18 @@ export class AgregarSalaComponent implements OnInit {
     })
     }
 
+  /**
+  * Metodo que ejecuta otros metodos al correr la aplicación
+  * */
   ngOnInit(): void {
     this.cargarSalasSucursal();
   }
 
+    /**
+  * Metodo que carga las Salas por sucursal que existen en el servicio y las muestra en la tabla
+  * */
   cargarSalasSucursal(){
+    this.listSalasSucursal = [];
     if (this.id_sucursal != null){
       this._sucursalService.getSalasBySucursal(this.id_sucursal).subscribe(
         result => {
@@ -65,6 +83,9 @@ export class AgregarSalaComponent implements OnInit {
     }
   }
 
+  /**
+  * Metodo que carga la informacion
+  * */
   cargarInfoSucursal(){
     this._sucursalService.getSucursalById(this.id_sucursal).subscribe(
       result => {
@@ -80,6 +101,9 @@ export class AgregarSalaComponent implements OnInit {
     });
   }
 
+  /**
+  * Metodo que ejecuta la accion editar o agregar segun una condicin
+  * */
   agregarEditarSucursal(){
     if (this.id_sucursal != null){
       this.editarSucursal();
@@ -88,6 +112,9 @@ export class AgregarSalaComponent implements OnInit {
     }
   }
 
+  /**
+  * Metodo que edita una tarjeta en el servicio y la actuliza en la tabla
+  * */ 
   editarSucursal(){
     const sucursal: Object = {
       id_sucursal: Number(this.id_sucursal),
@@ -101,7 +128,9 @@ export class AgregarSalaComponent implements OnInit {
     this.router.navigate(['/home/sucursales']);
   }
 
-  
+  /**
+  * Metodo que agrega una tarjeta nueva al servicio y la carga en la tabla
+  * */
   agregarSucursal(){
     if (this.form.invalid){
       return;
@@ -123,7 +152,15 @@ export class AgregarSalaComponent implements OnInit {
   }
 
   agregarSala(){
-    console.log("Agregar Sala")
+    const sala: Object = {
+      filas: 6,
+      capacidad: 72,
+      columnas: 12,
+      id_sucursal: Number(this.id_sucursal)
+    }
+    this._sucursalService.addSala(sala).subscribe(data => {
+      console.log(data);
+    });
   }
 
 

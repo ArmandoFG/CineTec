@@ -7,6 +7,10 @@ namespace CineTec.Backend.Model
 {
     public class Empleados
     {
+        /**
+         * Clase para definir los empleados
+         * @author Harold Espinoza
+         */
         public string nombre1 { get; set; }
         public string nombre2 { get; set; }
         public string Apellido1 { get; set; }

@@ -21,6 +21,11 @@ namespace CineTec.Backend.Data.Repositories
         {
             return new NpgsqlConnection(_connectionString.ConnectionString);
         }
+
+        /**
+         * Metodo que obtiene todas las salas
+         * @return lista de salas
+         */
         public async Task<IEnumerable<Sala>> GetAllSalas()
         {
             var db = dbConnection();
@@ -33,6 +38,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Sala>(sql, new { });
         }
 
+        /**
+         * Metodo que obtiene los detalles de una sala
+         * @param salaId Id de la sala requerida
+         * @return Sala con sus detalles
+         */
         public async Task<Sala> GetSalaDetails(int salaId)
         {
             var db = dbConnection();
@@ -46,6 +56,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Sala>(sql, new { Sala_id = salaId });
         }
 
+        /**
+         * Metodo que obtiene todas las salas de una sucursal por su id
+         * @param sucid Id de la sucursal requerida
+         * @return lista de salas pertenecientes a esa sucursal
+         */
         public async Task<IEnumerable<Sala>> GetSalasXSucursal(int Sucid)
         {
             var db = dbConnection();
@@ -60,6 +75,10 @@ namespace CineTec.Backend.Data.Repositories
 
         }
 
+        /**
+         * Metodo que obtiene todas salas de una sucursal por su nombre 
+         * @param nombreSuc nombre de la sucursal requerida
+         */
         public async Task<IEnumerable<Sala>> GetSalasXNomSucursal(string nombreSuc)
         {
             var db = dbConnection();
@@ -73,6 +92,11 @@ namespace CineTec.Backend.Data.Repositories
             return await db.QueryAsync<Sala>(sql, new { NomSuc = nombreSuc });
         }
 
+        /**
+         * Metodo que ingresa una nueva sala
+         * @param sala sala a ingresar
+         * @return resutl resultado de la operacion
+         */
         public async Task<bool> InsertSala(Sala sala)
         {
             var db = dbConnection();
@@ -246,6 +270,26 @@ namespace CineTec.Backend.Data.Repositories
 
             return result3 > 0;
             
+        }
+
+        /**
+         * Metodo que elimina una sala
+         * @param salaid Id de la sala a eliminar
+         */
+        public async Task<bool> DeleteSala(int salaid)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        DELETE
+                        FROM public.sala
+                        WHERE id_sala = @Salaid
+    
+                        ";
+
+            var result = await db.ExecuteAsync(sql, new { Salaid = salaid });
+
+            return result > 0;
         }
     }
 }

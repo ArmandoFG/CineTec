@@ -10,6 +10,11 @@ var sala = [];
   templateUrl: './proyecciones.component.html',
   styleUrls: ['./proyecciones.component.css']
 })
+
+/**
+ * Clase para el componente de Proyecciones
+ * @author Carmen Araya
+ * */
 export class ProyeccionesComponent implements OnInit {
 
   nombre_pelicula: string | null;
@@ -35,6 +40,11 @@ export class ProyeccionesComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  delete(){
+    this.listProyecciones.pop();
+    this.dataSource = new MatTableDataSource(this.listProyecciones)
   }
 
   cargarProyecciones(){

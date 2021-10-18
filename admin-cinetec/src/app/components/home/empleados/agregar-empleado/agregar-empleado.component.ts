@@ -10,6 +10,11 @@ import { EmpleadoService } from 'src/app/services/empleado.service';
   templateUrl: './agregar-empleado.component.html',
   styleUrls: ['./agregar-empleado.component.css']
 })
+
+/**
+ * Clase para el componente de Crear Empleado
+ * @author Carmen Araya
+ * */
 export class AgregarEmpleadoComponent implements OnInit {
 
   tipo: any[] = ['1', '2', '3', '4', '5' ]
@@ -17,6 +22,13 @@ export class AgregarEmpleadoComponent implements OnInit {
   cedula: number | null;
   titulo = "Agregar Empleado";
 
+  /**
+   * Metodo que constructor de la clase
+   * @param FormBuilder formulario para crear un elemento
+   * @param EmpleapoService Servicio de Empleado
+   * @param router 
+   * @param ActivatedRoute 
+   * */
   constructor(private fb: FormBuilder, 
     private _empleadoService: EmpleadoService,
     private router: Router,
@@ -35,10 +47,17 @@ export class AgregarEmpleadoComponent implements OnInit {
     })
     this.cedula = Number(this.aRoute.snapshot.paramMap.get("cedula"));
    }
+  
+  /**
+  * Metodo que ejecuta otros metodos al correr la aplicación
+  * */  
   ngOnInit(): void {
     this.esEditar();
   }
 
+  /**
+  * Metodo que ejecuta la accion editar o agregar segun una condicin
+  * */
   agregarEditarEmpleado(){
     if (this.cedula == 0){
       this.agregarEmpleado();
@@ -48,6 +67,9 @@ export class AgregarEmpleadoComponent implements OnInit {
     }
   }
 
+  /**
+  * Metodo que agrega un Empleado nuevo a la base de datos y la carga en la tabla
+  * */
   agregarEmpleado(){
     if (this.form.invalid){
       return;
@@ -75,6 +97,9 @@ export class AgregarEmpleadoComponent implements OnInit {
     this.router.navigate(['/home/empleados']);
   }
 
+  /**
+  * Metodo que edita un empleado en el servicio y la actuliza en la tabla
+  * */
   editarEmpleado(){
     const empleado: Object =
     {
@@ -99,6 +124,9 @@ export class AgregarEmpleadoComponent implements OnInit {
     this.router.navigate(['/home/empleados']);
   }
 
+  /**
+  * Metodo que obtiene los datos de un empleado editado y llama al servicio para hacer los cambios
+  * */ 
   esEditar(){
     if(this.cedula != 0){
       this.titulo = "Editar Empleado";

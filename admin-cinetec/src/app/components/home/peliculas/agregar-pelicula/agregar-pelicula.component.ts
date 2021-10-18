@@ -10,6 +10,11 @@ import { PeliculaService } from 'src/app/services/pelicula.service';
   templateUrl: './agregar-pelicula.component.html',
   styleUrls: ['./agregar-pelicula.component.css'],
 })
+
+/**
+ * Clase para el componente de Crear Peliculas
+ * @author Carmen Araya
+ * */
 export class AgregarPeliculaComponent implements OnInit {
 
   form: FormGroup;
@@ -17,6 +22,13 @@ export class AgregarPeliculaComponent implements OnInit {
   nombre_pelicula: string | null;
   titulo = "Agregar Pelicula";
 
+    /**
+   * Metodo que constructor de la clase
+   * @param FormBuilder formulario para crear un elemento
+   * @param PeliculaService Servicio de las Peliculas
+   * @param router 
+   * @param ActivatedRoute 
+   * */
   constructor(private fb: FormBuilder, 
     private _peliculaService: PeliculaService,
     private aRoute: ActivatedRoute,
@@ -40,9 +52,13 @@ export class AgregarPeliculaComponent implements OnInit {
       this.nombre_pelicula = this.aRoute.snapshot.paramMap.get("nombre_pelicula");
     }
 
+  /**
+  * Metodo que ejecuta otros metodos al correr la aplicación
+  * */
   ngOnInit(): void {
     this.esEditar();
   }
+
 
   esEditar(){
     if (this.nombre_pelicula == null){
@@ -72,6 +88,9 @@ export class AgregarPeliculaComponent implements OnInit {
     }
   }
 
+  /**
+  * Metodo que ejecuta la accion editar o agregar segun una condicin
+  * */
   agregarEditarPelicula(){
     if (this.nombre_pelicula == null){
       this.agregarPelicula();
@@ -80,6 +99,9 @@ export class AgregarPeliculaComponent implements OnInit {
     }
   }
 
+  /**
+  * Metodo que edita una Pelicula en el servicio y la actuliza en la tabla
+  * */
   editarPelicula(){
     const pelicula: Object = {
       nombre_original: this.form.value.nombre_original,
@@ -96,6 +118,9 @@ export class AgregarPeliculaComponent implements OnInit {
     this.router.navigate(['/home/peliculas']);
   }
 
+  /**
+  * Metodo que agrega una Pelicula nueva al servicio y la carga en la tabla
+  * */
   agregarPelicula(){
     if (this.form.invalid){
       return;
@@ -116,16 +141,19 @@ export class AgregarPeliculaComponent implements OnInit {
     this.router.navigate(['/home/peliculas']);
   }
 
+    /**
+  * Metodo que agrega una Proyeccion nueva al servicio y la carga en la tabla
+  * */
   agregarProyeccion(){
     if (this.form.invalid){
       return;
     }
     const proyeccion: Object =
     {
-      hora: this.form2.value.hora,
-      nombre_cine: this.form2.value.nombre_cine,
-      nombre_pelicula: this.form.value.nombre_pelicula,
-      sala_id: Number(this.form.value.sala_id),
+      sucursal_id: 3,
+      sala_id: Number(this.form2.value.sala_id),
+      nombre_pelicula: this.form2.value.nombre_pelicula,
+      hora: this.form2.value.hora
     }
     this._peliculaService.addProyeccion(proyeccion).subscribe(data => {
       console.log(data);

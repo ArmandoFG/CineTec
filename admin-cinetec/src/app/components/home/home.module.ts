@@ -38,4 +38,9 @@ import { InicioComponent } from './inicio/inicio.component';
 
   ]
 })
+
+/**
+ * Clase para el modulo Home
+ * @author Carmen Araya
+ * */
 export class HomeModule { }
