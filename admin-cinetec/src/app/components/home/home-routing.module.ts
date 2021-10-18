@@ -31,4 +31,9 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
+/**
+ * Clase para el Routing Module Home
+ * @author Carmen Araya
+ * */
 export class HomeRoutingModule { }

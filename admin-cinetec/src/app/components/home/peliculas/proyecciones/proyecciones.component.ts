@@ -10,6 +10,11 @@ var sala = [];
   templateUrl: './proyecciones.component.html',
   styleUrls: ['./proyecciones.component.css']
 })
+
+/**
+ * Clase para el componente de Proyecciones
+ * @author Carmen Araya
+ * */
 export class ProyeccionesComponent implements OnInit {
 
   nombre_pelicula: string | null;
