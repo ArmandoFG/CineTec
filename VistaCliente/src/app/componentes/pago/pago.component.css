@@ -29,4 +29,26 @@
     display: auto;
     align-items: center;
     align-content: center;
+    margin-left: 500px;
+    margin-top: 20px;
 }
+ #generar{
+    background-color: black;
+    color: white;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 4px;
+
+    width: 250px;
+    height: 40px;
+    transition: all 0.4 ease;
+    -webkit-transition: all .4s;
+ }
+
+  #generar:hover{
+      background-color: #e2b605;
+      color: black;
+  }

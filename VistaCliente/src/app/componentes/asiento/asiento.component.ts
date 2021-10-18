@@ -2,11 +2,15 @@ import { Component, OnInit , OnChanges} from '@angular/core';
 import { PeliculaService } from 'src/app/services/pelicula.service';
 import { Router } from '@angular/router';
 
-
+/**
+ * Interfaz que guarda el contenido de un item de asiento proveniente de la base de datos
+ * Guarda atributos disponibilidad y el asiento id
+ */
 interface Item {
   disponibilidad:Disponibilidad;
   asientoid: string;
 }
+/**Objeto que tiene todos los posibles estados de la disponibilidad de un asiento */
 type Disponibilidad= "Ocupado" | "Disponible" | "Restringido" | "Discapacidad" | "Seleccionado";
 
 
@@ -17,19 +21,21 @@ type Disponibilidad= "Ocupado" | "Disponible" | "Restringido" | "Discapacidad" |
   styleUrls: ['./asiento.component.css']
 })
 
-
+/**
+ * @class Clase que contiene la pagina que carga los asientos de la vista
+ */
 export class AsientoComponent implements OnInit {
-  public asiento_habilitado:string;
-  public asiento_ocupado:string;
-  public asiento_restriccion:string;
-  public asiento_discapacidad:string;
-  asientos:any[]=[];
-  public salaId:any;
-  public asientosSeleccionados:any[]=[];
-  
-  
-  
-  
+  public asiento_habilitado:string; /**Contiene el src de la imagen de un asiento hablitado */
+  public asiento_ocupado:string; /** Contiene el src de la imagen de un asiento ocupado*/
+  public asiento_restriccion:string; /** Contiene el src de la imagen de un asiento restriccion*/
+  public asiento_discapacidad:string; /** Contiene el src de la imagen de un asiento con discapacidad*/
+  asientos:any[]=[]; /** Guarda los asientos que se obtienen de la base*/
+  public asientosSeleccionados:any[]=[]; /** Contiene los asientos que se seleccionan por el usuario*/
+  /**
+   * Constructor de la clase
+   * @param _peliculaService es el servicio que obtiene los datos de la base y los guarda o retorna
+   * @param router es para el sistema de routing entre vistas
+   */
   constructor(
     private _peliculaService: PeliculaService,
     private router:Router
@@ -39,14 +45,14 @@ export class AsientoComponent implements OnInit {
     this.asiento_restriccion="https://1.bp.blogspot.com/-Y_tVkvIoyos/YVuYLlP0RvI/AAAAAAAAUG0/9LOyAGnaPUkCe-riKszpITXib9Yy81Q5QCLcBGAsYHQ/s25/asiento2.png";
     this.asiento_discapacidad="https://1.bp.blogspot.com/-HN8mamBcqRI/YVuYL5NBV6I/AAAAAAAAUG4/jnv5aIQ4xYwsm5NDiCEDLTwtmKEzDpURACLcBGAsYHQ/s26/asiento4.png";
   }
-
+  /**
+   * Se inicia cuando empieza a correr la vista
+   * Inicializa la lista de asientos
+   */
   ngOnInit(): void {
     this.asientos=[];
     this.getSala();
 
-  }
-  ngOnChanges():void{
-    console.log("asap");
   }
   
   tipoDeAsiento(item:Item): string{
