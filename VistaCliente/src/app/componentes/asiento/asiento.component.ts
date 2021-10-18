@@ -54,7 +54,11 @@ export class AsientoComponent implements OnInit {
     this.getSala();
 
   }
-  
+  /**
+   * 
+   * @param item se inserta un asiento con sus atributos de disponibilidad y id
+   * @returns source de la imagen de su estado para pintar en pantalla
+   */
   tipoDeAsiento(item:Item): string{
     if(item.disponibilidad=="Seleccionado"){
       return this.asiento_ocupado;
@@ -72,6 +76,9 @@ export class AsientoComponent implements OnInit {
       return this.asiento_habilitado;
     }
   }
+  /**
+   * Obtiene la sala de donde se va a buscar los asientos
+   */
   getSala(){
     this._peliculaService.getSala().subscribe(
       result => {
@@ -87,7 +94,9 @@ export class AsientoComponent implements OnInit {
       }
     ); 
   }
-
+  /**
+   * Obtiene los asientos de la sala y los ordena y pone la restriccion de covid
+   */
   getAsientos(){
     this.asientos=[];
     this._peliculaService.getAsientos().subscribe(
@@ -110,6 +119,9 @@ export class AsientoComponent implements OnInit {
     );
     
   }
+  /**
+   * Ordena los asientos que ingresan de la base por si llegan desordenados
+   */
   sortAsientos(){
     console.log("el lenght de asientos es: "+ this.asientos.length);
     this.asientos.sort(function (a, b) {
@@ -163,10 +175,11 @@ export class AsientoComponent implements OnInit {
     console.log("clickea el asiento "+ item.asientoid);
     //console.log("Los asientos son: "+this.asientosSeleccionados);
   }
-
+  /** Se devuelve a proyecciones */
   goBack(){
     this.router.navigate(['Proyecciones']);
   }
+  /** Se dirige a la pagina de pago solo si la cantidad de asientos seleccionados */
   goOn(){
     if(this.asientosSeleccionados.length==this._peliculaService.getCantidadTotal()){
       this.router.navigate(['Pago']);
@@ -177,6 +190,9 @@ export class AsientoComponent implements OnInit {
     }
     
   }
+  /**  Cambia los asientos seleccionados por un usuario a ocupado cuando ya ha seleccionado los que requiere
+   * Hace validacion de la cantidad de asientos seleccionados
+  */
   cambiarAsientos(){
     while(this.asientosSeleccionados.length!=0){
       this.asientosSeleccionados[0].disponibilidad="Ocupado";
@@ -193,7 +209,10 @@ export class AsientoComponent implements OnInit {
     }
     this.getAsientos();
   }
-
+  /**
+   * Asigna asientos con restriccion covid 
+   * valores[] son los asientos con restriccion
+    */
   restriccionCovid(){
     console.log("En restriccion por covis el lenght de asientos es "+ this.asientos.length);
     console.log(this.asientos[0].disponibilidad);

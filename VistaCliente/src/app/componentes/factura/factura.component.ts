@@ -7,7 +7,7 @@ import { PeticionesService } from 'src/app/services/peticiones.service';
 import { PeliculaService } from 'src/app/services/pelicula.service';
 import { Router } from '@angular/router';
 
-
+/** Contiene todos los datos que van a aparecer en la factura */
 interface facturaData {
   usuario:string;
   nombreUsuario:string;
@@ -32,6 +32,9 @@ interface facturaData {
   templateUrl: './factura.component.html',
   styleUrls: ['./factura.component.css']
 })
+/**
+ * Clase que genera las facturas pdf y xml para la compra del usuario
+ */
 export class FacturaComponent implements OnInit {
   public factura:facturaData={
     usuario:'',
@@ -51,16 +54,24 @@ export class FacturaComponent implements OnInit {
     facturaid:0, 
     peliculaNombre:''
   }
-
+  /**
+   * 
+   * @param _peliculaService informacion proveniente de la base sobre la pelicula seleccionada
+   * @param _clienteService informacion proveniente de la base  sobre el usuario
+   * @param router para cambiar la ruta de la pagina 
+   */
   constructor(
     private _peliculaService: PeliculaService,
     private _clienteService: PeticionesService,
     private router:Router
   ) { }
-
+    /**
+     * Cuando se inicializa el componente se llama la funcion de setear la informacion de la factura
+     */
   ngOnInit(): void {
     this.setFacturaData();
   }
+  /** Setea la informacion de la factura */
   setFacturaData(){
     this.factura.nombreUsuario=this._clienteService.user.nombre;
     this.factura.usuario= this._clienteService.user.user;
@@ -85,6 +96,7 @@ export class FacturaComponent implements OnInit {
 
     this.generarFacturaPDF();
   }
+  /** Genera la factura en pdf y contiene toda la interfaz del pdf */
   generarFacturaPDF(){
     var doc = new jsPDF();
     doc.addImage("https://1.bp.blogspot.com/-le75ftEBpYc/YVQQTYvaNRI/AAAAAAAATuo/AqUnZ_NDl1Ejoz4QvuuWovXnRd3c7_7nwCLcBGAsYHQ/s496/LOGO.PNG", 'PNG', 20,10, 30, 12, 'logo');
@@ -146,6 +158,7 @@ export class FacturaComponent implements OnInit {
 
     this.router.navigate(['Pago']);
   }
+  /** Genera la factura en xml */
   generarXML(){
     var x2js = new X2JS();
     var new_xml=x2js.js2xml(this.generateJson()); //parsea a json 
@@ -166,6 +179,9 @@ export class FacturaComponent implements OnInit {
 
     pom.click();
   }
+  /** Genera el json con la data de la factura que va a ser utilizada por el xml
+   * @returns el json con la data completa del usuario
+   */
   generateJson(){
     var myJson= {
       "FacturaElectrocica":{
@@ -206,21 +222,27 @@ export class FacturaComponent implements OnInit {
     }
     return myJson;
   }
-
+  /** Genera un id unico para la factura */
   getFacturaId():number{
     return Math.floor(Math.random() * 600);
   }
+  /** Genera una clave para la factura */
   getClave(){
     return parseInt(Math.random().toString(10).slice(2).substr(2,7));
   }
+  /** Genera un consecutivo para la factura */
   getConsecutivo(){
     return parseInt(Math.random().toString(10).slice(2).substr(2,7));
   }
+  /** Obtiene la fecha en la que el usuario realiza la transaccion */
   getFechaHoy():string{
     const tiempoTranscurrido = Date.now();
     const hoy = new Date(tiempoTranscurrido);
     return hoy.toLocaleDateString();
   }
+  /** Obtiene la cantidad a pagar por el usuario
+   * @returns total a pagar sin impuesto
+   */
   getTotalPrecio(){
     var ninos= this._peliculaService.pelicula.cantidadNino;
     var adultos= this._peliculaService.pelicula.cantidadAdulto;
@@ -235,6 +257,10 @@ export class FacturaComponent implements OnInit {
     console.log("el total es: "+ total);
     return total;
   }
+  /**
+   * Obtiene la cantidad de entradas compradas por el usuario
+   * @returns la cantidad de entradas en numero
+   */
   getCantidadEntradas(){
     var ninos= this._peliculaService.pelicula.cantidadNino;
     var adultos= this._peliculaService.pelicula.cantidadAdulto;
@@ -242,11 +268,16 @@ export class FacturaComponent implements OnInit {
 
     return ninos+adultos+mayores;
   }
+  /**
+   * Genera la descripcion de la compra
+   * @returns la descripcion
+   */
   getDescripcion(){
     var texto= "Compra de " + this.factura.cantidadEntrada.toString()+ " entradas \npara ver la pelicula\n" +
      this.factura.peliculaNombre;
      return texto;
   }
+  /** Genera un impuesto de venta sobre las entradas del usuario del 13 por ciento */
   getImpuesto(){
     
     var impuesto= this.getTotalPrecio()*0.13;

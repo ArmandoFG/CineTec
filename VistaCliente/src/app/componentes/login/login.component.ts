@@ -9,9 +9,16 @@ import { PeticionesService } from 'src/app/services/peticiones.service';
   styleUrls: ['./login.component.css'],
   
 })
+/**
+ * Clase que contiene el formulario de ingreso para el usuario
+ */
 export class LoginComponent implements OnInit {
   public user:any;
-
+  /**
+   * Inicializa el componente
+   * @param _clienteService contiene la informacion referente al usuario
+   * @param router para el sistema de rutas una vez validada la data de entrada
+   */
   constructor(
     private _clienteService: PeticionesService,
     private router:Router
@@ -20,6 +27,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  /**
+   * Valida que el usuario se encuentra en la base de datos
+   */
   getUser(){
     var texto=(<HTMLInputElement>document.getElementById('username')).value;
     console.log('username es: '+texto);
@@ -37,6 +47,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+  /** Valida la contrasenna ingresada por el usuario */
   validarContra(){
     var textoPas=(<HTMLInputElement>document.getElementById('password')).value;
     console.log('password es: '+textoPas);

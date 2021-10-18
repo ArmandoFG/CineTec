@@ -7,25 +7,27 @@ import { PeliculaService } from 'src/app/services/pelicula.service';
   selector: 'vistaprincipal',
   templateUrl: './vistaprincipal.component.html',
   styleUrls: ['./vistaprincipal.component.css']})
+  /** Carga la primera vista del programa que ve el usuario despues del login */
 export class VistaprincipalComponent implements OnInit {
-  peliculas: any[] = [];
+  peliculas: any[] = []; /** guarda todas las peliculas disponibles en una sucursal */
   options = [
     {name: "", value:0}
   ]
-  public selectedOption: any;
+  public selectedOption: any; /** Guarda la opcion elegida de sucursal */
   constructor(
     private _peliculaService: PeliculaService,
     private router:Router
     
   ) { }
   
-    
+  /** inicia el valor del atributo peliculas y llama al metodo de obtener sucursales */
   ngOnInit(): void {
     this.peliculas= [];
     this.getSucursalesOpt();
       
   }
 
+  /** Obtiene todas las sucursales disponibles de la base de datos */
   getSucursalesOpt(){
     this._peliculaService.getSucursales().subscribe(
       result => {
@@ -43,6 +45,7 @@ export class VistaprincipalComponent implements OnInit {
       }
     ); 
   }
+  /** Obtiene todas las peliculas disponibles en una sucursal especifica */
   getPeliculas(){
     this._peliculaService.getPeliculasSucursal(this.selectedOption).subscribe(
       result => {
@@ -63,6 +66,9 @@ export class VistaprincipalComponent implements OnInit {
     );
     console.log("Opcion elegida es: "+this.selectedOption);
   } 
+  /** Cuando el usuario elige una pelicula se seta la informacion en el servicio para guardarlo
+   * y se abre la siguiente vista de proyecciones
+   */
   elegirPelicula(nombre:string){
     this._peliculaService.pelicula.nombreCine=this.selectedOption;
     this._peliculaService.pelicula.nombrePelicula=nombre;
