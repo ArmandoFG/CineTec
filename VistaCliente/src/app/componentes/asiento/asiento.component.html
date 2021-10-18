@@ -1,11 +1,14 @@
 <menubar></menubar>
 <div class="container">
+    <div>
+        <h1 id="titulo">Elija su asiento</h1>
+    </div>
+    <img id="logoitem" src="https://1.bp.blogspot.com/-le75ftEBpYc/YVQQTYvaNRI/AAAAAAAATuo/AqUnZ_NDl1Ejoz4QvuuWovXnRd3c7_7nwCLcBGAsYHQ/s496/LOGO.PNG">
     <img id="pantalla" src="https://1.bp.blogspot.com/-NDPAAuXcP7U/YVuYMdzr2_I/AAAAAAAAUG8/TB5r5XqtV4c2OImnGiGcXPPmdOcJmuAmACLcBGAsYHQ/s450/pantalla.png">
     <div class="img-container">
         <div class="img-content" *ngFor="let asiento of asientos">
-            <div *ngIf="asiento.estado; else elseBlock">
+            <div *ngIf="asiento.disponibilidad ; else elseBlock" (click)="clickea(asiento)">
                 <img [src]="tipoDeAsiento(asiento)" height="40px" width="40px">
-    
                 
             </div>
     <ng-template #elseBlock></ng-template>
@@ -14,6 +17,10 @@
                 
             </header>
         </div>
+    </div>
+    <div class="buttons">
+        <button id="siguiente" (click)="goOn()">↪</button>
+        <button id="anterior" (click)="goBack()">↩</button>
     </div>
     
 </div>

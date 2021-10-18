@@ -1,39 +1,83 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PeliculaService } from 'src/app/services/pelicula.service';
+
 
 @Component({
   selector: 'vistaprincipal',
   templateUrl: './vistaprincipal.component.html',
-  styleUrls: ['./vistaprincipal.component.css']
-})
+  styleUrls: ['./vistaprincipal.component.css']})
+  /** Carga la primera vista del programa que ve el usuario despues del login */
 export class VistaprincipalComponent implements OnInit {
-  peliculas: any[] = [];
+  peliculas: any[] = []; /** guarda todas las peliculas disponibles en una sucursal */
   options = [
-    { name: "Cartago", value: 1 },
-    { name: "San José", value: 2 },
-    { name: "Heredia", value: 3 },
-    { name: "Alajuela", value: 4 },
-    { name: "Guanacaste", value: 5 }
+    {name: "", value:0}
   ]
-  public selectedOption: any;
-
-  constructor() { }
-
+  public selectedOption: any; /** Guarda la opcion elegida de sucursal */
+  constructor(
+    private _peliculaService: PeliculaService,
+    private router:Router
+    
+  ) { }
+  
+  /** inicia el valor del atributo peliculas y llama al metodo de obtener sucursales */
   ngOnInit(): void {
-    this.peliculas= 
-      [
-        {
-            "nombre": "Crepúsculo",
-            "saldo": 300000,
-            "tipo": "Debito",
-            "fechaexp": "12/7/2026"
-        },
-        {
-          "nombre": "Como si fuera la primera vez",
-          "saldo": 1250000,
-          "tipo": "Credito",
-          "fechaexp": "15/3/2025"
-      }
-      ]
+    this.peliculas= [];
+    this.getSucursalesOpt();
+      
   }
+
+  /** Obtiene todas las sucursales disponibles de la base de datos */
+  getSucursalesOpt(){
+    this._peliculaService.getSucursales().subscribe(
+      result => {
+        result;
+        var counter=0;
+        while(result[counter]!=undefined ){
+          this.options.push({name:result[counter], value:counter});
+          counter++;
+        }
+        
+      },
+      error => {
+        console.log("hubo algun error obteniendo Sucursales \n" + <any>error);
+        alert("Error obteniendo las sucursales \n Vuelva a ingresar al sistema");
+      }
+    ); 
+  }
+  /** Obtiene todas las peliculas disponibles en una sucursal especifica */
+  getPeliculas(){
+    this._peliculaService.getPeliculasSucursal(this.selectedOption).subscribe(
+      result => {
+        this.peliculas=[];
+        result;
+        var counter=0;
+
+        
+        while(result[counter]!=undefined){
+          this.peliculas.push({nombre:result[counter].toString()});
+          counter++;
+        }
+      },
+      error => {
+        console.log("hubo algun error obteniendo Sucursales \n" + <any>error);
+        alert("Error obteniendo las sucursales \nVuelva a ingresar al sistema");
+      }
+    );
+    console.log("Opcion elegida es: "+this.selectedOption);
+  } 
+  /** Cuando el usuario elige una pelicula se seta la informacion en el servicio para guardarlo
+   * y se abre la siguiente vista de proyecciones
+   */
+  elegirPelicula(nombre:string){
+    this._peliculaService.pelicula.nombreCine=this.selectedOption;
+    this._peliculaService.pelicula.nombrePelicula=nombre;
+    this._peliculaService.setPeliculaInfo(nombre, this.selectedOption);
+    console.log("Elegí la película en carte "+ this._peliculaService.pelicula.nombrePelicula);
+    this.router.navigate(['/Proyecciones']);
+
+  }
+  
+
 
 }

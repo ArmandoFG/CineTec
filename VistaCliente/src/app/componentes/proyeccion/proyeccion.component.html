@@ -4,9 +4,22 @@
     <div>
         <h1 id="titulo">Proyecciones</h1>
         <h3 id="nombre-pelicula">{{nombre_pelicula}}</h3>
+        <!--<img src= {{getImgSrc()}}> -->
+    </div>
+    <div class="cantidad-container">
+      <p>Seleccione la cantidad de asientos que va a requerir</p>
+
+      <form action="/action_page.php">
+        <label for="kids">Niños: {{peliculaInfo.precioNino}}</label><br>
+        <input type="number" id="kids" name="kids" value="0" min="0"><br>
+        <label for="adulto">Adulto: {{peliculaInfo.precioAdulto}}</label><br>
+        <input type="number" id="adulto" name="adulto" value="0" min="0"><br>
+        <label for="mayor">Mayores: {{peliculaInfo.precioMayor}}</label><br>
+        <input type="number" id="mayor" name="mayor" value="0" min="0"><br>
+      </form> 
+
     </div>
     <img id="logoitem" src="https://1.bp.blogspot.com/-le75ftEBpYc/YVQQTYvaNRI/AAAAAAAATuo/AqUnZ_NDl1Ejoz4QvuuWovXnRd3c7_7nwCLcBGAsYHQ/s496/LOGO.PNG">
-    
     <div class= "main-container">
         <mat-accordion class="mat-accordion">
         <mat-expansion-panel *ngFor="let value of proyecciones">
@@ -16,11 +29,12 @@
             </mat-expansion-panel-header>
 
           <!--Info dentro del panel-->
-          <button class="button" id="seleccionar"><span>Elegir </span></button>
+          
+          <button class="button" id="seleccionar" (click)="setHora(value.hora)"><span>Elegir </span></button>
           
         </mat-expansion-panel>
     </mat-accordion>
     </div>
-    <button class="button" id="volver"><span>↩ </span></button>
+    <button class="button" id="volver" (click)="goBack()"><span>↩ </span></button>
 
 </div>
