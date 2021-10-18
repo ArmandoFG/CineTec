@@ -1,0 +1,98 @@
+<div class="container">
+    <mat-toolbar class="sectionTitle">
+        <span> {{titulo}}</span>
+    </mat-toolbar>
+
+<mat-card style="margin-top: 10px;">
+    <form [formGroup]="form" (ngSubmit)="agregarEditarPelicula()">
+
+        <mat-grid-list cols="4" rowHeight="50px">
+            
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field class="ancho">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput autocomplete="off" formControlName="nombre">
+                  </mat-form-field>
+            </mat-grid-tile>
+            
+            <mat-grid-tile [colspan]="1" [rowspan]="2" >
+                <mat-form-field class="ancho">
+                    <mat-label>Nombre Original</mat-label>
+                    <input matInput autocomplete="off" formControlName="nombre_original"> 
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field class="ancho">
+                    <mat-label>Duracion</mat-label>
+                    <input matInput autocomplete="off" formControlName="duracion">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="2" >
+                <mat-form-field class="ancho">
+                    <mat-label>URL Imagen</mat-label>
+                    <input matInput autocomplete="off" formControlName="url_imagen"> 
+                  </mat-form-field>
+            </mat-grid-tile>
+
+            
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button type="submit" mat-raised-button color="primary">ACEPTAR</button>
+                <button mat-raised-button>VOLVER</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</mat-card>
+
+<div *ngIf="nombre_pelicula != null" >
+<mat-toolbar class="sectionTitle2">
+    <span> Agegar Proyecciones de la Pelicula </span>
+</mat-toolbar>
+
+<mat-card  style="margin-top: 10px;">
+    <form [formGroup]="form2" (ngSubmit)="agregarProyeccion()">
+
+        <mat-grid-list cols="4" rowHeight="50px">
+            
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field class="ancho">
+                    <mat-label>Hora</mat-label>
+                    <input matInput autocomplete="off" formControlName="hora">
+                  </mat-form-field>
+            </mat-grid-tile>
+            
+            <mat-grid-tile [colspan]="1" [rowspan]="2" >
+                <mat-form-field class="ancho">
+                    <mat-label>Nombre Pelicula</mat-label>
+                    <input matInput autocomplete="off" formControlName="nombre_pelicula"> 
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field class="ancho">
+                    <mat-label>Nombre Cine</mat-label>
+                    <input matInput autocomplete="off" formControlName="nombre_cine">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="2" >
+                <mat-form-field class="ancho">
+                    <mat-label>ID Sala</mat-label>
+                    <input matInput autocomplete="off" formControlName="sala_id"> 
+                  </mat-form-field>
+            </mat-grid-tile>
+
+            
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button type="submit" mat-raised-button color="primary">ACEPTAR</button>
+                <button mat-raised-button>VOLVER</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</mat-card>
+</div>
+
+</div>

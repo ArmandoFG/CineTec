@@ -1,0 +1,60 @@
+<div class="container">
+    <mat-toolbar class="sectionTitle">
+        <span>Gestión de Sucursales</span>
+        <button mat-button routerLink="/home/sucursales/agregar-sala">Agregar</button>
+        <a class="pointer" (click)="cargarSucursales()" style="color: slateblue;" matTooltip="Ver y Editar Sucursal">
+          <mat-icon>autorenew</mat-icon>
+        </a>
+        <a class="pointer"  style="color: indianred; margin-left: 10px" matTooltip="Activar Restriccio por covid">
+          <mat-slide-toggle>COVID Restriccion  </mat-slide-toggle>
+        </a>
+    </mat-toolbar>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="id_sucursal">
+          <th mat-header-cell *matHeaderCellDef> ID Sucursal </th>
+          <td mat-cell *matCellDef="let element"> {{element.id_sucursal}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre_cine">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre_cine}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="ubicacion">
+          <th mat-header-cell *matHeaderCellDef> Ubicacion </th>
+          <td mat-cell *matCellDef="let element"> {{element.ubicacion}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="cantidad_salas">
+          <th mat-header-cell *matHeaderCellDef> Cantidad Salas</th>
+          <td mat-cell *matCellDef="let element"> {{element.cantidad_salas}} </td>
+        </ng-container>
+    
+        
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
+                <a class="pointer" 
+                    [routerLink]="['/home/sucursales/edit-sucursal', element.id_sucursal, element.nombre_cine]" style="color:
+                     deepskyblue;" matTooltip="Ver y Editar Sucursal">
+                    <mat-icon>search</mat-icon>
+                </a>
+                <a class="pointer" (click)="eliminarSucursal(i)" style="color: indianred;" matTooltip="Eliminar Sucursal">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+</div>
